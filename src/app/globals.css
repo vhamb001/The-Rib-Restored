@@ -1,26 +1,134 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-royal: #1A3FAA;
+  --color-royal-deep: #0C2D7A;
+  --color-royal-darkest: #061B4E;
+  --color-gold: #C8973E;
+  --color-gold-soft: #E8C766;
+  --color-soft-gold: #D4AF62;
+  --color-ivory: #FDF8EF;
+  --color-warm-white: #FEFCF8;
+  --color-blush: #F4D6CE;
+  --color-dark: #1C1C1C;
+
+  --color-background: var(--color-warm-white);
+  --color-foreground: var(--color-dark);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-playfair), ui-serif, Georgia, serif;
+  --font-script: var(--font-allura), cursive;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─── Global ─── */
+* {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--color-gold);
+  color: white;
+}
+
+/* ─── Premium Animations ─── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+@keyframes pulse-gold {
+  0%, 100% { opacity: .6; }
+  50%      { opacity: 1; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+.animate-float {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+.animate-shimmer {
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+.animate-pulse-gold {
+  animation: pulse-gold 3s ease-in-out infinite;
+}
+
+/* stagger children */
+.stagger-children > * {
+  opacity: 0;
+  animation: fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.stagger-children > *:nth-child(1) { animation-delay: 0.05s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.12s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.19s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.26s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.33s; }
+
+/* ─── Custom Scrollbar ─── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: 3px;
+}
+
+/* ─── Gold Divider ─── */
+.gold-rule {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+}
+
+/* ─── Typography ─── */
+.heading-xl {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+  color: var(--color-royal-deep);
+}
+
+/* ─── Prose ─── */
+.prose p { line-height: 1.85; }
+.prose blockquote {
+  border-left: 3px solid var(--color-gold);
+  padding-left: 1.5rem;
+  font-style: italic;
+  color: var(--color-royal-deep);
+}
+
+/* ─── Crown SVG Icon ─── */
+.crown-icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  color: var(--color-gold);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
