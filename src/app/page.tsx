@@ -4,13 +4,13 @@ import { Button } from "@/components/ui/button";
 import { books } from "@/data/books";
 import { projects } from "@/data/projects";
 import { getSortedWritingsData } from "@/lib/writings";
-import { BookOpen, PenTool, Lightbulb, User, Mail, Crown, Home, Headphones, ArrowRight } from "lucide-react";
+import { Crown, Home, Headphones, Lightbulb, ArrowRight, BookOpen, Quote } from "lucide-react";
 
 const projectIcons: Record<string, React.ReactNode> = {
-  crown: <Crown className="w-5 h-5" />,
-  home: <Home className="w-5 h-5" />,
-  headphones: <Headphones className="w-5 h-5" />,
-  lightbulb: <Lightbulb className="w-5 h-5" />,
+  crown: <Crown className="w-6 h-6" />,
+  home: <Home className="w-6 h-6" />,
+  headphones: <Headphones className="w-6 h-6" />,
+  lightbulb: <Lightbulb className="w-6 h-6" />,
 };
 
 export default function HomePage() {
@@ -22,12 +22,12 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════
           1. HERO
           ════════════════════════════════════════════ */}
-      <section className="relative w-full min-h-[620px] lg:min-h-[700px] flex items-center overflow-hidden">
+      <section className="relative w-full min-h-[600px] lg:min-h-[720px] flex items-center overflow-hidden">
         {/* Soft background wash */}
         <div className="absolute inset-0 bg-gradient-to-br from-white via-[var(--color-ivory)] to-white" />
 
         {/* Author image – right side */}
-        <div className="absolute top-0 right-0 w-[55%] h-full hidden md:block">
+        <div className="absolute top-0 right-0 w-[60%] h-full hidden md:block">
           <Image
             src="/images/hero-bg.jpg"
             alt="Shalaymah – Author & Visionary"
@@ -35,42 +35,40 @@ export default function HomePage() {
             className="object-cover object-top"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/70 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/60 to-transparent" />
         </div>
 
-        {/* Decorative blobs */}
-        <div className="absolute top-16 right-[10%] w-80 h-80 bg-[var(--color-gold)]/10 rounded-full blur-[100px] animate-pulse-gold pointer-events-none" />
-        <div className="absolute bottom-0 right-[25%] w-60 h-60 bg-[var(--color-royal)]/8 rounded-full blur-[80px] pointer-events-none" />
+        {/* Decorative light effects */}
+        <div className="absolute top-20 right-[15%] w-72 h-72 bg-[var(--color-gold)]/8 rounded-full blur-[100px] animate-pulse-gold pointer-events-none" />
+        <div className="absolute bottom-10 left-[10%] w-48 h-48 bg-[var(--color-royal)]/5 rounded-full blur-[80px] pointer-events-none" />
 
         <div className="container mx-auto px-4 lg:px-8 relative z-10 py-20 lg:py-28">
           <div className="max-w-xl animate-fade-in-up">
-            <span className="inline-block text-[0.65rem] font-bold tracking-[0.3em] text-gray-400 uppercase mb-6">
+            <span className="inline-block text-[0.6rem] font-bold tracking-[0.35em] text-gray-400 uppercase mb-6">
               Welcome to
             </span>
 
             {/* Title lockup */}
-            <div className="relative mb-6">
-              <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold tracking-[0.08em] text-[var(--color-royal-deep)] uppercase leading-none">
+            <div className="relative mb-8">
+              <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold tracking-[0.06em] text-[var(--color-royal-deep)] uppercase leading-[0.95]">
                 The Rib
               </h1>
-              <span className="font-script text-6xl md:text-7xl lg:text-[6.5rem] text-[var(--color-gold)] block -mt-2 ml-4 lg:ml-8">
+              <span className="font-script text-6xl md:text-7xl lg:text-[6.5rem] text-[var(--color-gold)] block -mt-3 ml-6 lg:ml-10">
                 Restored
               </span>
             </div>
 
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-10 h-px bg-[var(--color-gold)]" />
-              <span className="font-heading text-lg lg:text-xl font-bold tracking-[0.2em] text-[var(--color-royal-deep)] uppercase">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-8 h-px bg-gradient-to-r from-transparent to-[var(--color-gold)]" />
+              <span className="font-heading text-base lg:text-lg font-bold tracking-[0.25em] text-[var(--color-royal-deep)] uppercase">
                 By Shalaymah
               </span>
-              <div className="w-10 h-px bg-[var(--color-gold)]" />
+              <div className="w-8 h-px bg-gradient-to-l from-transparent to-[var(--color-gold)]" />
             </div>
 
-            <p className="text-gray-500 text-sm lg:text-base leading-[1.8] mb-10 max-w-md">
-              Author. Dreamer. Visionary.<br />
-              I write to restore, to reveal, and to remember.<br />
-              This is a space for books, writings, projects,<br />
-              reflections, and purpose.
+            <p className="text-gray-500 text-sm lg:text-[0.95rem] leading-[1.9] mb-10 max-w-md">
+              Author. Dreamer. Visionary. I write to restore, to reveal, and to remember. 
+              This is a space for books, writings, projects, reflections, and purpose.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -80,44 +78,271 @@ export default function HomePage() {
               <Button variant="secondary" size="lg" asChild>
                 <Link href="/writings">Read My Writings</Link>
               </Button>
-              <Button variant="ghost" size="lg" asChild>
-                <Link href="/about">About Me</Link>
-              </Button>
             </div>
           </div>
         </div>
 
         {/* Gold accent bar at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[var(--color-gold)] to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-[var(--color-gold)] to-transparent" />
       </section>
 
       {/* ════════════════════════════════════════════
-          2. QUICK EXPLORE BAR
+          2. ABOUT THE AUTHOR
           ════════════════════════════════════════════ */}
-      <section className="bg-white border-b border-gray-100 relative z-20">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-center divide-y md:divide-y-0 md:divide-x divide-gray-100 stagger-children">
-            {[
-              { href: "/books", icon: <BookOpen className="w-7 h-7" strokeWidth={1.2} />, title: "Books", desc: "Discover my books\nand upcoming releases." },
-              { href: "/writings", icon: <PenTool className="w-7 h-7" strokeWidth={1.2} />, title: "Writings", desc: "Read reflections,\nteachings, and inspirations." },
-              { href: "/projects", icon: <Lightbulb className="w-7 h-7" strokeWidth={1.2} />, title: "Projects", desc: "Explore my\nventures and initiatives." },
-              { href: "/about", icon: <User className="w-7 h-7" strokeWidth={1.2} />, title: "About Me", desc: "Get to know my\nstory, calling, and mission." },
-              { href: "/contact", icon: <Mail className="w-7 h-7" strokeWidth={1.2} />, title: "Contact", desc: "Let's connect!\nI'd love to hear from you." },
-            ].map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="group flex-1 py-8 lg:py-10 px-6 flex flex-col items-center text-center transition-all duration-300 hover:bg-[var(--color-ivory)]"
-              >
-                <div className="text-[var(--color-royal-deep)] mb-3 transition-all duration-500 group-hover:text-[var(--color-gold)] group-hover:-translate-y-1">
-                  {item.icon}
+      <section className="py-20 lg:py-28 bg-white relative overflow-hidden">
+        {/* Subtle decorative blob */}
+        <div className="absolute -top-20 -right-20 w-96 h-96 bg-[var(--color-gold)]/3 rounded-full blur-[140px] pointer-events-none" />
+
+        <div className="container mx-auto px-4 lg:px-8 max-w-6xl relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Author Image */}
+            <div className="relative animate-fade-in-up">
+              <div className="relative aspect-[3/4] max-w-md mx-auto lg:mx-0 rounded-sm overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.12)]">
+                <Image
+                  src="/images/author.png"
+                  alt="Shalaymah"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              {/* Decorative frame */}
+              <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-[var(--color-gold)]/20 rounded-sm -z-10" />
+              <div className="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-[var(--color-gold)]/30 rounded-tl-sm" />
+            </div>
+
+            {/* Text content */}
+            <div className="animate-fade-in-up" style={{ animationDelay: "0.15s" }}>
+              <span className="inline-block text-[0.6rem] font-bold tracking-[0.3em] text-[var(--color-gold)] uppercase mb-4">
+                About the Author
+              </span>
+              <h2 className="font-heading text-3xl lg:text-4xl font-bold text-[var(--color-royal-deep)] mb-2 leading-tight">
+                My Story.
+              </h2>
+              <h2 className="font-script text-4xl lg:text-5xl text-[var(--color-gold)] mb-8 leading-none">
+                My Calling.
+              </h2>
+              <div className="w-12 h-[2px] bg-gradient-to-r from-[var(--color-gold)] to-transparent mb-8" />
+              <p className="text-gray-500 text-sm lg:text-[0.95rem] leading-[1.9] mb-6">
+                I am Shalaymah — a prophetic dreamer, watchwoman, and author called to remember, 
+                to heal, and to build through words, wisdom, and divine revelation.
+              </p>
+              <p className="text-gray-500 text-sm lg:text-[0.95rem] leading-[1.9] mb-8">
+                Everything I create flows from purpose. From the pages of my books to the reflections 
+                I share, my heart beats for restoration — for the quiet moments where healing begins, 
+                and for the deep waters of understanding that transform lives.
+              </p>
+              <div className="flex items-center gap-8 mb-8">
+                <div className="text-center">
+                  <span className="font-heading text-3xl font-bold text-[var(--color-royal-deep)]">2+</span>
+                  <p className="text-[0.6rem] tracking-[0.2em] text-gray-400 uppercase mt-1">Books Published</p>
                 </div>
-                <h3 className="font-sans font-bold text-[0.65rem] tracking-[0.2em] text-[var(--color-royal-deep)] mb-1.5 uppercase">
-                  {item.title}
-                </h3>
-                <p className="text-[0.6rem] text-gray-400 tracking-wider uppercase leading-relaxed whitespace-pre-line">
-                  {item.desc}
-                </p>
+                <div className="w-px h-10 bg-gray-200" />
+                <div className="text-center">
+                  <span className="font-heading text-3xl font-bold text-[var(--color-royal-deep)]">∞</span>
+                  <p className="text-[0.6rem] tracking-[0.2em] text-gray-400 uppercase mt-1">Dreams Decoded</p>
+                </div>
+                <div className="w-px h-10 bg-gray-200" />
+                <div className="text-center">
+                  <span className="font-heading text-3xl font-bold text-[var(--color-royal-deep)]">4</span>
+                  <p className="text-[0.6rem] tracking-[0.2em] text-gray-400 uppercase mt-1">Active Ventures</p>
+                </div>
+              </div>
+              <Button variant="ghost" size="lg" className="group" asChild>
+                <Link href="/about">
+                  Learn More About Me
+                  <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════
+          3. FEATURED BOOKS SHOWCASE
+          ════════════════════════════════════════════ */}
+      <section className="py-20 lg:py-28 bg-[var(--color-ivory)] relative">
+        <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
+          {/* Section header */}
+          <div className="text-center mb-14 animate-fade-in-up">
+            <span className="inline-block text-[0.6rem] font-bold tracking-[0.3em] text-[var(--color-gold)] uppercase mb-4">
+              Library
+            </span>
+            <h2 className="font-heading text-3xl lg:text-4xl font-bold text-[var(--color-royal-deep)] mb-4">
+              Featured Books
+            </h2>
+            <div className="gold-rule w-20 mx-auto mb-6" />
+            <p className="text-gray-500 text-sm lg:text-base max-w-md mx-auto">
+              Words that restore. Stories that reveal. Kingdom understanding, one page at a time.
+            </p>
+          </div>
+
+          {/* Books */}
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-4xl mx-auto stagger-children">
+            {featuredBooks.map((book) => (
+              <div key={book.id} className="group bg-white rounded-sm border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-[0_16px_48px_rgba(0,0,0,0.08)] hover:border-[var(--color-gold)]/20">
+                <div className="flex flex-col sm:flex-row">
+                  <div className="relative w-full sm:w-48 shrink-0 aspect-[2/3] sm:aspect-auto overflow-hidden bg-gray-50">
+                    <Image
+                      src={book.cover}
+                      alt={book.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
+                  </div>
+                  <div className="p-6 lg:p-8 flex flex-col justify-center">
+                    <span className="text-[0.55rem] font-bold tracking-[0.25em] text-[var(--color-gold)] uppercase mb-2">
+                      {book.subtitle}
+                    </span>
+                    <h3 className="font-heading text-xl lg:text-2xl font-bold text-[var(--color-royal-deep)] mb-3 leading-tight">
+                      {book.title}
+                    </h3>
+                    <p className="text-gray-500 text-sm leading-[1.7] mb-6">
+                      {book.description}
+                    </p>
+                    <Button variant="gold" className="w-fit" asChild>
+                      <Link href={book.amazonUrl || "#"}>View on Amazon</Link>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Coming Soon Teaser */}
+          <div className="text-center mt-12 animate-fade-in-up">
+            <div className="inline-flex items-center gap-3 bg-white border border-gray-100 px-6 py-4 rounded-sm">
+              <BookOpen className="w-5 h-5 text-[var(--color-gold)]" />
+              <div className="text-left">
+                <p className="text-sm font-semibold text-[var(--color-royal-deep)]">More revelations coming soon</p>
+                <p className="text-[0.6rem] text-gray-400 tracking-wider uppercase">New books are in the works. Stay tuned!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════
+          4. SCRIPTURE / QUOTE INTERLUDE
+          ════════════════════════════════════════════ */}
+      <section className="relative bg-[var(--color-royal-deep)] py-16 lg:py-20 overflow-hidden">
+        {/* Subtle dot pattern */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "28px 28px" }} />
+        {/* Gold glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-32 bg-[var(--color-gold)]/10 rounded-full blur-[80px] pointer-events-none" />
+
+        <div className="container mx-auto px-4 lg:px-8 max-w-3xl text-center relative z-10">
+          <Quote className="w-10 h-10 text-[var(--color-gold)]/40 mx-auto mb-6 rotate-180" />
+          <blockquote className="font-heading text-xl lg:text-2xl text-white/90 italic leading-relaxed mb-6">
+            &ldquo;She is clothed with strength and dignity, and she laughs without fear of the future.&rdquo;
+          </blockquote>
+          <div className="flex items-center justify-center gap-4">
+            <div className="w-8 h-px bg-[var(--color-gold)]/40" />
+            <cite className="text-[0.6rem] font-bold tracking-[0.3em] text-[var(--color-gold)] uppercase not-italic">
+              Proverbs 31:25
+            </cite>
+            <div className="w-8 h-px bg-[var(--color-gold)]/40" />
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════
+          5. LATEST WRITINGS
+          ════════════════════════════════════════════ */}
+      <section className="py-20 lg:py-28 bg-white">
+        <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
+          {/* Section header */}
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-14">
+            <div className="animate-fade-in-up">
+              <span className="inline-block text-[0.6rem] font-bold tracking-[0.3em] text-[var(--color-gold)] uppercase mb-4">
+                From the Journal
+              </span>
+              <h2 className="font-heading text-3xl lg:text-4xl font-bold text-[var(--color-royal-deep)]">
+                Latest Writings
+              </h2>
+            </div>
+            <Link
+              href="/writings"
+              className="group inline-flex items-center text-sm font-bold tracking-wider text-[var(--color-royal-deep)] uppercase mt-4 md:mt-0 hover:text-[var(--color-gold)] transition-colors"
+            >
+              View All
+              <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
+          </div>
+
+          {/* Writings Grid */}
+          <div className="grid md:grid-cols-3 gap-8 stagger-children">
+            {writings.map((writing) => {
+              const date = new Date(writing.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+              return (
+                <Link
+                  key={writing.slug}
+                  href={`/writings/${writing.slug}`}
+                  className="group flex flex-col"
+                >
+                  <div className="relative aspect-[4/3] rounded-sm overflow-hidden bg-[var(--color-ivory)] mb-5">
+                    <Image
+                      src={writing.image}
+                      alt={writing.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  </div>
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="text-[0.55rem] font-bold tracking-[0.2em] text-[var(--color-gold)] uppercase">{writing.category}</span>
+                    <span className="w-1 h-1 rounded-full bg-gray-300" />
+                    <span className="text-[0.65rem] text-gray-400">{date}</span>
+                  </div>
+                  <h3 className="font-heading text-lg lg:text-xl font-bold text-[var(--color-royal-deep)] mb-2 group-hover:text-[var(--color-gold)] transition-colors duration-300 leading-tight">
+                    {writing.title}
+                  </h3>
+                  <p className="text-gray-500 text-sm leading-[1.7] line-clamp-2 mb-4">
+                    {writing.excerpt}
+                  </p>
+                  <span className="inline-flex items-center text-[0.65rem] font-bold tracking-wider text-[var(--color-royal)] uppercase mt-auto">
+                    Read More <ArrowRight className="w-3 h-3 ml-1.5 transition-transform duration-300 group-hover:translate-x-1" />
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════
+          6. PROJECTS & VENTURES
+          ════════════════════════════════════════════ */}
+      <section className="py-20 lg:py-28 bg-[var(--color-ivory)]">
+        <div className="container mx-auto px-4 lg:px-8 max-w-5xl">
+          {/* Section header */}
+          <div className="text-center mb-14 animate-fade-in-up">
+            <span className="inline-block text-[0.6rem] font-bold tracking-[0.3em] text-[var(--color-gold)] uppercase mb-4">
+              Initiatives
+            </span>
+            <h2 className="font-heading text-3xl lg:text-4xl font-bold text-[var(--color-royal-deep)] mb-4">
+              Projects & Ventures
+            </h2>
+            <div className="gold-rule w-20 mx-auto mb-6" />
+            <p className="text-gray-500 text-sm lg:text-base max-w-md mx-auto">
+              Ideas. Impact. Purpose in motion.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-5 lg:gap-6 stagger-children">
+            {projects.map((project) => (
+              <Link key={project.id} href={project.url} className="group block">
+                <div className="h-full bg-white p-7 lg:p-8 rounded-sm border border-gray-100 hover:border-[var(--color-gold)]/20 transition-all duration-500 hover:shadow-[0_8px_30px_rgba(200,151,62,0.06)] flex items-start gap-5">
+                  <div className="w-12 h-12 rounded-full bg-[var(--color-ivory)] text-[var(--color-royal-deep)] flex items-center justify-center shrink-0 transition-all duration-500 group-hover:bg-[var(--color-gold)] group-hover:text-white group-hover:shadow-[0_4px_12px_rgba(200,151,62,0.25)]">
+                    {projectIcons[project.iconName] || <Lightbulb className="w-5 h-5" />}
+                  </div>
+                  <div>
+                    <h3 className="font-heading text-lg font-bold text-[var(--color-royal-deep)] mb-1.5 group-hover:text-[var(--color-gold)] transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-500 text-sm leading-[1.7]">{project.description}</p>
+                  </div>
+                </div>
               </Link>
             ))}
           </div>
@@ -125,214 +350,30 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════════
-          3. NEWSLETTER STRIP
+          7. NEWSLETTER CTA
           ════════════════════════════════════════════ */}
-      <section className="bg-[var(--color-royal-deep)] py-8 lg:py-10 relative overflow-hidden">
-        {/* Subtle decorative texture */}
+      <section className="relative bg-[var(--color-royal-deep)] py-16 lg:py-20 overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "32px 32px" }} />
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-[var(--color-gold)]/8 rounded-full blur-[100px] pointer-events-none" />
 
-        <div className="container mx-auto px-4 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6">
-          <div className="text-center lg:text-left">
-            <h2 className="font-script text-3xl lg:text-4xl text-[var(--color-gold)] mb-1">
-              Stay connected. Be the first to know.
-            </h2>
-            <p className="text-white/40 text-[0.65rem] tracking-[0.2em] uppercase">
-              Get updates on new books, writings, and announcements.
-            </p>
-          </div>
-          <form className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto shrink-0">
-            <input
-              type="text"
-              placeholder="Your Name"
-              className="bg-white/5 border border-white/10 text-white px-5 py-3 rounded-sm outline-none placeholder:text-white/25 text-sm min-w-[180px] focus:border-[var(--color-gold)] transition-colors"
-              required
-            />
+        <div className="container mx-auto px-4 lg:px-8 max-w-3xl text-center relative z-10">
+          <h2 className="font-script text-3xl lg:text-4xl text-[var(--color-gold)] mb-3">
+            Stay connected. Be the first to know.
+          </h2>
+          <p className="text-white/40 text-sm mb-8 max-w-md mx-auto">
+            Subscribe to receive updates on new books, writings, and announcements directly to your inbox.
+          </p>
+          <form className="flex flex-col sm:flex-row gap-3 justify-center max-w-lg mx-auto">
             <input
               type="email"
-              placeholder="Your Email"
-              className="bg-white/5 border border-white/10 text-white px-5 py-3 rounded-sm outline-none placeholder:text-white/25 text-sm min-w-[180px] focus:border-[var(--color-gold)] transition-colors"
+              placeholder="Your Email Address"
+              className="flex-1 bg-white/5 border border-white/10 text-white px-5 py-3.5 rounded-sm outline-none placeholder:text-white/25 text-sm focus:border-[var(--color-gold)] transition-colors"
               required
             />
-            <Button variant="gold" className="rounded-sm text-[0.65rem] tracking-[0.2em] px-8 py-3 h-auto">
+            <Button variant="gold" className="rounded-sm text-[0.65rem] tracking-[0.2em] px-8 h-auto py-3.5">
               Subscribe
             </Button>
           </form>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════
-          4. FIVE-PANEL PORTAL
-          ════════════════════════════════════════════ */}
-      <section className="bg-[var(--color-ivory)] py-14 lg:py-16">
-        <div className="container mx-auto px-4 lg:px-4 max-w-[1440px]">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 stagger-children">
-
-            {/* ─── ABOUT ME ─── */}
-            <div className="flex flex-col bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-500 overflow-hidden group">
-              <div className="bg-[var(--color-royal-deep)] text-center py-3">
-                <span className="font-sans font-bold tracking-[0.25em] text-[0.6rem] text-white uppercase">About Me</span>
-              </div>
-              <div className="p-5 lg:p-6 flex flex-col flex-grow">
-                <h3 className="font-heading text-xl font-bold text-[var(--color-royal-deep)] italic leading-tight">My Story.</h3>
-                <h3 className="font-script text-3xl text-[var(--color-gold)] leading-none mb-4">My Calling.</h3>
-                <p className="text-gray-500 text-xs leading-[1.7] mb-5">
-                  I am Shalaymah, a prophetic dreamer, watchwoman, and author called to remember, to heal, and to build through words, wisdom, and divine revelation. Everything I create flows from purpose.
-                </p>
-                <Button variant="primary" className="w-full text-[0.6rem] tracking-[0.2em] mb-5" asChild>
-                  <Link href="/about">Learn More About Me</Link>
-                </Button>
-                {/* Visual block */}
-                <div className="mt-auto h-44 bg-[var(--color-royal-deep)] rounded-lg flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "20px 20px" }} />
-                  <div className="relative z-10 text-center space-y-0.5">
-                    <p className="font-script text-xl text-[var(--color-gold)]">We&apos;ll</p>
-                    <p className="font-heading font-bold text-white tracking-[0.25em] uppercase text-xs">Restore</p>
-                    <p className="font-heading font-bold text-white tracking-[0.25em] uppercase text-xs">Reveal</p>
-                    <p className="font-heading font-bold text-white tracking-[0.25em] uppercase text-xs">Remember</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* ─── BOOKS ─── */}
-            <div className="flex flex-col bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-500 overflow-hidden group">
-              <div className="bg-[var(--color-royal-deep)] text-center py-3">
-                <span className="font-sans font-bold tracking-[0.25em] text-[0.6rem] text-white uppercase">Books</span>
-              </div>
-              <div className="p-5 lg:p-6 flex flex-col flex-grow">
-                <div className="text-center mb-5">
-                  <h4 className="font-heading font-bold text-[var(--color-royal-deep)] tracking-[0.15em] text-[0.65rem] uppercase">Featured Books</h4>
-                  <div className="gold-rule w-12 mx-auto mt-2" />
-                </div>
-                <div className="grid grid-cols-2 gap-3 mb-6">
-                  {featuredBooks.map((book) => (
-                    <div key={book.id} className="flex flex-col items-center">
-                      <div className="w-full aspect-[2/3] relative shadow-md border border-gray-100 mb-2 overflow-hidden group/book">
-                        <Image src={book.cover} alt={book.title} fill className="object-cover transition-transform duration-700 group-hover/book:scale-105" />
-                      </div>
-                      <h5 className="font-heading font-bold text-[var(--color-royal-deep)] text-center text-[0.55rem] leading-tight mb-1.5 line-clamp-2">{book.title}</h5>
-                      <Link href={book.amazonUrl || "#"} className="text-[0.5rem] font-bold tracking-[0.15em] text-[var(--color-gold)] uppercase hover:text-[var(--color-royal-deep)] transition-colors">
-                        View on Amazon
-                      </Link>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-auto text-center pt-4 border-t border-gray-50">
-                  <h4 className="font-heading font-bold text-[var(--color-royal-deep)] tracking-[0.15em] text-[0.65rem] uppercase mb-2">Upcoming Books</h4>
-                  <div className="flex items-center gap-3 bg-[var(--color-ivory)] p-3 rounded-sm">
-                    <BookOpen className="w-4 h-4 text-[var(--color-gold)] shrink-0" />
-                    <div className="text-left">
-                      <p className="text-[0.6rem] text-gray-600 font-medium leading-snug">New stories. New revelations.</p>
-                      <p className="text-[0.5rem] text-gray-400 tracking-wider uppercase mt-0.5">Stay tuned for what&apos;s next!</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* ─── WRITINGS ─── */}
-            <div className="flex flex-col bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-500 overflow-hidden group">
-              <div className="bg-[var(--color-royal-deep)] text-center py-3">
-                <span className="font-sans font-bold tracking-[0.25em] text-[0.6rem] text-white uppercase">Writings</span>
-              </div>
-              <div className="p-5 lg:p-6 flex flex-col flex-grow">
-                <div className="text-center mb-5">
-                  <h4 className="font-heading font-bold text-[var(--color-royal-deep)] tracking-[0.15em] text-[0.65rem] uppercase">Latest Writings</h4>
-                  <div className="gold-rule w-12 mx-auto mt-2" />
-                </div>
-                <div className="space-y-4 flex-grow">
-                  {writings.map((writing) => {
-                    const date = new Date(writing.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
-                    return (
-                      <Link key={writing.slug} href={`/writings/${writing.slug}`} className="flex gap-3 group/card">
-                        <div className="w-14 h-14 shrink-0 relative border border-gray-100 rounded-sm overflow-hidden">
-                          <Image src={writing.image} alt={writing.title} fill className="object-cover transition-transform duration-500 group-hover/card:scale-110" />
-                        </div>
-                        <div className="flex flex-col justify-center min-w-0">
-                          <h5 className="font-heading font-bold text-[var(--color-royal-deep)] text-[0.65rem] mb-0.5 group-hover/card:text-[var(--color-gold)] transition-colors line-clamp-1">{writing.title}</h5>
-                          <p className="text-[0.55rem] text-gray-400 line-clamp-1 leading-snug mb-0.5">{writing.excerpt}</p>
-                          <div className="flex justify-between items-center">
-                            <span className="text-[0.5rem] text-gray-300">{date}</span>
-                            <span className="text-[0.5rem] font-bold text-[var(--color-gold)] tracking-wider uppercase flex items-center gap-0.5">
-                              Read More <ArrowRight className="w-2.5 h-2.5" />
-                            </span>
-                          </div>
-                        </div>
-                      </Link>
-                    );
-                  })}
-                </div>
-                <Button variant="primary" className="w-full text-[0.6rem] tracking-[0.2em] mt-5" asChild>
-                  <Link href="/writings">View All Writings</Link>
-                </Button>
-              </div>
-            </div>
-
-            {/* ─── PROJECTS ─── */}
-            <div className="flex flex-col bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-500 overflow-hidden group">
-              <div className="bg-[var(--color-royal-deep)] text-center py-3">
-                <span className="font-sans font-bold tracking-[0.25em] text-[0.6rem] text-white uppercase">Projects & Ventures</span>
-              </div>
-              <div className="p-5 lg:p-6 flex flex-col flex-grow">
-                <div className="text-center mb-5">
-                  <h4 className="font-heading font-bold text-[var(--color-royal-deep)] tracking-[0.15em] text-[0.65rem] uppercase">My Projects & Ventures</h4>
-                  <div className="gold-rule w-12 mx-auto mt-2" />
-                </div>
-                <div className="space-y-5 flex-grow">
-                  {projects.map((project) => (
-                    <div key={project.id} className="flex items-start gap-3 group/p">
-                      <div className="w-9 h-9 rounded-full bg-[var(--color-royal-deep)] flex items-center justify-center shrink-0 text-[var(--color-gold)] transition-all duration-300 group-hover/p:bg-[var(--color-gold)] group-hover/p:text-white">
-                        {projectIcons[project.iconName] || <Lightbulb className="w-4 h-4" />}
-                      </div>
-                      <div>
-                        <h5 className="font-heading font-bold text-[var(--color-royal-deep)] text-[0.65rem] mb-0.5">{project.title}</h5>
-                        <p className="text-[0.55rem] text-gray-500 leading-snug">{project.description}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <Button variant="primary" className="w-full text-[0.6rem] tracking-[0.2em] mt-5" asChild>
-                  <Link href="/projects">Learn More</Link>
-                </Button>
-              </div>
-            </div>
-
-            {/* ─── CONTACT ─── */}
-            <div className="flex flex-col bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-500 overflow-hidden group">
-              <div className="bg-[var(--color-royal-deep)] text-center py-3">
-                <span className="font-sans font-bold tracking-[0.25em] text-[0.6rem] text-white uppercase">Contact Me</span>
-              </div>
-              <div className="p-5 lg:p-6 flex flex-col flex-grow">
-                <div className="text-center mb-4">
-                  <h4 className="font-heading font-bold text-[var(--color-royal-deep)] tracking-[0.15em] text-[0.65rem] uppercase">Let&apos;s Connect</h4>
-                  <div className="gold-rule w-12 mx-auto mt-2" />
-                </div>
-                <p className="text-[0.6rem] text-gray-500 mb-4 text-center leading-relaxed">
-                  I&apos;d love to hear from you! Whether it&apos;s a question, collaboration, or just a greeting — reach out!
-                </p>
-                <form className="space-y-2.5 mb-4">
-                  <input type="text" placeholder="Your Name" className="w-full text-[0.6rem] px-3 py-2 border border-gray-150 bg-[var(--color-ivory)] rounded-sm outline-none focus:border-[var(--color-gold)] transition-colors placeholder:text-gray-300" />
-                  <input type="email" placeholder="Your Email" className="w-full text-[0.6rem] px-3 py-2 border border-gray-150 bg-[var(--color-ivory)] rounded-sm outline-none focus:border-[var(--color-gold)] transition-colors placeholder:text-gray-300" />
-                  <input type="text" placeholder="Subject" className="w-full text-[0.6rem] px-3 py-2 border border-gray-150 bg-[var(--color-ivory)] rounded-sm outline-none focus:border-[var(--color-gold)] transition-colors placeholder:text-gray-300" />
-                  <textarea placeholder="Your Message" rows={3} className="w-full text-[0.6rem] px-3 py-2 border border-gray-150 bg-[var(--color-ivory)] rounded-sm outline-none focus:border-[var(--color-gold)] transition-colors resize-none placeholder:text-gray-300" />
-                  <Button variant="gold" className="w-full text-[0.6rem] tracking-[0.2em] py-2 h-auto">
-                    Send Message
-                  </Button>
-                </form>
-                <div className="mt-auto text-center pt-3 border-t border-gray-50">
-                  <p className="text-[0.5rem] font-bold tracking-[0.2em] text-gray-400 uppercase mb-2">Connect With Me</p>
-                  <div className="flex justify-center gap-2">
-                    {["IG", "FB", "X"].map((label) => (
-                      <a key={label} href="#" className="w-7 h-7 rounded-full border border-gray-200 flex items-center justify-center text-[0.5rem] font-bold text-gray-400 hover:border-[var(--color-gold)] hover:text-[var(--color-gold)] transition-all duration-300">
-                        {label}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
         </div>
       </section>
     </>
