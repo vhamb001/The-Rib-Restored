@@ -6,6 +6,8 @@ export interface Project {
   description: string;
   iconName: string;
   url: string;
+  image?: string;
+  igHandle?: string;
 }
 
 export const projects: Project[] = [
@@ -13,9 +15,11 @@ export const projects: Project[] = [
     id: "rib-restored",
     title: "The Rib Restored",
     description:
-      "My personal brand and platform for books, writings, and resources that restore identity and purpose.",
+      "A platform focused on healing, restoration, spiritual growth, discernment, and prophetic teaching. Shared through writings, scrolls, and reflections designed to help navigate spiritual experiences.",
     iconName: "crown",
     url: "/",
+    image: "/images/second logo .png",
+    igHandle: "@The.Rib.Restored",
   },
   {
     id: "listen-selah",
