@@ -2,66 +2,115 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { books } from "@/data/books";
+import { BookOpen, Tablet, Book, BookMarked, ArrowRight } from "lucide-react";
+
+const formatIcons: Record<string, React.ReactNode> = {
+  Ebook: <Tablet className="w-4 h-4" />,
+  Paperback: <Book className="w-4 h-4" />,
+  Hardcover: <BookMarked className="w-4 h-4" />,
+};
 
 export default function BooksPage() {
+  const availableBooks = books.filter((b) => b.status === "Available");
+  const comingBooks = books.filter((b) => b.status === "Coming Soon");
+
   return (
     <div className="bg-white min-h-screen">
       {/* Hero */}
-      <section className="relative bg-[var(--color-ivory)] py-20 lg:py-28 overflow-hidden">
+      <section className="relative bg-[var(--color-ivory)] py-16 sm:py-20 lg:py-28 overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--color-gold)]/5 rounded-full blur-[120px] pointer-events-none" />
-        <div className="container mx-auto px-4 lg:px-8 text-center relative z-10 animate-fade-in-up">
+        <div className="absolute bottom-0 left-0 w-72 h-72 bg-[var(--color-royal)]/5 rounded-full blur-[100px] pointer-events-none" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 animate-fade-in-up">
           <span className="inline-block text-[0.6rem] font-bold tracking-[0.3em] text-gray-400 uppercase mb-4">Library</span>
-          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--color-royal-deep)] mb-4">
+          <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--color-royal-deep)] mb-4">
             My Books
           </h1>
           <div className="gold-rule w-24 mx-auto mb-6" />
-          <p className="text-gray-500 text-lg max-w-lg mx-auto">
+          <p className="text-gray-500 text-base sm:text-lg max-w-lg mx-auto leading-relaxed">
             Words that restore. Stories that reveal. Kingdom understanding, one page at a time.
           </p>
         </div>
       </section>
 
-      {/* Books Grid */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4 lg:px-8 max-w-5xl">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 stagger-children">
-            {books.map((book) => (
-              <div key={book.id} className="group flex flex-col bg-white rounded-sm border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] hover:border-[var(--color-gold)]/30">
-                <div className="relative aspect-[2/3] w-full overflow-hidden bg-[var(--color-ivory)]">
-                  <Image
-                    src={book.cover}
-                    alt={book.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                  />
-                  {book.status === "Coming Soon" && (
-                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-[var(--color-royal-deep)] text-[0.55rem] font-bold px-3 py-1.5 rounded-sm tracking-[0.2em] uppercase">
-                      Coming Soon
+      {/* Featured Books — Full Width Showcase */}
+      <section className="py-14 sm:py-20 lg:py-28">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+          <div className="space-y-16 sm:space-y-20 lg:space-y-28">
+            {availableBooks.map((book, index) => (
+              <div
+                key={book.id}
+                className="animate-fade-in-up"
+                style={{ animationDelay: `${index * 0.15}s` }}
+              >
+                <div
+                  className={`grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-center ${
+                    index % 2 === 1 ? "lg:direction-rtl" : ""
+                  }`}
+                >
+                  {/* Book Cover */}
+                  <div className={`relative ${index % 2 === 1 ? "lg:order-2" : ""}`}>
+                    <div className="relative aspect-[2/3] max-w-xs sm:max-w-sm mx-auto rounded-sm overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.15)] group">
+                      <Image
+                        src={book.cover}
+                        alt={book.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                      />
+                      {/* Hover overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
-                  )}
-                </div>
-                <div className="p-6 lg:p-7 flex flex-col flex-grow">
-                  {book.subtitle && (
-                    <span className="text-[0.6rem] font-bold tracking-[0.2em] text-[var(--color-gold)] uppercase mb-2">
-                      {book.subtitle}
-                    </span>
-                  )}
-                  <h3 className="font-heading text-xl font-bold text-[var(--color-royal-deep)] mb-3 leading-tight">
-                    {book.title}
-                  </h3>
-                  <p className="text-gray-500 text-sm leading-[1.7] mb-6 flex-grow">
-                    {book.description}
-                  </p>
-                  <div className="pt-4 border-t border-gray-50">
-                    {book.status === "Available" ? (
-                      <Button variant="gold" className="w-full" asChild>
-                        <Link href={book.amazonUrl || "#"}>View on Amazon</Link>
-                      </Button>
-                    ) : (
-                      <Button variant="secondary" className="w-full" disabled>
-                        Stay Tuned
-                      </Button>
+                    {/* Decorative frame */}
+                    <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 w-full h-full border-2 border-[var(--color-gold)]/20 rounded-sm -z-10 hidden sm:block" />
+                    <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 w-20 h-20 sm:w-24 sm:h-24 border-t-2 border-l-2 border-[var(--color-gold)]/30 rounded-tl-sm hidden sm:block" />
+                  </div>
+
+                  {/* Book Info */}
+                  <div className={`${index % 2 === 1 ? "lg:order-1" : ""}`}>
+                    {book.subtitle && (
+                      <span className="inline-block text-[0.6rem] font-bold tracking-[0.3em] text-[var(--color-gold)] uppercase mb-3 sm:mb-4">
+                        {book.subtitle}
+                      </span>
                     )}
+                    <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-[var(--color-royal-deep)] mb-4 sm:mb-5 leading-tight">
+                      {book.title}
+                    </h2>
+                    <div className="w-12 h-[2px] bg-gradient-to-r from-[var(--color-gold)] to-transparent mb-5 sm:mb-6" />
+                    <p className="text-gray-500 text-sm sm:text-[0.95rem] leading-[1.9] mb-6 sm:mb-8 max-w-lg">
+                      {book.description}
+                    </p>
+
+                    {/* Format Buttons */}
+                    <div className="space-y-3 sm:space-y-4">
+                      <h3 className="text-[0.6rem] font-bold tracking-[0.3em] text-gray-400 uppercase">
+                        Available Formats
+                      </h3>
+                      <div className="flex flex-col sm:flex-row gap-3">
+                        {book.formats.map((format) => (
+                          <a
+                            key={format.type}
+                            href={format.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group/btn flex items-center gap-3 bg-white border border-gray-200 hover:border-[var(--color-gold)] rounded-sm px-4 sm:px-5 py-3 sm:py-3.5 transition-all duration-300 hover:shadow-[0_4px_16px_rgba(200,151,62,0.12)]"
+                          >
+                            <span className="w-8 h-8 rounded-full bg-[var(--color-ivory)] text-[var(--color-gold)] flex items-center justify-center shrink-0 transition-all duration-300 group-hover/btn:bg-[var(--color-gold)] group-hover/btn:text-white">
+                              {formatIcons[format.type]}
+                            </span>
+                            <div className="text-left">
+                              <span className="block text-sm font-semibold text-[var(--color-royal-deep)] group-hover/btn:text-[var(--color-gold)] transition-colors duration-300">
+                                {format.type}
+                              </span>
+                              {format.price && (
+                                <span className="block text-[0.65rem] text-gray-400">
+                                  {format.price}
+                                </span>
+                              )}
+                            </div>
+                            <ArrowRight className="w-4 h-4 text-gray-300 ml-auto transition-all duration-300 group-hover/btn:text-[var(--color-gold)] group-hover/btn:translate-x-1" />
+                          </a>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -70,23 +119,28 @@ export default function BooksPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 lg:py-20 bg-[var(--color-ivory)]">
-        <div className="container mx-auto px-4 lg:px-8 max-w-2xl text-center">
-          <div className="bg-white p-10 lg:p-14 rounded-sm border border-gray-100 shadow-sm">
-            <h2 className="font-heading text-2xl lg:text-3xl font-bold text-[var(--color-royal-deep)] mb-4">
-              More Revelations Are Coming
-            </h2>
-            <div className="gold-rule w-16 mx-auto mb-6" />
-            <p className="text-gray-500 text-sm leading-[1.7] mb-8">
-              I am currently working on new writings and books. Join the newsletter to be the first to know when they are released.
-            </p>
-            <Button variant="gold" size="lg" asChild>
-              <Link href="/#newsletter">Stay Connected</Link>
-            </Button>
+      {/* Coming Soon Section */}
+      {comingBooks.length > 0 && (
+        <section className="py-14 sm:py-20 lg:py-24 bg-[var(--color-ivory)]">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center">
+            <div className="bg-white p-8 sm:p-10 lg:p-14 rounded-sm border border-gray-100 shadow-sm">
+              <div className="w-14 h-14 rounded-full bg-[var(--color-ivory)] text-[var(--color-gold)] flex items-center justify-center mx-auto mb-6">
+                <BookOpen className="w-7 h-7" />
+              </div>
+              <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-[var(--color-royal-deep)] mb-4">
+                More Revelations Are Coming
+              </h2>
+              <div className="gold-rule w-16 mx-auto mb-6" />
+              <p className="text-gray-500 text-sm sm:text-base leading-[1.7] mb-8 max-w-md mx-auto">
+                I am currently working on new writings and books. Join the newsletter to be the first to know when they are released.
+              </p>
+              <Button variant="gold" size="lg" asChild>
+                <Link href="/#newsletter">Stay Connected</Link>
+              </Button>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
     </div>
   );
 }

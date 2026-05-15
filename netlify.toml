@@ -1,0 +1,19 @@
+[build]
+  command = "npm run build"
+  publish = "out"
+
+# Netlify automatically serves .html files for clean URLs
+# (e.g., /about → /about.html) so no explicit redirects needed
+# for static pages.
+
+# Handle dynamic writing slugs
+[[redirects]]
+  from = "/writings/*"
+  to = "/writings/:splat.html"
+  status = 200
+
+# Pretty 404 page
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404

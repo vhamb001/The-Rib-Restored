@@ -6,11 +6,11 @@ export function Footer() {
       {/* Decorative gold line at top */}
       <div className="h-[3px] bg-gradient-to-r from-transparent via-[var(--color-gold)] to-transparent" />
 
-      <div className="container mx-auto px-4 lg:px-8 pt-16 pb-10">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-8 sm:pb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-16">
 
           {/* Brand Column */}
-          <div className="md:col-span-5 space-y-6">
+          <div className="sm:col-span-2 lg:col-span-5 space-y-5 sm:space-y-6">
             <Link href="/" className="inline-flex flex-col items-start leading-none group">
               <span className="font-heading text-lg font-bold tracking-[0.25em] text-[var(--color-gold)] uppercase">The</span>
               <span className="font-heading text-4xl font-bold tracking-[0.15em] text-[var(--color-gold)] uppercase -mt-0.5">Rib</span>
@@ -23,11 +23,11 @@ export function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div className="md:col-span-2">
-            <h4 className="font-heading font-semibold text-sm tracking-[0.15em] text-[var(--color-gold)] uppercase mb-6">
+          <div className="lg:col-span-2">
+            <h4 className="font-heading font-semibold text-sm tracking-[0.15em] text-[var(--color-gold)] uppercase mb-4 sm:mb-6">
               Quick Links
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2.5 sm:space-y-3">
               {["Home", "About Me", "Books", "Writings", "Projects", "Contact"].map((item) => (
                 <li key={item}>
                   <Link
@@ -42,22 +42,22 @@ export function Footer() {
           </div>
 
           {/* Stay Connected */}
-          <div className="md:col-span-3">
-            <h4 className="font-heading font-semibold text-sm tracking-[0.15em] text-[var(--color-gold)] uppercase mb-6">
+          <div className="lg:col-span-3">
+            <h4 className="font-heading font-semibold text-sm tracking-[0.15em] text-[var(--color-gold)] uppercase mb-4 sm:mb-6">
               Stay Connected
             </h4>
-            <p className="text-white/50 text-sm mb-5 leading-relaxed">
+            <p className="text-white/50 text-sm mb-4 sm:mb-5 leading-relaxed">
               Subscribe for updates on new books, writings, and announcements.
             </p>
             <form className="flex">
               <input
                 type="email"
                 placeholder="Your Email"
-                className="flex-1 bg-white/5 border border-white/10 rounded-l-sm px-4 py-2.5 text-sm text-white placeholder:text-white/30 outline-none focus:border-[var(--color-gold)] transition-colors"
+                className="flex-1 min-w-0 bg-white/5 border border-white/10 rounded-l-sm px-3 sm:px-4 py-2.5 text-sm text-white placeholder:text-white/30 outline-none focus:border-[var(--color-gold)] transition-colors"
               />
               <button
                 type="submit"
-                className="bg-[var(--color-gold)] hover:bg-[var(--color-soft-gold)] text-white px-5 py-2.5 rounded-r-sm text-xs font-bold tracking-widest uppercase transition-colors duration-300"
+                className="bg-[var(--color-gold)] hover:bg-[var(--color-soft-gold)] text-white px-4 sm:px-5 py-2.5 rounded-r-sm text-xs font-bold tracking-widest uppercase transition-colors duration-300 shrink-0"
               >
                 Subscribe
               </button>
@@ -65,8 +65,8 @@ export function Footer() {
           </div>
 
           {/* Follow Me */}
-          <div className="md:col-span-2">
-            <h4 className="font-heading font-semibold text-sm tracking-[0.15em] text-[var(--color-gold)] uppercase mb-6">
+          <div className="lg:col-span-2">
+            <h4 className="font-heading font-semibold text-sm tracking-[0.15em] text-[var(--color-gold)] uppercase mb-4 sm:mb-6">
               Follow Me
             </h4>
             <div className="flex gap-3">
@@ -95,8 +95,8 @@ export function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-white/5">
-        <div className="container mx-auto px-4 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-white/30 text-xs tracking-wider">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-6 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
+          <p className="text-white/30 text-xs tracking-wider text-center sm:text-left">
             &copy; {new Date().getFullYear()} The Rib Restored by Shalaymah. All Rights Reserved.
           </p>
           <div className="flex items-center gap-2 text-[var(--color-gold)]/60">
