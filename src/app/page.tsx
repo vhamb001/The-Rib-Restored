@@ -477,7 +477,7 @@ export default function HomePage() {
                   Subscribe to receive in-depth prophetic writings, articles, and exclusive newsletters directly to your inbox.
                 </p>
                 <Button variant="gold" className="rounded-full px-8 mt-auto group-hover:scale-105 transition-transform duration-300" asChild>
-                  <a href="#" target="_blank" rel="noopener noreferrer">Explore Articles</a>
+                  <a href="https://intentionallistening1.substack.com" target="_blank" rel="noopener noreferrer">Explore Articles</a>
                 </Button>
               </div>
             </StaggerItem>
@@ -520,17 +520,13 @@ export default function HomePage() {
           <p className="text-white/40 text-sm mb-6 sm:mb-8 max-w-md mx-auto">
             Subscribe to receive updates on new books, writings, and announcements directly to your inbox.
           </p>
-          <form className="flex flex-col sm:flex-row gap-3 justify-center max-w-lg mx-auto">
-            <input
-              type="email"
-              placeholder="Your Email Address"
-              className="flex-1 bg-white/5 border border-white/10 text-white px-5 py-3.5 rounded-sm outline-none placeholder:text-white/25 text-sm focus:border-[var(--color-gold)] transition-colors"
-              required
-            />
-            <Button variant="gold" className="rounded-sm text-[0.65rem] tracking-[0.2em] px-8 h-auto py-3.5">
-              Subscribe
+          <div className="flex justify-center mt-8">
+            <Button variant="gold" className="rounded-sm text-[0.65rem] tracking-[0.2em] px-10 h-auto py-4 group hover:scale-105 transition-transform duration-300" asChild>
+              <a href="https://intentionallistening1.substack.com" target="_blank" rel="noopener noreferrer">
+                Subscribe on Substack <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
             </Button>
-          </form>
+          </div>
         </div>
       </section>
     </>

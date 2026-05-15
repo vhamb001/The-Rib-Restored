@@ -102,15 +102,13 @@ export default function WritingsPage() {
             <div className="relative z-10">
               <h2 className="font-script text-2xl sm:text-3xl lg:text-4xl text-[var(--color-gold)] mb-3">Stay updated</h2>
               <p className="text-white/50 text-sm mb-6 sm:mb-8">Subscribe to receive new writings and reflections directly to your inbox.</p>
-              <form className="flex flex-col sm:flex-row gap-3 justify-center">
-                <input
-                  type="email"
-                  placeholder="Your Email"
-                  className="bg-white/5 border border-white/10 px-4 sm:px-5 py-3 rounded-sm text-sm text-white placeholder:text-white/25 outline-none focus:border-[var(--color-gold)] transition-colors w-full sm:w-auto sm:min-w-[240px]"
-                  required
-                />
-                <Button variant="gold" className="rounded-sm">Subscribe</Button>
-              </form>
+              <div className="flex justify-center mt-8">
+                <Button variant="gold" className="rounded-sm text-[0.65rem] tracking-[0.2em] px-10 h-auto py-4 group hover:scale-105 transition-transform duration-300" asChild>
+                  <a href="https://intentionallistening1.substack.com" target="_blank" rel="noopener noreferrer">
+                    Subscribe on Substack <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+                  </a>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
