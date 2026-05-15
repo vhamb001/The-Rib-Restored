@@ -75,21 +75,16 @@ export default function HomePage() {
 
             {/* Author image — right side */}
             <FadeIn delay={0.15} className="relative order-1 lg:order-2 flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-xs sm:max-w-sm lg:max-w-md">
-                <div className="relative aspect-[3/4] rounded-sm overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.15)]">
+              <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl">
+                <div className="relative aspect-square sm:aspect-[4/5] lg:aspect-square overflow-hidden">
                   <Image
-                    src="/images/author.png"
-                    alt="Shalaymah – Author & Visionary"
+                    src="/images/main logo.png"
+                    alt="The Rib Restored – Brand Identity"
                     fill
-                    className="object-cover object-top"
+                    className="object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.05)]"
                     priority
                   />
                 </div>
-                {/* Decorative frames */}
-                <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 w-full h-full border-2 border-[var(--color-gold)]/20 rounded-sm -z-10" />
-                <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 w-20 h-20 sm:w-24 sm:h-24 border-t-2 border-l-2 border-[var(--color-gold)]/30 rounded-tl-sm" />
-                {/* Floating gold accent */}
-                <div className="absolute -bottom-2 -left-2 sm:-bottom-3 sm:-left-3 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-[var(--color-gold)]/20 to-transparent rounded-full blur-lg animate-float pointer-events-none" />
               </div>
             </FadeIn>
           </div>
@@ -110,17 +105,14 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
             {/* Author Image */}
             <FadeIn className="relative">
-              <div className="relative aspect-[3/4] max-w-xs sm:max-w-sm md:max-w-md mx-auto lg:mx-0 rounded-sm overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.12)]">
+              <div className="relative aspect-square max-w-sm md:max-w-md mx-auto lg:mx-0 overflow-hidden">
                 <Image
-                  src="/images/author.png"
-                  alt="Shalaymah"
+                  src="/images/main logo.png"
+                  alt="The Rib Restored"
                   fill
-                  className="object-cover"
+                  className="object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.05)]"
                 />
               </div>
-              {/* Decorative frame */}
-              <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-[var(--color-gold)]/20 rounded-sm -z-10 hidden sm:block" />
-              <div className="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-[var(--color-gold)]/30 rounded-tl-sm hidden sm:block" />
             </FadeIn>
 
             {/* Text content */}

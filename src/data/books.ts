@@ -26,9 +26,9 @@ export const books: Book[] = [
     status: "Available",
     category: "Adult",
     formats: [
-      { type: "Ebook", url: "#", price: "$9.99" },
-      { type: "Paperback", url: "#", price: "$14.99" },
-      { type: "Hardcover", url: "#", price: "$24.99" },
+      { type: "Ebook", url: "https://amazon.com/author/shalaymah.ribrestored", price: "$9.99" },
+      { type: "Paperback", url: "https://amazon.com/author/shalaymah.ribrestored", price: "$14.99" },
+      { type: "Hardcover", url: "https://amazon.com/author/shalaymah.ribrestored", price: "$24.99" },
     ],
   },
   {
@@ -41,9 +41,9 @@ export const books: Book[] = [
     status: "Available",
     category: "Adult",
     formats: [
-      { type: "Ebook", url: "#", price: "$9.99" },
-      { type: "Paperback", url: "#", price: "$14.99" },
-      { type: "Hardcover", url: "#", price: "$24.99" },
+      { type: "Ebook", url: "https://amazon.com/author/shalaymah.ribrestored", price: "$9.99" },
+      { type: "Paperback", url: "https://amazon.com/author/shalaymah.ribrestored", price: "$14.99" },
+      { type: "Hardcover", url: "https://amazon.com/author/shalaymah.ribrestored", price: "$24.99" },
     ],
   },
   {

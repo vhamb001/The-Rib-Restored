@@ -39,18 +39,29 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-gray-100/60 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
       <div className="container mx-auto px-4 lg:px-8 h-16 sm:h-20 lg:h-24 flex items-center justify-between">
 
-        {/* Logo & Tagline */}
-        <div className="flex items-center gap-4 lg:gap-7">
-          <Link href="/" className="flex flex-col items-center leading-none select-none group">
-            <span className="font-heading text-sm lg:text-lg font-bold tracking-[0.25em] text-[var(--color-royal-deep)] uppercase transition-colors group-hover:text-[var(--color-gold)]">
-              The
-            </span>
-            <span className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold tracking-[0.15em] text-[var(--color-royal-deep)] uppercase -mt-0.5 transition-colors group-hover:text-[var(--color-gold)]">
-              Rib
-            </span>
-            <span className="font-heading text-[0.5rem] lg:text-[0.62rem] font-semibold tracking-[0.35em] text-[var(--color-royal-deep)] uppercase mt-0.5 transition-colors group-hover:text-[var(--color-gold)]">
-              Restored
-            </span>
+        <div className="flex items-center gap-3 lg:gap-5">
+          <Link href="/" className="flex items-center gap-3 lg:gap-4 select-none group">
+            {/* Logo Image */}
+            <div className="relative w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 overflow-hidden">
+              <img
+                src="/images/second logo .png"
+                alt="Logo"
+                className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
+              />
+            </div>
+            
+            {/* Logo Text */}
+            <div className="flex flex-col items-center leading-none">
+              <span className="font-heading text-[0.6rem] lg:text-[0.8rem] font-bold tracking-[0.25em] text-[var(--color-royal-deep)] uppercase transition-colors group-hover:text-[var(--color-gold)]">
+                The
+              </span>
+              <span className="font-heading text-xl sm:text-2xl lg:text-3xl font-bold tracking-[0.15em] text-[var(--color-royal-deep)] uppercase -mt-0.5 transition-colors group-hover:text-[var(--color-gold)]">
+                Rib
+              </span>
+              <span className="font-heading text-[0.4rem] lg:text-[0.5rem] font-semibold tracking-[0.35em] text-[var(--color-royal-deep)] uppercase mt-0.5 transition-colors group-hover:text-[var(--color-gold)]">
+                Restored
+              </span>
+            </div>
           </Link>
           <div className="hidden lg:flex flex-col justify-center border-l border-gray-200 pl-6 py-1">
             <span className="font-script text-2xl text-[var(--color-gold)] leading-none">

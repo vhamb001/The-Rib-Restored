@@ -11,10 +11,21 @@ export function Footer() {
 
           {/* Brand Column */}
           <div className="sm:col-span-2 lg:col-span-5 space-y-5 sm:space-y-6">
-            <Link href="/" className="inline-flex flex-col items-start leading-none group">
-              <span className="font-heading text-lg font-bold tracking-[0.25em] text-[var(--color-gold)] uppercase">The</span>
-              <span className="font-heading text-4xl font-bold tracking-[0.15em] text-[var(--color-gold)] uppercase -mt-0.5">Rib</span>
-              <span className="font-heading text-[0.6rem] font-semibold tracking-[0.35em] text-[var(--color-gold)] uppercase mt-0.5">Restored</span>
+            <Link href="/" className="inline-flex items-center gap-4 group">
+              {/* Logo Image */}
+              <div className="relative w-12 h-12 overflow-hidden bg-white/5 rounded-sm p-1">
+                <img
+                  src="/images/second logo .png"
+                  alt="Logo"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              
+              <div className="flex flex-col items-start leading-none">
+                <span className="font-heading text-lg font-bold tracking-[0.25em] text-[var(--color-gold)] uppercase">The</span>
+                <span className="font-heading text-4xl font-bold tracking-[0.15em] text-[var(--color-gold)] uppercase -mt-0.5">Rib</span>
+                <span className="font-heading text-[0.6rem] font-semibold tracking-[0.35em] text-[var(--color-gold)] uppercase mt-0.5">Restored</span>
+              </div>
             </Link>
             <p className="text-white/50 text-sm leading-relaxed max-w-xs">
               Restored to Purpose. Called to Impact.<br />
