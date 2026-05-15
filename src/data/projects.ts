@@ -9,6 +9,7 @@ export interface Project {
   image?: string;
   socialUrl?: string;
   socialLabel?: string;
+  socialHandle?: string;
 }
 
 export const projects: Project[] = [
@@ -22,6 +23,7 @@ export const projects: Project[] = [
     image: "/images/second logo .png",
     socialUrl: "https://instagram.com/the.rib.restored",
     socialLabel: "Instagram",
+    socialHandle: "@the.rib.restored",
   },
   {
     id: "listen-selah",
@@ -39,6 +41,7 @@ export const projects: Project[] = [
     url: "https://www.BeitYahwehHaGoel.org",
     socialUrl: "https://facebook.com/BeitYahwehHaGoel",
     socialLabel: "Facebook",
+    socialHandle: "BeitYahwehHaGoel",
   },
   {
     id: "future-projects",
