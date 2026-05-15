@@ -39,16 +39,30 @@ export default function ContactPage() {
                   <div className="mt-auto space-y-6 sm:space-y-8">
                     <div>
                       <h4 className="font-heading text-sm tracking-[0.15em] text-[var(--color-gold)] uppercase font-semibold mb-2">Email</h4>
-                      <a href="mailto:hello@theribrestored.com" className="text-white/60 text-sm hover:text-[var(--color-gold)] transition-colors duration-300 break-all">
-                        hello@theribrestored.com
-                      </a>
+                      <p className="text-white/60 text-sm italic">
+                        Official Ministry Email Coming Soon
+                      </p>
                     </div>
                     <div>
-                      <h4 className="font-heading text-sm tracking-[0.15em] text-[var(--color-gold)] uppercase font-semibold mb-3">Social</h4>
-                      <div className="flex gap-3">
-                        {[Globe, MessageCircle, AtSign].map((Icon, i) => (
-                          <a key={i} href="#" className="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center text-white/40 hover:border-[var(--color-gold)] hover:text-[var(--color-gold)] hover:bg-white/5 transition-all duration-300">
-                            <Icon className="w-4 h-4" />
+                      <h4 className="font-heading text-sm tracking-[0.15em] text-[var(--color-gold)] uppercase font-semibold mb-3">Connect With Me</h4>
+                      <div className="flex flex-wrap gap-3">
+                        {[
+                          { label: "Instagram", url: "https://instagram.com/the.rib.restored", path: "M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01M2 7a5 5 0 0 1 5-5h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5z" },
+                          { label: "Threads", url: "https://www.threads.net/@the.rib.restored", path: "M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm3 13.5c-1.5 0-2.5-1-2.5-2.5V11h1v2c0 1 .5 1.5 1.5 1.5s1.5-.5 1.5-1.5v-2c0-2-1-3-3-3s-3 1-3 3v2.5c0 1.5 1 2.5 2.5 2.5 1.5 0 2.5-1 2.5-2.5V11c0-1.5-1-2.5-2.5-2.5V7.5c2 0 3.5 1.5 3.5 3.5v2.5c0 2-1.5 3.5-3.5 3.5z" },
+                          { label: "Facebook", url: "https://www.facebook.com/profile.php?id=61579278413766", path: "M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" },
+                          { label: "Substack", url: "https://intentionallistening1.substack.com", path: "M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z" }
+                        ].map(({ label, url, path }) => (
+                          <a 
+                            key={label} 
+                            href={url} 
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-white/40 hover:border-[var(--color-gold)] hover:text-[var(--color-gold)] hover:bg-white/5 transition-all duration-300"
+                            aria-label={label}
+                          >
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill={label === "Substack" ? "currentColor" : "none"} stroke={label === "Substack" ? "none" : "currentColor"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                              <path d={path} />
+                            </svg>
                           </a>
                         ))}
                       </div>
