@@ -161,7 +161,6 @@ export default function HomePage() {
                   <p className="text-[0.55rem] sm:text-[0.6rem] tracking-[0.2em] text-gray-400 uppercase mt-1">Visions</p>
                 </div>
               </div>
-              </div>
               <Button variant="ghost" size="lg" className="group" asChild>
                 <Link href="/about">
                   Learn More About Me

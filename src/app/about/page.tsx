@@ -63,14 +63,15 @@ export default function AboutPage() {
                   Instagram: @The.Rib.Restored
                 </a>
               </div>
+              <div className="flex items-center gap-6 sm:gap-8 justify-center lg:justify-start">
                 <div className="text-center">
                   <span className="font-heading text-2xl sm:text-3xl font-bold text-[var(--color-royal-deep)]">2+</span>
                   <p className="text-[0.55rem] sm:text-[0.6rem] tracking-[0.2em] text-gray-400 uppercase mt-1">Books</p>
                 </div>
                 <div className="w-px h-10 bg-gray-200" />
                 <div className="text-center">
-                  <span className="font-heading text-2xl sm:text-3xl font-bold text-[var(--color-royal-deep)]">4</span>
-                  <p className="text-[0.55rem] sm:text-[0.6rem] tracking-[0.2em] text-gray-400 uppercase mt-1">Ventures</p>
+                  <span className="font-heading text-2xl sm:text-3xl font-bold text-[var(--color-royal-deep)]">10+</span>
+                  <p className="text-[0.55rem] sm:text-[0.6rem] tracking-[0.2em] text-gray-400 uppercase mt-1">Volumes</p>
                 </div>
                 <div className="w-px h-10 bg-gray-200" />
                 <div className="text-center">
