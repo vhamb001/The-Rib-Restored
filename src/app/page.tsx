@@ -105,14 +105,17 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
             {/* Author Image */}
             <FadeIn className="relative">
-              <div className="relative aspect-square max-w-sm md:max-w-md mx-auto lg:mx-0 overflow-hidden">
+              <div className="relative aspect-[3/4] max-w-xs sm:max-w-sm md:max-w-md mx-auto lg:mx-0 rounded-sm overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.12)]">
                 <Image
-                  src="/images/main logo.png"
-                  alt="The Rib Restored"
+                  src="/images/author.png"
+                  alt="Shalaymah"
                   fill
-                  className="object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.05)]"
+                  className="object-cover"
                 />
               </div>
+              {/* Decorative frame */}
+              <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-[var(--color-gold)]/20 rounded-sm -z-10 hidden sm:block" />
+              <div className="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-[var(--color-gold)]/30 rounded-tl-sm hidden sm:block" />
             </FadeIn>
 
             {/* Text content */}
