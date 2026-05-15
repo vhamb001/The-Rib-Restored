@@ -191,45 +191,47 @@ export default function HomePage() {
           {/* Books */}
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 max-w-5xl mx-auto stagger-children">
             {featuredBooks.map((book) => (
-              <div key={book.id} className="group bg-white rounded-sm border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-[0_16px_48px_rgba(0,0,0,0.08)] hover:border-[var(--color-gold)]/20">
-                <div className="flex flex-col sm:flex-row">
-                  <div className="relative w-full sm:w-44 lg:w-48 shrink-0 aspect-[2/3] sm:aspect-auto overflow-hidden bg-gray-50">
-                    <Image
-                      src={book.cover}
-                      alt={book.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                    />
+              <div key={book.id} className="group bg-white rounded-sm border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-[0_16px_48px_rgba(0,0,0,0.08)] hover:border-[var(--color-gold)]/20 h-full">
+                <div className="flex flex-col sm:flex-row h-full">
+                  <div className="shrink-0 sm:w-44 lg:w-48 bg-[var(--color-ivory)]/30 sm:bg-gray-50 flex justify-center py-8 sm:py-0 sm:block border-b border-gray-100 sm:border-0">
+                    <div className="relative w-36 sm:w-full aspect-[2/3] sm:aspect-auto sm:h-full rounded-sm sm:rounded-none overflow-hidden shadow-md sm:shadow-none">
+                      <Image
+                        src={book.cover}
+                        alt={book.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                      />
+                    </div>
                   </div>
-                  <div className="p-5 sm:p-6 lg:p-8 flex flex-col justify-center">
+                  <div className="p-5 sm:p-6 lg:p-8 flex flex-col justify-center flex-grow">
                     <span className="text-[0.55rem] font-bold tracking-[0.25em] text-[var(--color-gold)] uppercase mb-2">
                       {book.subtitle}
                     </span>
                     <h3 className="font-heading text-xl lg:text-2xl font-bold text-[var(--color-royal-deep)] mb-3 leading-tight">
                       {book.title}
                     </h3>
-                    <p className="text-gray-500 text-sm leading-[1.7] mb-4 sm:mb-5">
+                    <p className="text-gray-500 text-sm leading-[1.7] mb-6 sm:mb-5">
                       {book.description}
                     </p>
                     {book.formats.length > 0 && (
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-2 mt-auto">
                         {book.formats.map((format) => (
                           <a
                             key={format.type}
                             href={format.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 text-[0.6rem] font-bold tracking-[0.15em] uppercase border border-gray-200 hover:border-[var(--color-gold)] text-gray-500 hover:text-[var(--color-gold)] px-3 py-2 rounded-sm transition-all duration-300 hover:shadow-sm"
+                            className="flex-1 min-w-[100px] sm:flex-none inline-flex justify-center sm:justify-start items-center gap-1.5 text-[0.6rem] font-bold tracking-[0.15em] uppercase border border-gray-200 hover:border-[var(--color-gold)] text-gray-500 hover:text-[var(--color-gold)] px-3 py-2.5 sm:py-2 rounded-sm transition-all duration-300 hover:shadow-sm"
                           >
-                            {format.type}
-                            {format.price && <span className="text-gray-300">·</span>}
-                            {format.price && <span className="text-[var(--color-gold)]">{format.price}</span>}
+                            <span>{format.type}</span>
+                            {format.price && <span className="text-gray-300 hidden sm:inline">·</span>}
+                            {format.price && <span className="text-[var(--color-gold)] ml-1 sm:ml-0">{format.price}</span>}
                           </a>
                         ))}
                       </div>
                     )}
                     {book.formats.length === 0 && (
-                      <Button variant="secondary" className="w-fit" disabled>
+                      <Button variant="secondary" className="w-fit mt-auto" disabled>
                         Coming Soon
                       </Button>
                     )}
