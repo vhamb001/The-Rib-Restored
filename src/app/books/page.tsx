@@ -49,19 +49,19 @@ export default function BooksPage() {
                 >
                   {/* Book Cover */}
                   <div className={`relative ${index % 2 === 1 ? "lg:order-2" : ""}`}>
-                    <div className="relative aspect-[2/3] max-w-xs sm:max-w-sm mx-auto rounded-sm overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.15)] group">
+                    <div className="relative aspect-[4/5] sm:aspect-[3/4] lg:aspect-[4/5] max-w-sm sm:max-w-md lg:max-w-lg mx-auto rounded-sm overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.12)] group">
                       <Image
                         src={book.cover}
                         alt={book.title}
                         fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                        className="object-contain transition-transform duration-700 group-hover:scale-[1.03]"
                       />
                       {/* Hover overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
                     {/* Decorative frame */}
-                    <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 w-full h-full border-2 border-[var(--color-gold)]/20 rounded-sm -z-10 hidden sm:block" />
-                    <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 w-20 h-20 sm:w-24 sm:h-24 border-t-2 border-l-2 border-[var(--color-gold)]/30 rounded-tl-sm hidden sm:block" />
+                    <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-[var(--color-gold)]/10 rounded-sm -z-10 hidden sm:block" />
+                    <div className="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-[var(--color-gold)]/20 rounded-tl-sm hidden sm:block" />
                   </div>
 
                   {/* Book Info */}
