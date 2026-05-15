@@ -58,9 +58,8 @@ export default function HomePage() {
                 <div className="w-8 h-px bg-gradient-to-l from-transparent to-[var(--color-gold)]" />
               </div>
 
-              <p className="text-gray-500 text-sm lg:text-[0.95rem] leading-[1.9] mb-8 sm:mb-10 max-w-md mx-auto lg:mx-0">
-                Author. Dreamer. Visionary. I write to restore, to reveal, and to remember. 
-                This is a space for books, writings, projects, reflections, and purpose.
+              <p className="text-gray-500 text-sm sm:text-lg mb-8 max-w-lg leading-relaxed">
+                Prophetic Dreamer. Writer. Seer. Dedicated to helping you understand the language of dreams, discernment, and spiritual revelation through a grounded scriptural lens.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
@@ -129,29 +128,39 @@ export default function HomePage() {
               </h2>
               <div className="w-12 h-[2px] bg-gradient-to-r from-[var(--color-gold)] to-transparent mb-6 sm:mb-8" />
               <p className="text-gray-500 text-sm lg:text-[0.95rem] leading-[1.9] mb-4 sm:mb-6">
-                I am Shalaymah — a prophetic dreamer, watchwoman, and author called to remember, 
-                to heal, and to build through words, wisdom, and divine revelation.
+                Shalaymah Nurrayah Tzeduqah, known as **The Rib Restored**, is a prophetic dreamer, writer, seer, and spiritual teacher dedicated to helping others understand the language of dreams, discernment, and spiritual revelation.
               </p>
               <p className="text-gray-500 text-sm lg:text-[0.95rem] leading-[1.9] mb-6 sm:mb-8">
-                Everything I create flows from purpose. From the pages of my books to the reflections 
-                I share, my heart beats for restoration — for the quiet moments where healing begins, 
-                and for the deep waters of understanding that transform lives.
+                Through her writings and the mission of **Beit Yahweh HaGo’el**, she bridges spiritual depth with practical understanding, guiding seekers to recognize the voice of Elohim with wisdom, humility, and clarity.
               </p>
-              <div className="flex items-center gap-6 sm:gap-8 mb-6 sm:mb-8">
+              <div className="flex flex-wrap items-center gap-4 sm:gap-6 mb-8">
+                <Button variant="gold" size="sm" asChild>
+                  <Link href="/about">Full Biography</Link>
+                </Button>
+                <Link 
+                  href="https://www.amazon.com/stores/Shalaymah-Nurrayah-Tzeduqah/author/B0GY94T77X"
+                  target="_blank"
+                  className="text-[0.6rem] font-bold tracking-[0.2em] text-[var(--color-royal-deep)] uppercase hover:text-[var(--color-gold)] transition-colors"
+                >
+                  View Amazon Author Profile
+                </Link>
+              </div>
+              <div className="flex items-center gap-6 sm:gap-8 justify-start">
                 <div className="text-center">
                   <span className="font-heading text-2xl sm:text-3xl font-bold text-[var(--color-royal-deep)]">2+</span>
-                  <p className="text-[0.55rem] sm:text-[0.6rem] tracking-[0.2em] text-gray-400 uppercase mt-1">Books Published</p>
+                  <p className="text-[0.55rem] sm:text-[0.6rem] tracking-[0.2em] text-gray-400 uppercase mt-1">Books</p>
+                </div>
+                <div className="w-px h-10 bg-gray-200" />
+                <div className="text-center">
+                  <span className="font-heading text-2xl sm:text-3xl font-bold text-[var(--color-royal-deep)]">10+</span>
+                  <p className="text-[0.55rem] sm:text-[0.6rem] tracking-[0.2em] text-gray-400 uppercase mt-1">Volumes</p>
                 </div>
                 <div className="w-px h-10 bg-gray-200" />
                 <div className="text-center">
                   <span className="font-heading text-2xl sm:text-3xl font-bold text-[var(--color-royal-deep)]">∞</span>
-                  <p className="text-[0.55rem] sm:text-[0.6rem] tracking-[0.2em] text-gray-400 uppercase mt-1">Dreams Decoded</p>
+                  <p className="text-[0.55rem] sm:text-[0.6rem] tracking-[0.2em] text-gray-400 uppercase mt-1">Visions</p>
                 </div>
-                <div className="w-px h-10 bg-gray-200" />
-                <div className="text-center">
-                  <span className="font-heading text-2xl sm:text-3xl font-bold text-[var(--color-royal-deep)]">4</span>
-                  <p className="text-[0.55rem] sm:text-[0.6rem] tracking-[0.2em] text-gray-400 uppercase mt-1">Active Ventures</p>
-                </div>
+              </div>
               </div>
               <Button variant="ghost" size="lg" className="group" asChild>
                 <Link href="/about">

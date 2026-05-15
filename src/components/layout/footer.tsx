@@ -82,16 +82,16 @@ export function Footer() {
             </h4>
             <div className="flex flex-wrap gap-3">
               {[
-                { label: "IG", path: "M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01M2 7a5 5 0 0 1 5-5h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5z" },
-                { label: "FB", path: "M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" },
-                { label: "X", path: "M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" },
-                { label: "YT", path: "m22 8-6 4 6 4V8zM2 6h12v12H2z" },
-                { label: "Spotify", path: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.6 14.4c-.2.3-.6.4-.9.2-2.5-1.5-5.7-1.8-9.4-1-.3.1-.7-.1-.8-.4-.1-.3.1-.7.4-.8 4.1-.9 7.6-.5 10.4 1.2.3.1.4.5.3.8zm1.2-2.7c-.2.4-.7.5-1 .3-2.9-1.8-6.6-2.2-10-1.2-.4.1-.9-.1-1-.5-.1-.4.1-.9.5-1 3.9-1.2 8.1-.7 11.4 1.3.3.3.4.8.1 1.1zm.1-2.9c-3.4-2-8.1-2.2-11-1.2-.5.2-1-.1-1.2-.6-.2-.5.1-1 .6-1.2 3.4-1.2 8.6-1 12.5 1.3.5.3.6.9.3 1.4-.2.4-.7.6-1.2.3z", scale: 1 },
-                { label: "Substack", path: "M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z", scale: 0.8 },
-              ].map(({ label, path, scale }) => (
+                { label: "IG", url: "https://instagram.com/The.Rib.Restored", path: "M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01M2 7a5 5 0 0 1 5-5h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5z" },
+                { label: "Amazon", url: "https://www.amazon.com/stores/Shalaymah-Nurrayah-Tzeduqah/author/B0GY94T77X", path: "M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18L19.5 7.5 12 11.82 4.5 7.5 12 4.18zM4 17.5V9.18l8 4.64 8-4.64v8.32l-8 4-8-4z" },
+                { label: "Spotify", url: "#", path: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.6 14.4c-.2.3-.6.4-.9.2-2.5-1.5-5.7-1.8-9.4-1-.3.1-.7-.1-.8-.4-.1-.3.1-.7.4-.8 4.1-.9 7.6-.5 10.4 1.2.3.1.4.5.3.8zm1.2-2.7c-.2.4-.7.5-1 .3-2.9-1.8-6.6-2.2-10-1.2-.4.1-.9-.1-1-.5-.1-.4.1-.9.5-1 3.9-1.2 8.1-.7 11.4 1.3.3.3.4.8.1 1.1zm.1-2.9c-3.4-2-8.1-2.2-11-1.2-.5.2-1-.1-1.2-.6-.2-.5.1-1 .6-1.2 3.4-1.2 8.6-1 12.5 1.3.5.3.6.9.3 1.4-.2.4-.7.6-1.2.3z", scale: 1 },
+                { label: "Substack", url: "#", path: "M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z", scale: 0.8 },
+              ].map(({ label, url, path, scale }) => (
                 <a
                   key={label}
-                  href="#"
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center text-white/40 hover:border-[var(--color-gold)] hover:text-[var(--color-gold)] hover:bg-white/5 transition-all duration-300"
                   aria-label={label}
                 >

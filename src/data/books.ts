@@ -18,32 +18,32 @@ export interface Book {
 export const books: Book[] = [
   {
     id: "watchwoman",
-    title: "Watchwoman's Dream Book",
-    subtitle: "Volume One",
+    title: "The Watchwoman’s Dream Book",
+    subtitle: "How to Decode Prophetic Dreams, Symbols, Numbers & Spiritual Signs",
     description:
       "A prophetic journey through dreams and divine revelation. This book walks you through the sacred art of dream interpretation, helping you decode the messages God sends in the night season.",
     cover: "/images/books/watchwomans-dream-book.jpg",
     status: "Available",
     category: "Adult",
     formats: [
-      { type: "Ebook", url: "https://amazon.com/author/shalaymah.ribrestored", price: "$9.99" },
-      { type: "Paperback", url: "https://amazon.com/author/shalaymah.ribrestored", price: "$14.99" },
-      { type: "Hardcover", url: "https://amazon.com/author/shalaymah.ribrestored", price: "$24.99" },
+      { type: "Ebook", url: "https://www.amazon.com/WATCHWOMANS-DREAM-BOOK-Prophetic-Spiritual-ebook/dp/B0H17G39D2", price: "$9.99" },
+      { type: "Paperback", url: "https://www.amazon.com/WATCHWOMANS-DREAM-BOOK-Prophetic-Spiritual/dp/B0H1M3GWT6", price: "$19.99" },
+      { type: "Hardcover", url: "https://www.amazon.com/WATCHWOMANS-DREAM-BOOK-Prophetic-Spiritual/dp/B0H1QCL8JY", price: "$27.99" },
     ],
   },
   {
     id: "scroll",
-    title: "The Prophetic Dreamer's Scroll",
-    subtitle: "Volume One",
+    title: "The Prophetic Dreamer’s Scroll",
+    subtitle: "Volume X: A Spiritual Awakening Guide",
     description:
       "Divine dreams. Hidden messages. Kingdom understanding. A guided companion for prophetic dreamers to document, interpret, and preserve the revelations received in the night watches.",
     cover: "/images/books/prophetic-dreamers-scroll.jpg",
     status: "Available",
     category: "Adult",
     formats: [
-      { type: "Ebook", url: "https://amazon.com/author/shalaymah.ribrestored", price: "$9.99" },
-      { type: "Paperback", url: "https://amazon.com/author/shalaymah.ribrestored", price: "$14.99" },
-      { type: "Hardcover", url: "https://amazon.com/author/shalaymah.ribrestored", price: "$24.99" },
+      { type: "Ebook", url: "https://www.amazon.com/Prophetic-Dreamers-Scroll-Spiritual-Awakening-ebook/dp/B0GY9ZX8ZF", price: "$2.99" },
+      { type: "Paperback", url: "https://www.amazon.com/Prophetic-Dreamers-Scroll-Completion-Becoming/dp/B0GY3GFW43", price: "$12.99" },
+      { type: "Hardcover", url: "https://www.amazon.com/PROPHETIC-DREAMERS-SCROLL-Spiritual-Awakening/dp/B0GZ8B3ZJT", price: "$17.99" },
     ],
   },
   {

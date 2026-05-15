@@ -47,17 +47,22 @@ export default function AboutPage() {
                 My Calling.
               </h1>
               <div className="w-12 h-[2px] bg-gradient-to-r from-[var(--color-gold)] to-transparent mb-6 sm:mb-8 mx-auto lg:mx-0" />
-              <p className="text-gray-500 text-sm lg:text-[0.95rem] leading-[1.9] mb-4 sm:mb-6 max-w-md mx-auto lg:mx-0">
-                I am Shalaymah — a prophetic dreamer, watchwoman, and author called to
-                remember, restore, heal, and build through words, wisdom, and divine
-                revelation. Everything I create flows from purpose.
+              <p className="text-gray-500 text-sm lg:text-[0.95rem] leading-[1.9] mb-4 sm:mb-6 mx-auto lg:mx-0">
+                Shalaymah Nurrayah Tzeduqah, known as **The Rib Restored**, is a prophetic dreamer, writer, seer, and spiritual teacher dedicated to helping others understand the language of dreams, discernment, and spiritual revelation through a grounded prophetic and scriptural lens.
               </p>
-              <p className="text-gray-500 text-sm lg:text-[0.95rem] leading-[1.9] mb-6 sm:mb-8 max-w-md mx-auto lg:mx-0">
-                My journey began in the stillness — in the quiet hours of the night where 
-                dreams became downloads and visions became blueprints. What I received, 
-                I was called to share. And so I write.
+              <p className="text-gray-500 text-sm lg:text-[0.95rem] leading-[1.9] mb-4 sm:mb-6 mx-auto lg:mx-0">
+                Through her writings, teachings, and the mission of **Beit Yahweh HaGo’el**, Shalaymah seeks to bridge spiritual depth with practical understanding. Her approach combines symbolic interpretation, scriptural foundations, and personal refinement to help others recognize the voice of Elohim with wisdom, humility, and clarity.
               </p>
-              <div className="flex items-center gap-6 sm:gap-8 justify-center lg:justify-start">
+              <div className="flex flex-wrap items-center gap-4 sm:gap-6 justify-center lg:justify-start mb-8">
+                <Button variant="gold" size="sm" asChild>
+                  <a href="https://www.amazon.com/stores/Shalaymah-Nurrayah-Tzeduqah/author/B0GY94T77X" target="_blank" rel="noopener noreferrer">
+                    View Amazon Author Profile
+                  </a>
+                </Button>
+                <a href="https://instagram.com/The.Rib.Restored" target="_blank" rel="noopener noreferrer" className="text-[0.6rem] font-bold tracking-[0.2em] text-[var(--color-royal-deep)] uppercase hover:text-[var(--color-gold)] transition-colors">
+                  Instagram: @The.Rib.Restored
+                </a>
+              </div>
                 <div className="text-center">
                   <span className="font-heading text-2xl sm:text-3xl font-bold text-[var(--color-royal-deep)]">2+</span>
                   <p className="text-[0.55rem] sm:text-[0.6rem] tracking-[0.2em] text-gray-400 uppercase mt-1">Books</p>
@@ -157,9 +162,9 @@ export default function AboutPage() {
 
           <div className="space-y-4 sm:space-y-6">
             {[
-              { keyword: "Restore", text: "Every person has a divine blueprint. I write to help people return to who they were always meant to be." },
-              { keyword: "Reveal", text: "Hidden things are meant to be uncovered. Through prophetic dreams and divine insight, I reveal what the Spirit is speaking." },
-              { keyword: "Remember", text: "We are called to remember our identity, our covenant, and our purpose. My writings are anchors against forgetting." },
+              { keyword: "Restore", text: "Through The Rib Restored, Shalaymah shares teachings and resources designed to help others navigate spiritual experiences with maturity, wisdom, and balance." },
+              { keyword: "Reveal", text: "Her approach combines symbolic interpretation and scriptural foundations, helping seekers recognize the voice of Elohim in dreams and symbols." },
+              { keyword: "Redeem", text: "Connected to Beit Yahweh HaGo’el — House of Yahweh The Redeemer, her work focuses on restoration, discernment, and strengthening families." },
             ].map((belief) => (
               <div key={belief.keyword} className="flex flex-col sm:flex-row gap-3 sm:gap-6 items-start bg-white p-5 sm:p-6 lg:p-8 rounded-sm border border-gray-100">
                 <span className="font-heading text-xl sm:text-2xl lg:text-3xl font-bold text-[var(--color-gold)] italic shrink-0 sm:w-28 sm:text-right">
