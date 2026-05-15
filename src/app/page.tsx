@@ -5,17 +5,19 @@ import { books } from "@/data/books";
 import { projects } from "@/data/projects";
 import { getSortedWritingsData } from "@/lib/writings";
 import { Crown, Home, Headphones, Lightbulb, ArrowRight, BookOpen, Quote } from "lucide-react";
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/ui/fade-in";
 
 const projectIcons: Record<string, React.ReactNode> = {
-  crown: <Crown className="w-6 h-6" />,
-  home: <Home className="w-6 h-6" />,
-  headphones: <Headphones className="w-6 h-6" />,
-  lightbulb: <Lightbulb className="w-6 h-6" />,
+  crown: <Crown className="w-6 h-6" strokeWidth={1.25} />,
+  home: <Home className="w-6 h-6" strokeWidth={1.25} />,
+  headphones: <Headphones className="w-6 h-6" strokeWidth={1.25} />,
+  lightbulb: <Lightbulb className="w-6 h-6" strokeWidth={1.25} />,
 };
 
 export default function HomePage() {
   const writings = getSortedWritingsData().slice(0, 3);
-  const featuredBooks = books.filter((b) => b.status === "Available");
+  const featuredBooks = books.filter((b) => b.category !== "Children" && b.status === "Available");
+  const childrensBooks = books.filter((b) => b.category === "Children");
 
   return (
     <>
@@ -193,8 +195,8 @@ export default function HomePage() {
             {featuredBooks.map((book) => (
               <div key={book.id} className="group bg-white rounded-sm border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-[0_16px_48px_rgba(0,0,0,0.08)] hover:border-[var(--color-gold)]/20 h-full">
                 <div className="flex flex-col sm:flex-row h-full">
-                  <div className="shrink-0 sm:w-40 lg:w-44 bg-[var(--color-ivory)]/30 sm:bg-gray-50 flex justify-center py-8 sm:py-0 sm:block border-b border-gray-100 sm:border-0">
-                    <div className="relative w-36 sm:w-full aspect-[2/3] sm:aspect-auto sm:h-full rounded-sm sm:rounded-none overflow-hidden shadow-md sm:shadow-none">
+                  <div className="shrink-0 sm:w-44 lg:w-48 bg-[var(--color-ivory)]/30 sm:bg-gray-50 flex justify-center items-center py-8 sm:p-6 lg:p-8 border-b sm:border-b-0 sm:border-r border-gray-100">
+                    <div className="relative w-36 sm:w-full aspect-[2/3] rounded-sm overflow-hidden shadow-md">
                       <Image
                         src={book.cover}
                         alt={book.title}
@@ -253,6 +255,60 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ════════════════════════════════════════════
+          3B. CHILDREN'S CORNER
+          ════════════════════════════════════════════ */}
+      {childrensBooks.length > 0 && (
+        <section className="py-14 sm:py-20 lg:py-24 bg-gradient-to-b from-white to-[var(--color-ivory)]/30 border-t border-gray-100">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+            <div className="text-center mb-10 sm:mb-14 animate-fade-in-up">
+              <span className="inline-block text-[0.6rem] font-bold tracking-[0.3em] text-[var(--color-gold)] uppercase mb-4">
+                For The Little Ones
+              </span>
+              <h2 className="font-heading text-3xl lg:text-4xl font-bold text-[var(--color-royal-deep)] mb-4">
+                Children&apos;s Corner
+              </h2>
+              <div className="gold-rule w-20 mx-auto mb-6" />
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 stagger-children">
+              {childrensBooks.map((book) => (
+                <div key={book.id} className="group bg-white rounded-3xl border-2 border-[var(--color-ivory)] overflow-hidden transition-all duration-500 hover:shadow-[0_16px_48px_rgba(0,0,0,0.06)] hover:border-[var(--color-gold)]/30 h-full">
+                  <div className="flex flex-col sm:flex-row h-full">
+                    <div className="shrink-0 sm:w-44 lg:w-48 bg-gradient-to-br from-[#fdfbf7] to-[#f4f1e9] flex justify-center items-center py-8 sm:p-6 lg:p-8 border-b sm:border-b-0 sm:border-r border-gray-100/50">
+                      <div className="relative w-36 sm:w-full aspect-[3/4] rounded-xl overflow-hidden shadow-sm border border-gray-100/50">
+                        <Image
+                          src={book.cover}
+                          alt={book.title}
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                        />
+                      </div>
+                    </div>
+                    <div className="p-5 sm:p-5 lg:p-7 flex flex-col justify-center flex-grow">
+                      <span className="text-[0.6rem] font-bold tracking-widest text-[#d4af37] uppercase mb-2 bg-[#fdfbf7] w-fit px-2 py-1 rounded-md">
+                        {book.subtitle}
+                      </span>
+                      <h3 className="font-heading text-xl lg:text-2xl font-bold text-[var(--color-royal-deep)] mb-3 leading-tight">
+                        {book.title}
+                      </h3>
+                      <p className="text-gray-500 text-sm leading-[1.7] mb-5">
+                        {book.description}
+                      </p>
+                      <div className="mt-auto">
+                        <Button variant="gold" className="w-fit rounded-full px-6" disabled={book.status === "Coming Soon"}>
+                          {book.status === "Coming Soon" ? "Coming Soon" : "View Book"}
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ════════════════════════════════════════════
           4. SCRIPTURE / QUOTE INTERLUDE
@@ -348,7 +404,7 @@ export default function HomePage() {
       <section className="py-14 sm:py-20 lg:py-28 bg-[var(--color-ivory)]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
           {/* Section header */}
-          <div className="text-center mb-10 sm:mb-14 animate-fade-in-up">
+          <FadeIn className="text-center mb-10 sm:mb-14">
             <span className="inline-block text-[0.6rem] font-bold tracking-[0.3em] text-[var(--color-gold)] uppercase mb-4">
               Initiatives
             </span>
@@ -359,25 +415,27 @@ export default function HomePage() {
             <p className="text-gray-500 text-sm lg:text-base max-w-md mx-auto">
               Ideas. Impact. Purpose in motion.
             </p>
-          </div>
+          </FadeIn>
 
-          <div className="grid sm:grid-cols-2 gap-4 sm:gap-5 lg:gap-6 stagger-children">
+          <StaggerContainer className="grid sm:grid-cols-2 gap-4 sm:gap-5 lg:gap-6">
             {projects.map((project) => (
-              <Link key={project.id} href={project.url} className="group block">
-                <div className="h-full bg-white p-6 sm:p-7 lg:p-8 rounded-sm border border-gray-100 hover:border-[var(--color-gold)]/20 transition-all duration-500 hover:shadow-[0_8px_30px_rgba(200,151,62,0.06)] flex items-start gap-4 sm:gap-5">
-                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[var(--color-ivory)] text-[var(--color-royal-deep)] flex items-center justify-center shrink-0 transition-all duration-500 group-hover:bg-[var(--color-gold)] group-hover:text-white group-hover:shadow-[0_4px_12px_rgba(200,151,62,0.25)]">
-                    {projectIcons[project.iconName] || <Lightbulb className="w-5 h-5" />}
+              <StaggerItem key={project.id}>
+                <Link href={project.url} className="group block h-full">
+                  <div className="h-full bg-white p-6 sm:p-7 lg:p-8 rounded-sm border border-gray-100 hover:border-[var(--color-gold)]/20 transition-all duration-500 hover:shadow-[0_8px_30px_rgba(200,151,62,0.06)] flex items-start gap-4 sm:gap-5">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-[var(--color-ivory)] to-white border border-gray-100 shadow-sm text-[var(--color-royal-deep)] flex items-center justify-center shrink-0 transition-all duration-500 group-hover:from-[var(--color-gold)] group-hover:to-[var(--color-soft-gold)] group-hover:text-white group-hover:shadow-[0_8px_16px_rgba(200,151,62,0.25)] group-hover:border-transparent">
+                      {projectIcons[project.iconName] || <Lightbulb className="w-5 h-5" strokeWidth={1.25} />}
+                    </div>
+                    <div>
+                      <h3 className="font-heading text-base sm:text-lg font-bold text-[var(--color-royal-deep)] mb-1.5 group-hover:text-[var(--color-gold)] transition-colors duration-300">
+                        {project.title}
+                      </h3>
+                      <p className="text-gray-500 text-sm leading-[1.7]">{project.description}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-heading text-base sm:text-lg font-bold text-[var(--color-royal-deep)] mb-1.5 group-hover:text-[var(--color-gold)] transition-colors duration-300">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-500 text-sm leading-[1.7]">{project.description}</p>
-                  </div>
-                </div>
-              </Link>
+                </Link>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 

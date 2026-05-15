@@ -4,10 +4,10 @@ import { Crown, Home, Headphones, Lightbulb, ArrowRight } from "lucide-react";
 import { projects } from "@/data/projects";
 
 const iconMap: Record<string, React.ReactNode> = {
-  crown: <Crown className="w-6 h-6 sm:w-7 sm:h-7" />,
-  home: <Home className="w-6 h-6 sm:w-7 sm:h-7" />,
-  headphones: <Headphones className="w-6 h-6 sm:w-7 sm:h-7" />,
-  lightbulb: <Lightbulb className="w-6 h-6 sm:w-7 sm:h-7" />,
+  crown: <Crown className="w-6 h-6 sm:w-7 sm:h-7" strokeWidth={1.25} />,
+  home: <Home className="w-6 h-6 sm:w-7 sm:h-7" strokeWidth={1.25} />,
+  headphones: <Headphones className="w-6 h-6 sm:w-7 sm:h-7" strokeWidth={1.25} />,
+  lightbulb: <Lightbulb className="w-6 h-6 sm:w-7 sm:h-7" strokeWidth={1.25} />,
 };
 
 export default function ProjectsPage() {
@@ -35,8 +35,8 @@ export default function ProjectsPage() {
             {projects.map((project) => (
               <Link key={project.id} href={project.url} className="group block">
                 <div className="h-full bg-white p-5 sm:p-8 lg:p-10 rounded-sm border border-gray-100 hover:border-[var(--color-gold)]/30 transition-all duration-500 hover:shadow-[0_12px_40px_rgba(200,151,62,0.08)] flex items-start gap-4 sm:gap-5 lg:gap-6">
-                  <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-[var(--color-ivory)] text-[var(--color-royal-deep)] flex items-center justify-center shrink-0 transition-all duration-500 group-hover:bg-[var(--color-gold)] group-hover:text-white group-hover:shadow-[0_4px_16px_rgba(200,151,62,0.3)]">
-                    {iconMap[project.iconName] || <Lightbulb className="w-6 h-6 sm:w-7 sm:h-7" />}
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-[var(--color-ivory)] to-white border border-gray-100 shadow-sm text-[var(--color-royal-deep)] flex items-center justify-center shrink-0 transition-all duration-500 group-hover:from-[var(--color-gold)] group-hover:to-[var(--color-soft-gold)] group-hover:text-white group-hover:shadow-[0_8px_16px_rgba(200,151,62,0.25)] group-hover:border-transparent">
+                    {iconMap[project.iconName] || <Lightbulb className="w-6 h-6 sm:w-7 sm:h-7" strokeWidth={1.25} />}
                   </div>
                   <div className="min-w-0">
                     <h3 className="font-heading text-base sm:text-lg lg:text-xl font-bold text-[var(--color-royal-deep)] mb-1.5 sm:mb-2 group-hover:text-[var(--color-gold)] transition-colors duration-300">{project.title}</h3>

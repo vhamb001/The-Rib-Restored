@@ -18,18 +18,18 @@ export const projects: Project[] = [
     url: "/",
   },
   {
-    id: "beit-yahweh",
-    title: "Beit Yahweh HaGo’el",
-    description: "A house of restoration, healing, and divine purpose.",
-    iconName: "home",
-    url: "#",
-  },
-  {
     id: "listen-selah",
     title: "Listen Selah",
     description:
       "A premium headphone brand created for deep listening and purpose.",
     iconName: "headphones",
+    url: "#",
+  },
+  {
+    id: "beit-yahweh",
+    title: "Beit Yahweh HaGo’el - A House of Redeemer",
+    description: "A house of restoration, healing, and divine purpose.",
+    iconName: "home",
     url: "#",
   },
   {
