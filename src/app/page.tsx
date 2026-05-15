@@ -128,10 +128,10 @@ export default function HomePage() {
               </h2>
               <div className="w-12 h-[2px] bg-gradient-to-r from-[var(--color-gold)] to-transparent mb-6 sm:mb-8" />
               <p className="text-gray-500 text-sm lg:text-[0.95rem] leading-[1.9] mb-4 sm:mb-6">
-                Shalaymah Nurrayah Tzeduqah, known as **The Rib Restored**, is a prophetic dreamer, writer, seer, and spiritual teacher dedicated to helping others understand the language of dreams, discernment, and spiritual revelation.
+                Shalaymah Nurrayah Tzeduqah, known as <span className="text-[var(--color-gold)] font-bold">The Rib Restored</span>, is a prophetic dreamer, writer, seer, and spiritual teacher dedicated to helping others understand the language of dreams, discernment, and spiritual revelation.
               </p>
               <p className="text-gray-500 text-sm lg:text-[0.95rem] leading-[1.9] mb-6 sm:mb-8">
-                Through her writings and the mission of **Beit Yahweh HaGo’el**, she bridges spiritual depth with practical understanding, guiding seekers to recognize the voice of Elohim with wisdom, humility, and clarity.
+                Through her writings and the mission of <span className="text-[var(--color-gold)] font-bold">Beit Yahweh HaGo’el</span>, she bridges spiritual depth with practical understanding, guiding seekers to recognize the voice of Elohim with wisdom, humility, and clarity.
               </p>
               <div className="flex flex-wrap items-center gap-4 sm:gap-6 mb-8">
                 <Button variant="gold" size="sm" asChild>

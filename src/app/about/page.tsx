@@ -48,10 +48,10 @@ export default function AboutPage() {
               </h1>
               <div className="w-12 h-[2px] bg-gradient-to-r from-[var(--color-gold)] to-transparent mb-6 sm:mb-8 mx-auto lg:mx-0" />
               <p className="text-gray-500 text-sm lg:text-[0.95rem] leading-[1.9] mb-4 sm:mb-6 mx-auto lg:mx-0">
-                Shalaymah Nurrayah Tzeduqah, known as **The Rib Restored**, is a prophetic dreamer, writer, seer, and spiritual teacher dedicated to helping others understand the language of dreams, discernment, and spiritual revelation through a grounded prophetic and scriptural lens.
+                Shalaymah Nurrayah Tzeduqah, known as <span className="text-[var(--color-gold)] font-bold">The Rib Restored</span>, is a prophetic dreamer, writer, seer, and spiritual teacher dedicated to helping others understand the language of dreams, discernment, and spiritual revelation through a grounded prophetic and scriptural lens.
               </p>
               <p className="text-gray-500 text-sm lg:text-[0.95rem] leading-[1.9] mb-4 sm:mb-6 mx-auto lg:mx-0">
-                Through her writings, teachings, and the mission of **Beit Yahweh HaGo’el**, Shalaymah seeks to bridge spiritual depth with practical understanding. Her approach combines symbolic interpretation, scriptural foundations, and personal refinement to help others recognize the voice of Elohim with wisdom, humility, and clarity.
+                Through her writings, teachings, and the mission of <span className="text-[var(--color-gold)] font-bold">Beit Yahweh HaGo’el</span>, Shalaymah seeks to bridge spiritual depth with practical understanding. Her approach combines symbolic interpretation, scriptural foundations, and personal refinement to help others recognize the voice of Elohim with wisdom, humility, and clarity.
               </p>
               <div className="flex flex-wrap items-center gap-4 sm:gap-6 justify-center lg:justify-start mb-8">
                 <Button variant="gold" size="sm" asChild>
