@@ -76,13 +76,11 @@ export default function HomePage() {
             {/* Author image — right side */}
             <FadeIn delay={0.15} className="relative order-1 lg:order-2 flex justify-center lg:justify-end">
               <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl">
-                <div className="relative aspect-square sm:aspect-[4/5] lg:aspect-square overflow-hidden">
-                  <Image
+                <div className="relative overflow-hidden">
+                  <img
                     src="/images/main logo.png"
                     alt="The Rib Restored – Brand Identity"
-                    fill
-                    className="object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.05)]"
-                    priority
+                    className="w-full h-auto block drop-shadow-[0_10px_30px_rgba(0,0,0,0.05)]"
                   />
                 </div>
               </div>

@@ -49,12 +49,11 @@ export default function BooksPage() {
                 >
                   {/* Book Cover */}
                   <div className={`relative ${index % 2 === 1 ? "lg:order-2" : ""}`}>
-                    <div className="relative aspect-[4/5] sm:aspect-[3/4] lg:aspect-[4/5] max-w-sm sm:max-w-md lg:max-w-lg mx-auto rounded-sm overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.12)] group">
-                      <Image
+                    <div className="relative max-w-sm sm:max-w-md lg:max-w-lg mx-auto rounded-sm overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.12)] group bg-white">
+                      <img
                         src={book.cover}
                         alt={book.title}
-                        fill
-                        className="object-contain transition-transform duration-700 group-hover:scale-[1.03]"
+                        className="w-full h-auto block transition-transform duration-700 group-hover:scale-[1.03]"
                       />
                       {/* Hover overlay */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
