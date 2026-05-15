@@ -33,26 +33,36 @@ export default function ProjectsPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
           <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 stagger-children">
             {projects.map((project) => (
-              <Link key={project.id} href={project.url} className="group block">
-                <div className="h-full bg-white p-5 sm:p-8 lg:p-10 rounded-sm border border-gray-100 hover:border-[var(--color-gold)]/30 transition-all duration-500 hover:shadow-[0_12px_40px_rgba(200,151,62,0.08)] flex items-start gap-4 sm:gap-5 lg:gap-6">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-[var(--color-ivory)] to-white border border-gray-100 shadow-sm text-[var(--color-royal-deep)] flex items-center justify-center shrink-0 transition-all duration-500 group-hover:from-[var(--color-gold)] group-hover:to-[var(--color-soft-gold)] group-hover:text-white group-hover:shadow-[0_8px_16px_rgba(200,151,62,0.25)] group-hover:border-transparent overflow-hidden">
-                    {project.image ? (
-                      <img src={project.image} alt={project.title} className="w-full h-full object-contain p-2" />
-                    ) : (
-                      iconMap[project.iconName] || <Lightbulb className="w-6 h-6 sm:w-7 sm:h-7" strokeWidth={1.25} />
-                    )}
-                  </div>
-                  <div className="min-w-0">
-                    <h3 className="font-heading text-base sm:text-lg lg:text-xl font-bold text-[var(--color-royal-deep)] mb-1.5 sm:mb-2 group-hover:text-[var(--color-gold)] transition-colors duration-300">{project.title}</h3>
-                    <p className="text-gray-500 text-sm leading-[1.7] mb-2">{project.description}</p>
-                    {project.igHandle && (
-                      <p className="text-[var(--color-gold)] font-bold text-[0.7rem] tracking-widest uppercase flex items-center gap-1.5">
-                        <span className="opacity-50 italic">Follow:</span> {project.igHandle}
-                      </p>
-                    )}
-                  </div>
+              <div key={project.id} className="group block">
+                <div className="h-full bg-white p-5 sm:p-8 lg:p-10 rounded-sm border border-gray-100 hover:border-[var(--color-gold)]/30 transition-all duration-500 hover:shadow-[0_12px_40px_rgba(200,151,62,0.08)]">
+                  <Link href={project.url} className="flex items-start gap-4 sm:gap-5 lg:gap-6 mb-4">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-[var(--color-ivory)] to-white border border-gray-100 shadow-sm text-[var(--color-royal-deep)] flex items-center justify-center shrink-0 transition-all duration-500 group-hover:from-[var(--color-gold)] group-hover:to-[var(--color-soft-gold)] group-hover:text-white group-hover:shadow-[0_8px_16px_rgba(200,151,62,0.25)] group-hover:border-transparent overflow-hidden">
+                      {project.image ? (
+                        <img src={project.image} alt={project.title} className="w-full h-full object-contain p-2" />
+                      ) : (
+                        iconMap[project.iconName] || <Lightbulb className="w-6 h-6 sm:w-7 sm:h-7" strokeWidth={1.25} />
+                      )}
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="font-heading text-base sm:text-lg lg:text-xl font-bold text-[var(--color-royal-deep)] mb-1.5 sm:mb-2 group-hover:text-[var(--color-gold)] transition-colors duration-300">{project.title}</h3>
+                      <p className="text-gray-500 text-sm leading-[1.7]">{project.description}</p>
+                    </div>
+                  </Link>
+                  
+                  {project.igHandle && (
+                    <div className="pl-[4.5rem] sm:pl-[5.25rem]">
+                      <a 
+                        href={`https://instagram.com/${project.igHandle.replace('@', '')}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-[var(--color-gold)] font-bold text-[0.7rem] tracking-widest uppercase hover:text-[var(--color-royal-deep)] transition-colors duration-300"
+                      >
+                        <span className="opacity-50 italic normal-case tracking-normal">Follow on Instagram:</span> {project.igHandle}
+                      </a>
+                    </div>
+                  )}
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
         </div>
