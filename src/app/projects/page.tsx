@@ -49,15 +49,15 @@ export default function ProjectsPage() {
                     </div>
                   </Link>
                   
-                  {project.igHandle && (
+                  {project.socialUrl && (
                     <div className="pl-[4.5rem] sm:pl-[5.25rem]">
                       <a 
-                        href={`https://instagram.com/${project.igHandle.replace('@', '')}`}
+                        href={project.socialUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 text-[var(--color-gold)] font-bold text-[0.7rem] tracking-widest uppercase hover:text-[var(--color-royal-deep)] transition-colors duration-300"
                       >
-                        <span className="opacity-50 italic normal-case tracking-normal">Follow on Instagram:</span> {project.igHandle}
+                        <span className="opacity-50 italic normal-case tracking-normal">Visit on {project.socialLabel}:</span> {project.socialLabel}
                       </a>
                     </div>
                   )}

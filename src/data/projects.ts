@@ -7,7 +7,8 @@ export interface Project {
   iconName: string;
   url: string;
   image?: string;
-  igHandle?: string;
+  socialUrl?: string;
+  socialLabel?: string;
 }
 
 export const projects: Project[] = [
@@ -19,7 +20,8 @@ export const projects: Project[] = [
     iconName: "crown",
     url: "/",
     image: "/images/second logo .png",
-    igHandle: "@The.Rib.Restored",
+    socialUrl: "https://instagram.com/the.rib.restored",
+    socialLabel: "Instagram",
   },
   {
     id: "listen-selah",
@@ -32,9 +34,11 @@ export const projects: Project[] = [
   {
     id: "beit-yahweh",
     title: "Beit Yahweh HaGo’el - A House of Redeemer",
-    description: "A house of restoration, healing, and divine purpose.",
+    description: "A spiritual mission focused on restoration, discernment, and strengthening families. Bridging spiritual depth with scriptural maturity.",
     iconName: "home",
-    url: "#",
+    url: "https://www.BeitYahwehHaGoel.org",
+    socialUrl: "https://facebook.com/BeitYahwehHaGoel",
+    socialLabel: "Facebook",
   },
   {
     id: "future-projects",
