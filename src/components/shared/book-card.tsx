@@ -6,13 +6,15 @@ import type { Book } from "@/data/books";
 export function BookCard({ book }: { book: Book }) {
   return (
     <div className="group flex flex-col h-full bg-white rounded-sm shadow-sm border border-gray-100 overflow-hidden transition-all hover:shadow-md hover:border-[var(--color-soft-gold)]">
-      <div className="relative aspect-[3/4] w-full overflow-hidden bg-gray-50">
-        <Image
-          src={book.cover}
-          alt={book.title}
-          fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
-        />
+      <div className="relative aspect-[3/2] w-full overflow-hidden bg-[var(--color-ivory)]/30 border-b border-gray-100/50 flex items-center justify-center p-4">
+        <div className="relative w-full h-full rounded-sm overflow-hidden shadow-sm">
+          <Image
+            src={book.cover}
+            alt={book.title}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+        </div>
         {book.status === "Coming Soon" && (
           <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-[var(--color-royal)] text-xs font-bold px-3 py-1 rounded-sm uppercase tracking-wider">
             Coming Soon

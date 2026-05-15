@@ -194,9 +194,9 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 max-w-5xl mx-auto stagger-children">
             {featuredBooks.map((book) => (
               <div key={book.id} className="group bg-white rounded-sm border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-[0_16px_48px_rgba(0,0,0,0.08)] hover:border-[var(--color-gold)]/20 h-full">
-                <div className="flex flex-col sm:flex-row h-full">
-                  <div className="shrink-0 sm:w-44 lg:w-48 bg-[var(--color-ivory)]/30 sm:bg-gray-50 flex justify-center items-center py-8 sm:p-6 lg:p-8 border-b sm:border-b-0 sm:border-r border-gray-100">
-                    <div className="relative w-36 sm:w-full aspect-[2/3] rounded-sm overflow-hidden shadow-md">
+                <div className="flex flex-col h-full">
+                  <div className="w-full bg-[var(--color-ivory)]/30 flex justify-center items-center p-4 sm:p-6 border-b border-gray-100/50">
+                    <div className="relative w-full aspect-[3/2] rounded-md overflow-hidden shadow-sm">
                       <Image
                         src={book.cover}
                         alt={book.title}
@@ -275,9 +275,9 @@ export default function HomePage() {
             <div className="grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 stagger-children">
               {childrensBooks.map((book) => (
                 <div key={book.id} className="group bg-white rounded-3xl border-2 border-[var(--color-ivory)] overflow-hidden transition-all duration-500 hover:shadow-[0_16px_48px_rgba(0,0,0,0.06)] hover:border-[var(--color-gold)]/30 h-full">
-                  <div className="flex flex-col sm:flex-row h-full">
-                    <div className="shrink-0 sm:w-44 lg:w-48 bg-gradient-to-br from-[#fdfbf7] to-[#f4f1e9] flex justify-center items-center py-8 sm:p-6 lg:p-8 border-b sm:border-b-0 sm:border-r border-gray-100/50">
-                      <div className="relative w-36 sm:w-full aspect-[3/4] rounded-xl overflow-hidden shadow-sm border border-gray-100/50">
+                  <div className="flex flex-col h-full">
+                    <div className="w-full bg-gradient-to-br from-[#fdfbf7] to-[#f4f1e9] flex justify-center items-center p-4 sm:p-6 border-b border-gray-100/50">
+                      <div className="relative w-full aspect-[3/2] rounded-xl overflow-hidden shadow-sm border border-gray-100/50">
                         <Image
                           src={book.cover}
                           alt={book.title}
