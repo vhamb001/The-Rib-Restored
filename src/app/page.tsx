@@ -240,6 +240,7 @@ export default function HomePage() {
                     )}
                   </div>
                 </div>
+                </div>
               </StaggerItem>
             ))}
           </StaggerContainer>
@@ -304,6 +305,7 @@ export default function HomePage() {
                         </Button>
                       </div>
                     </div>
+                    </div>
                   </div>
                 </StaggerItem>
               ))}
@@ -365,36 +367,36 @@ export default function HomePage() {
             {writings.map((writing) => {
               const date = new Date(writing.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
               return (
-                <Link
-                  key={writing.slug}
-                  href={`/writings/${writing.slug}`}
-                  className="group flex flex-col"
-                >
-                  <div className="relative aspect-[4/3] rounded-sm overflow-hidden bg-[var(--color-ivory)] mb-4 sm:mb-5">
-                    <Image
-                      src={writing.image}
-                      alt={writing.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  </div>
-                  <div className="flex items-center gap-3 mb-2 sm:mb-3">
-                    <span className="text-[0.55rem] font-bold tracking-[0.2em] text-[var(--color-gold)] uppercase">{writing.category}</span>
-                    <span className="w-1 h-1 rounded-full bg-gray-300" />
-                    <span className="text-[0.65rem] text-gray-400">{date}</span>
-                  </div>
-                  <h3 className="font-heading text-lg lg:text-xl font-bold text-[var(--color-royal-deep)] mb-2 group-hover:text-[var(--color-gold)] transition-colors duration-300 leading-tight">
-                    {writing.title}
-                  </h3>
-                  <p className="text-gray-500 text-sm leading-[1.7] line-clamp-2 mb-3 sm:mb-4">
-                    {writing.excerpt}
-                  </p>
-                  <span className="inline-flex items-center text-[0.65rem] font-bold tracking-wider text-[var(--color-royal)] uppercase mt-auto">
-                    Read More <ArrowRight className="w-3 h-3 ml-1.5 transition-transform duration-300 group-hover:translate-x-1" />
-                  </span>
-                </Link>
-              </StaggerItem>
+                <StaggerItem key={writing.slug}>
+                  <Link
+                    href={`/writings/${writing.slug}`}
+                    className="group flex flex-col h-full"
+                  >
+                    <div className="relative aspect-[4/3] rounded-sm overflow-hidden bg-[var(--color-ivory)] mb-4 sm:mb-5">
+                      <Image
+                        src={writing.image}
+                        alt={writing.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    </div>
+                    <div className="flex items-center gap-3 mb-2 sm:mb-3">
+                      <span className="text-[0.55rem] font-bold tracking-[0.2em] text-[var(--color-gold)] uppercase">{writing.category}</span>
+                      <span className="w-1 h-1 rounded-full bg-gray-300" />
+                      <span className="text-[0.65rem] text-gray-400">{date}</span>
+                    </div>
+                    <h3 className="font-heading text-lg lg:text-xl font-bold text-[var(--color-royal-deep)] mb-2 group-hover:text-[var(--color-gold)] transition-colors duration-300 leading-tight">
+                      {writing.title}
+                    </h3>
+                    <p className="text-gray-500 text-sm leading-[1.7] line-clamp-2 mb-3 sm:mb-4">
+                      {writing.excerpt}
+                    </p>
+                    <span className="inline-flex items-center text-[0.65rem] font-bold tracking-wider text-[var(--color-royal)] uppercase mt-auto">
+                      Read More <ArrowRight className="w-3 h-3 ml-1.5 transition-transform duration-300 group-hover:translate-x-1" />
+                    </span>
+                  </Link>
+                </StaggerItem>
               );
             })}
           </StaggerContainer>
