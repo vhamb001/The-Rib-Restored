@@ -193,7 +193,7 @@ export default function HomePage() {
             {featuredBooks.map((book) => (
               <div key={book.id} className="group bg-white rounded-sm border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-[0_16px_48px_rgba(0,0,0,0.08)] hover:border-[var(--color-gold)]/20 h-full">
                 <div className="flex flex-col sm:flex-row h-full">
-                  <div className="shrink-0 sm:w-44 lg:w-48 bg-[var(--color-ivory)]/30 sm:bg-gray-50 flex justify-center py-8 sm:py-0 sm:block border-b border-gray-100 sm:border-0">
+                  <div className="shrink-0 sm:w-40 lg:w-44 bg-[var(--color-ivory)]/30 sm:bg-gray-50 flex justify-center py-8 sm:py-0 sm:block border-b border-gray-100 sm:border-0">
                     <div className="relative w-36 sm:w-full aspect-[2/3] sm:aspect-auto sm:h-full rounded-sm sm:rounded-none overflow-hidden shadow-md sm:shadow-none">
                       <Image
                         src={book.cover}
@@ -203,25 +203,25 @@ export default function HomePage() {
                       />
                     </div>
                   </div>
-                  <div className="p-5 sm:p-6 lg:p-8 flex flex-col justify-center flex-grow">
+                  <div className="p-5 sm:p-5 lg:p-7 flex flex-col justify-center flex-grow">
                     <span className="text-[0.55rem] font-bold tracking-[0.25em] text-[var(--color-gold)] uppercase mb-2">
                       {book.subtitle}
                     </span>
                     <h3 className="font-heading text-xl lg:text-2xl font-bold text-[var(--color-royal-deep)] mb-3 leading-tight">
                       {book.title}
                     </h3>
-                    <p className="text-gray-500 text-sm leading-[1.7] mb-6 sm:mb-5">
+                    <p className="text-gray-500 text-sm leading-[1.7] mb-5">
                       {book.description}
                     </p>
                     {book.formats.length > 0 && (
-                      <div className="flex flex-wrap gap-2 mt-auto">
+                      <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-auto">
                         {book.formats.map((format) => (
                           <a
                             key={format.type}
                             href={format.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex-1 min-w-[100px] sm:flex-none inline-flex justify-center sm:justify-start items-center gap-1.5 text-[0.6rem] font-bold tracking-[0.15em] uppercase border border-gray-200 hover:border-[var(--color-gold)] text-gray-500 hover:text-[var(--color-gold)] px-3 py-2.5 sm:py-2 rounded-sm transition-all duration-300 hover:shadow-sm"
+                            className="flex-1 min-w-[90px] sm:flex-none inline-flex justify-center sm:justify-start items-center gap-1 text-[0.6rem] sm:text-[0.55rem] font-bold tracking-[0.15em] sm:tracking-wider uppercase border border-gray-200 hover:border-[var(--color-gold)] text-gray-500 hover:text-[var(--color-gold)] px-3 py-2.5 sm:px-2 sm:py-1.5 rounded-sm transition-all duration-300 hover:shadow-sm"
                           >
                             <span>{format.type}</span>
                             {format.price && <span className="text-gray-300 hidden sm:inline">·</span>}

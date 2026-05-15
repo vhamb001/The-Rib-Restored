@@ -19,7 +19,7 @@ export function BookCard({ book }: { book: Book }) {
           </div>
         )}
       </div>
-      <div className="p-5 sm:p-6 flex flex-col flex-grow">
+      <div className="p-5 sm:p-5 flex flex-col flex-grow">
         {book.subtitle && (
           <span className="text-xs font-semibold tracking-widest text-[var(--color-gold)] uppercase mb-2 text-center sm:text-left">
             {book.subtitle}
@@ -33,14 +33,14 @@ export function BookCard({ book }: { book: Book }) {
         </p>
         <div className="mt-auto pt-4 border-t border-gray-100">
           {book.status === "Available" && book.formats.length > 0 ? (
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5 sm:gap-2">
               {book.formats.map((format) => (
                 <a
                   key={format.type}
                   href={format.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 min-w-[100px] sm:flex-none inline-flex justify-center sm:justify-start items-center gap-1.5 text-[0.6rem] font-bold tracking-[0.1em] uppercase border border-gray-200 hover:border-[var(--color-gold)] text-gray-500 hover:text-[var(--color-gold)] px-2.5 py-2.5 sm:py-1.5 rounded-sm transition-all duration-300"
+                  className="flex-1 min-w-[90px] sm:flex-none inline-flex justify-center sm:justify-start items-center gap-1 text-[0.6rem] sm:text-[0.55rem] font-bold tracking-[0.1em] uppercase border border-gray-200 hover:border-[var(--color-gold)] text-gray-500 hover:text-[var(--color-gold)] px-2.5 py-2.5 sm:px-2 sm:py-1.5 rounded-sm transition-all duration-300"
                 >
                   <span>{format.type}</span>
                 </a>
