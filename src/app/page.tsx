@@ -6,6 +6,8 @@ import { projects } from "@/data/projects";
 import { getSortedWritingsData } from "@/lib/writings";
 import { Crown, Home, Headphones, Lightbulb, ArrowRight, BookOpen, Quote } from "lucide-react";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/ui/fade-in";
+import homepageData from "../../content/data/homepage.json";
+import siteData from "../../content/data/site.json";
 
 const projectIcons: Record<string, React.ReactNode> = {
   crown: <Crown className="w-6 h-6" strokeWidth={1.25} />,
@@ -13,6 +15,15 @@ const projectIcons: Record<string, React.ReactNode> = {
   headphones: <Headphones className="w-6 h-6" strokeWidth={1.25} />,
   lightbulb: <Lightbulb className="w-6 h-6" strokeWidth={1.25} />,
 };
+
+function renderBioText(text: string) {
+  const parts = text.split(/<highlight>(.*?)<\/highlight>/g);
+  return parts.map((part, i) =>
+    i % 2 === 1
+      ? <span key={i} className="text-[var(--color-gold)] font-bold">{part}</span>
+      : part
+  );
+}
 
 export default function HomePage() {
   const writings = getSortedWritingsData().slice(0, 3);
@@ -37,37 +48,37 @@ export default function HomePage() {
             {/* Text content — full-width on mobile */}
             <FadeIn className="order-2 lg:order-1 text-center lg:text-left">
               <span className="inline-block text-[0.6rem] font-bold tracking-[0.35em] text-gray-400 uppercase mb-4 sm:mb-6">
-                Welcome to
+                {homepageData.hero.welcomeLabel}
               </span>
 
               {/* Title lockup */}
               <div className="relative mb-6 sm:mb-8">
                 <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-[0.06em] text-[var(--color-royal-deep)] uppercase leading-[0.95]">
-                  The Rib
+                  {homepageData.hero.titleLine1}
                 </h1>
                 <span className="font-script text-5xl sm:text-6xl md:text-7xl lg:text-[6.5rem] text-[var(--color-gold)] block -mt-2 sm:-mt-3 ml-4 sm:ml-6 lg:ml-10">
-                  Restored
+                  {homepageData.hero.titleLine2}
                 </span>
               </div>
 
               <div className="flex items-center gap-4 mb-6 sm:mb-8 justify-center lg:justify-start">
                 <div className="w-8 h-px bg-gradient-to-r from-transparent to-[var(--color-gold)]" />
                 <span className="font-heading text-sm sm:text-base lg:text-lg font-bold tracking-[0.25em] text-[var(--color-royal-deep)] uppercase">
-                  By Shalaymah
+                  {homepageData.hero.authorByline}
                 </span>
                 <div className="w-8 h-px bg-gradient-to-l from-transparent to-[var(--color-gold)]" />
               </div>
 
               <p className="text-gray-500 text-sm sm:text-lg mb-8 max-w-lg leading-relaxed">
-                Prophetic Dreamer. Writer. Seer. Dedicated to helping you understand the language of dreams, discernment, and spiritual revelation through a grounded scriptural lens.
+                {homepageData.hero.description}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
                 <Button variant="gold" size="lg" asChild>
-                  <Link href="/books">Explore My Books</Link>
+                  <Link href={homepageData.hero.ctaPrimary.href}>{homepageData.hero.ctaPrimary.text}</Link>
                 </Button>
                 <Button variant="secondary" size="lg" asChild>
-                  <Link href="/writings">Read My Writings</Link>
+                  <Link href={homepageData.hero.ctaSecondary.href}>{homepageData.hero.ctaSecondary.text}</Link>
                 </Button>
               </div>
             </FadeIn>
@@ -77,8 +88,8 @@ export default function HomePage() {
               <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl">
                 <div className="relative overflow-hidden">
                   <img
-                    src="/images/main logo.png"
-                    alt="The Rib Restored – Brand Identity"
+                    src={homepageData.hero.heroImage}
+                    alt={homepageData.hero.heroImageAlt}
                     className="w-full h-auto block drop-shadow-[0_10px_30px_rgba(0,0,0,0.05)]"
                   />
                 </div>
@@ -104,8 +115,8 @@ export default function HomePage() {
             <FadeIn className="relative">
               <div className="relative aspect-[3/4] max-w-xs sm:max-w-sm md:max-w-md mx-auto lg:mx-0 rounded-sm overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.12)]">
                 <Image
-                  src="/images/author.png"
-                  alt="Shalaymah"
+                  src={homepageData.aboutAuthor.authorImage}
+                  alt={homepageData.aboutAuthor.authorImageAlt}
                   fill
                   className="object-cover"
                 />
@@ -118,55 +129,53 @@ export default function HomePage() {
             {/* Text content */}
             <FadeIn delay={0.15}>
               <span className="inline-block text-[0.6rem] font-bold tracking-[0.3em] text-[var(--color-gold)] uppercase mb-4">
-                About the Author
+                {homepageData.aboutAuthor.sectionLabel}
               </span>
               <h2 className="font-heading text-3xl lg:text-4xl font-bold text-[var(--color-royal-deep)] mb-2 leading-tight">
-                My Story.
+                {homepageData.aboutAuthor.headingLine1}
               </h2>
               <h2 className="font-script text-4xl lg:text-5xl text-[var(--color-gold)] mb-6 sm:mb-8 leading-none">
-                My Calling.
+                {homepageData.aboutAuthor.headingLine2}
               </h2>
               <div className="w-12 h-[2px] bg-gradient-to-r from-[var(--color-gold)] to-transparent mb-6 sm:mb-8" />
-              <p className="text-gray-500 text-sm lg:text-[0.95rem] leading-[1.9] mb-4 sm:mb-6">
-                Shalaymah Nurrayah Tzeduqah, known as <span className="text-[var(--color-gold)] font-bold">The Rib Restored</span>, is a prophetic dreamer, writer, seer, and spiritual teacher dedicated to helping others understand the language of dreams, discernment, and spiritual revelation.
-              </p>
-              <p className="text-gray-500 text-sm lg:text-[0.95rem] leading-[1.9] mb-6 sm:mb-8">
-                Through her writings and the mission of <span className="text-[var(--color-gold)] font-bold">Beit Yahweh HaGo’el</span>, she bridges spiritual depth with practical understanding, guiding seekers to recognize the voice of Elohim with wisdom, humility, and clarity.
-              </p>
+              
+              {homepageData.aboutAuthor.bioParagraphs.map((p, i) => (
+                <p key={i} className="text-gray-500 text-sm lg:text-[0.95rem] leading-[1.9] mb-4 sm:mb-6">
+                  {renderBioText(p)}
+                </p>
+              ))}
+
               <div className="flex flex-wrap items-center gap-4 sm:gap-6 mb-8">
                 <Button variant="gold" size="sm" asChild>
-                  <Link href="/about">Full Biography</Link>
+                  <Link href={homepageData.aboutAuthor.bioCta.href}>{homepageData.aboutAuthor.bioCta.text}</Link>
                 </Button>
                 <Link 
-                  href="https://www.amazon.com/stores/Shalaymah-Nurrayah-Tzeduqah/author/B0GY94T77X"
+                  href={siteData.links.amazonAuthorUrl}
                   target="_blank"
                   className="text-[0.6rem] font-bold tracking-[0.2em] text-[var(--color-royal-deep)] uppercase hover:text-[var(--color-gold)] transition-colors"
                 >
-                  View Amazon Author Profile
+                  {homepageData.aboutAuthor.amazonLinkText}
                 </Link>
               </div>
               <div className="flex items-center gap-6 sm:gap-8 justify-start">
-                <div className="text-center">
-                  <span className="font-heading text-2xl sm:text-3xl font-bold text-[var(--color-royal-deep)]">2+</span>
-                  <p className="text-[0.55rem] sm:text-[0.6rem] tracking-[0.2em] text-gray-400 uppercase mt-1">Books</p>
-                </div>
-                <div className="w-px h-10 bg-gray-200" />
-                <div className="text-center">
-                  <span className="font-heading text-2xl sm:text-3xl font-bold text-[var(--color-royal-deep)]">10+</span>
-                  <p className="text-[0.55rem] sm:text-[0.6rem] tracking-[0.2em] text-gray-400 uppercase mt-1">Volumes</p>
-                </div>
-                <div className="w-px h-10 bg-gray-200" />
-                <div className="text-center">
-                  <span className="font-heading text-2xl sm:text-3xl font-bold text-[var(--color-royal-deep)]">∞</span>
-                  <p className="text-[0.55rem] sm:text-[0.6rem] tracking-[0.2em] text-gray-400 uppercase mt-1">Visions</p>
-                </div>
+                {homepageData.aboutAuthor.stats.map((stat, i) => (
+                  <div key={i} className="contents">
+                    {i > 0 && <div className="w-px h-10 bg-gray-200" />}
+                    <div className="text-center">
+                      <span className="font-heading text-2xl sm:text-3xl font-bold text-[var(--color-royal-deep)]">{stat.value}</span>
+                      <p className="text-[0.55rem] sm:text-[0.6rem] tracking-[0.2em] text-gray-400 uppercase mt-1">{stat.label}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
-              <Button variant="ghost" size="lg" className="group" asChild>
-                <Link href="/about">
-                  Learn More About Me
-                  <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
-              </Button>
+              <div className="mt-8">
+                <Button variant="ghost" size="lg" className="group" asChild>
+                  <Link href={homepageData.aboutAuthor.bioCta.href}>
+                    {homepageData.aboutAuthor.learnMoreText}
+                    <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Link>
+                </Button>
+              </div>
             </FadeIn>
           </div>
         </div>
@@ -180,14 +189,14 @@ export default function HomePage() {
           {/* Section header */}
           <FadeIn className="text-center mb-10 sm:mb-14">
             <span className="inline-block text-[0.6rem] font-bold tracking-[0.3em] text-[var(--color-gold)] uppercase mb-4">
-              Library
+              {homepageData.featuredBooks.sectionLabel}
             </span>
             <h2 className="font-heading text-3xl lg:text-4xl font-bold text-[var(--color-royal-deep)] mb-4">
-              Featured Books
+              {homepageData.featuredBooks.heading}
             </h2>
             <div className="gold-rule w-20 mx-auto mb-6" />
             <p className="text-gray-500 text-sm lg:text-base max-w-md mx-auto">
-              Words that restore. Stories that reveal. Kingdom understanding, one page at a time.
+              {homepageData.featuredBooks.description}
             </p>
           </FadeIn>
 
@@ -251,8 +260,8 @@ export default function HomePage() {
             <div className="inline-flex items-center gap-3 bg-white border border-gray-100 px-5 sm:px-6 py-3 sm:py-4 rounded-sm">
               <BookOpen className="w-5 h-5 text-[var(--color-gold)]" />
               <div className="text-left">
-                <p className="text-sm font-semibold text-[var(--color-royal-deep)]">More revelations coming soon</p>
-                <p className="text-[0.6rem] text-gray-400 tracking-wider uppercase">New books are in the works. Stay tuned!</p>
+                <p className="text-sm font-semibold text-[var(--color-royal-deep)]">{homepageData.featuredBooks.comingSoonHeading}</p>
+                <p className="text-[0.6rem] text-gray-400 tracking-wider uppercase">{homepageData.featuredBooks.comingSoonDescription}</p>
               </div>
             </div>
           </FadeIn>
@@ -267,10 +276,10 @@ export default function HomePage() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
             <FadeIn className="text-center mb-10 sm:mb-14">
               <span className="inline-block text-[0.6rem] font-bold tracking-[0.3em] text-[var(--color-gold)] uppercase mb-4">
-                For The Little Ones
+                {homepageData.childrensCorner.sectionLabel}
               </span>
               <h2 className="font-heading text-3xl lg:text-4xl font-bold text-[var(--color-royal-deep)] mb-4">
-                Children&apos;s Corner
+                {homepageData.childrensCorner.heading}
               </h2>
               <div className="gold-rule w-20 mx-auto mb-6" />
             </FadeIn>
@@ -327,12 +336,12 @@ export default function HomePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center relative z-10">
           <Quote className="w-8 h-8 sm:w-10 sm:h-10 text-[var(--color-gold)]/40 mx-auto mb-4 sm:mb-6 rotate-180" />
           <blockquote className="font-heading text-lg sm:text-xl lg:text-2xl text-white/90 italic leading-relaxed mb-4 sm:mb-6 px-2">
-            &ldquo;She is clothed with strength and dignity, and she laughs without fear of the future.&rdquo;
+            &ldquo;{homepageData.scriptureQuote.text}&rdquo;
           </blockquote>
           <div className="flex items-center justify-center gap-4">
             <div className="w-8 h-px bg-[var(--color-gold)]/40" />
             <cite className="text-[0.6rem] font-bold tracking-[0.3em] text-[var(--color-gold)] uppercase not-italic">
-              Proverbs 31:25
+              {homepageData.scriptureQuote.citation}
             </cite>
             <div className="w-8 h-px bg-[var(--color-gold)]/40" />
           </div>
@@ -348,17 +357,17 @@ export default function HomePage() {
           <FadeIn className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-10 sm:mb-14">
             <div>
               <span className="inline-block text-[0.6rem] font-bold tracking-[0.3em] text-[var(--color-gold)] uppercase mb-4">
-                From the Journal
+                {homepageData.latestWritings.sectionLabel}
               </span>
               <h2 className="font-heading text-3xl lg:text-4xl font-bold text-[var(--color-royal-deep)]">
-                Latest Writings
+                {homepageData.latestWritings.heading}
               </h2>
             </div>
             <Link
               href="/writings"
               className="group inline-flex items-center text-sm font-bold tracking-wider text-[var(--color-royal-deep)] uppercase mt-4 sm:mt-0 hover:text-[var(--color-gold)] transition-colors"
             >
-              View All
+              {homepageData.latestWritings.viewAllText}
               <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </FadeIn>
@@ -412,14 +421,14 @@ export default function HomePage() {
           {/* Section header */}
           <FadeIn className="text-center mb-10 sm:mb-14">
             <span className="inline-block text-[0.6rem] font-bold tracking-[0.3em] text-[var(--color-gold)] uppercase mb-4">
-              Initiatives
+              {homepageData.projectsVentures.sectionLabel}
             </span>
             <h2 className="font-heading text-3xl lg:text-4xl font-bold text-[var(--color-royal-deep)] mb-4">
-              Projects & Ventures
+              {homepageData.projectsVentures.heading}
             </h2>
             <div className="gold-rule w-20 mx-auto mb-6" />
             <p className="text-gray-500 text-sm lg:text-base max-w-md mx-auto">
-              Ideas. Impact. Purpose in motion.
+              {homepageData.projectsVentures.description}
             </p>
           </FadeIn>
 
@@ -452,14 +461,14 @@ export default function HomePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
           <FadeIn className="text-center mb-10 sm:mb-16">
             <span className="inline-block text-[0.6rem] font-bold tracking-[0.3em] text-[var(--color-gold)] uppercase mb-4">
-              Connect & Consume
+              {homepageData.listenRead.sectionLabel}
             </span>
             <h2 className="font-heading text-3xl lg:text-4xl font-bold text-[var(--color-royal-deep)] mb-4">
-              Listen & Read
+              {homepageData.listenRead.heading}
             </h2>
             <div className="gold-rule w-20 mx-auto mb-6" />
             <p className="text-gray-500 text-sm lg:text-base max-w-md mx-auto">
-              Dive deeper into the teachings, prophecies, and reflections across platforms.
+              {homepageData.listenRead.description}
             </p>
           </FadeIn>
 
@@ -471,13 +480,13 @@ export default function HomePage() {
                   <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
                 </div>
                 <h3 className="font-heading text-xl sm:text-2xl font-bold text-[var(--color-royal-deep)] mb-3 group-hover:text-[var(--color-gold)] transition-colors duration-300">
-                  Read on Substack
+                  {homepageData.listenRead.substack.heading}
                 </h3>
                 <p className="text-gray-500 text-sm leading-[1.8] mb-8 max-w-sm">
-                  Subscribe to receive in-depth prophetic writings, articles, and exclusive newsletters directly to your inbox.
+                  {homepageData.listenRead.substack.description}
                 </p>
                 <Button variant="gold" className="rounded-full px-8 mt-auto group-hover:scale-105 transition-transform duration-300" asChild>
-                  <a href="https://intentionallistening1.substack.com" target="_blank" rel="noopener noreferrer">Explore Articles</a>
+                  <a href={siteData.links.substackUrl} target="_blank" rel="noopener noreferrer">{homepageData.listenRead.substack.ctaText}</a>
                 </Button>
               </div>
             </StaggerItem>
@@ -492,13 +501,13 @@ export default function HomePage() {
                   <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.6 14.4c-.2.3-.6.4-.9.2-2.5-1.5-5.7-1.8-9.4-1-.3.1-.7-.1-.8-.4-.1-.3.1-.7.4-.8 4.1-.9 7.6-.5 10.4 1.2.3.1.4.5.3.8zm1.2-2.7c-.2.4-.7.5-1 .3-2.9-1.8-6.6-2.2-10-1.2-.4.1-.9-.1-1-.5-.1-.4.1-.9.5-1 3.9-1.2 8.1-.7 11.4 1.3.3.3.4.8.1 1.1zm.1-2.9c-3.4-2-8.1-2.2-11-1.2-.5.2-1-.1-1.2-.6-.2-.5.1-1 .6-1.2 3.4-1.2 8.6-1 12.5 1.3.5.3.6.9.3 1.4-.2.4-.7.6-1.2.3z"/></svg>
                 </div>
                 <h3 className="font-heading text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-[var(--color-gold)] transition-colors duration-300 relative z-10">
-                  Listen on Spotify
+                  {homepageData.listenRead.spotify.heading}
                 </h3>
                 <p className="text-white/60 text-sm leading-[1.8] mb-8 max-w-sm relative z-10">
-                  Immerse yourself in spoken word, teachings, and podcasts. Experience the message anywhere you go.
+                  {homepageData.listenRead.spotify.description}
                 </p>
                 <Button variant="secondary" className="rounded-full px-8 mt-auto border-transparent hover:bg-[var(--color-gold)] hover:text-white group-hover:scale-105 transition-transform duration-300 relative z-10" asChild>
-                  <a href="#" target="_blank" rel="noopener noreferrer">Listen Now</a>
+                  <a href={siteData.links.spotifyUrl} target="_blank" rel="noopener noreferrer">{homepageData.listenRead.spotify.ctaText}</a>
                 </Button>
               </div>
             </StaggerItem>
@@ -515,15 +524,15 @@ export default function HomePage() {
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center relative z-10">
           <h2 className="font-script text-2xl sm:text-3xl lg:text-4xl text-[var(--color-gold)] mb-3">
-            Stay connected. Be the first to know.
+            {homepageData.newsletter.heading}
           </h2>
           <p className="text-white/40 text-sm mb-6 sm:mb-8 max-w-md mx-auto">
-            Subscribe to receive updates on new books, writings, and announcements directly to your inbox.
+            {homepageData.newsletter.description}
           </p>
           <div className="flex justify-center mt-8">
             <Button variant="gold" className="rounded-sm text-[0.65rem] tracking-[0.2em] px-10 h-auto py-4 group hover:scale-105 transition-transform duration-300" asChild>
-              <a href="https://intentionallistening1.substack.com" target="_blank" rel="noopener noreferrer">
-                Subscribe on Substack <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+              <a href={siteData.links.substackUrl} target="_blank" rel="noopener noreferrer">
+                {homepageData.newsletter.ctaText} <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
               </a>
             </Button>
           </div>

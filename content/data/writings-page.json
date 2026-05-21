@@ -1,0 +1,22 @@
+{
+  "hero": {
+    "sectionLabel": "Reflections & Teachings",
+    "heading": "Writings & Reflections",
+    "description": "A space for kingdom understanding — reflections, teachings, and divine inspiration."
+  },
+  "categories": [
+    "All Writings",
+    "Dreams & Visions",
+    "Reflections",
+    "Faith & Growth",
+    "Healing",
+    "Purpose & Calling",
+    "Kingdom Living",
+    "Announcements"
+  ],
+  "newsletter": {
+    "heading": "Stay updated",
+    "description": "Subscribe to receive new writings and reflections directly to your inbox.",
+    "ctaText": "Subscribe on Substack"
+  }
+}

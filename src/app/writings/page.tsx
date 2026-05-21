@@ -3,17 +3,8 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { getSortedWritingsData } from "@/lib/writings";
 import { ArrowRight } from "lucide-react";
-
-const categories = [
-  "All Writings",
-  "Dreams & Visions",
-  "Reflections",
-  "Faith & Growth",
-  "Healing",
-  "Purpose & Calling",
-  "Kingdom Living",
-  "Announcements",
-];
+import writingsPageData from "../../../content/data/writings-page.json";
+import siteData from "../../../content/data/site.json";
 
 export default function WritingsPage() {
   const writings = getSortedWritingsData();
@@ -24,13 +15,13 @@ export default function WritingsPage() {
       <section className="relative bg-[var(--color-ivory)] py-16 sm:py-20 lg:py-28 overflow-hidden border-b border-gray-100">
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-[var(--color-royal)]/5 rounded-full blur-[100px] pointer-events-none" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 animate-fade-in-up">
-          <span className="inline-block text-[0.6rem] font-bold tracking-[0.3em] text-gray-400 uppercase mb-4">Reflections & Teachings</span>
+          <span className="inline-block text-[0.6rem] font-bold tracking-[0.3em] text-gray-400 uppercase mb-4">{writingsPageData.hero.sectionLabel}</span>
           <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--color-royal-deep)] mb-4">
-            Writings & Reflections
+            {writingsPageData.hero.heading}
           </h1>
           <div className="gold-rule w-24 mx-auto mb-6" />
           <p className="text-gray-500 text-base sm:text-lg max-w-lg mx-auto leading-relaxed">
-            A space for kingdom understanding — reflections, teachings, and divine inspiration.
+            {writingsPageData.hero.description}
           </p>
         </div>
       </section>
@@ -38,13 +29,13 @@ export default function WritingsPage() {
       {/* Content */}
       <section className="py-10 sm:py-14 lg:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl flex flex-col lg:flex-row gap-8 sm:gap-10 lg:gap-16">
-          {/* Sidebar — horizontal scroll on mobile, vertical on desktop */}
+          {/* Sidebar */}
           <aside className="w-full lg:w-56 shrink-0">
             <h3 className="font-heading font-bold text-sm tracking-[0.1em] text-[var(--color-royal-deep)] uppercase mb-3 sm:mb-5">
               Categories
             </h3>
             <ul className="flex lg:flex-col gap-1.5 sm:gap-1 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 -mx-1 px-1 lg:mx-0 lg:px-0">
-              {categories.map((cat) => (
+              {writingsPageData.categories.map((cat) => (
                 <li key={cat} className="shrink-0 lg:shrink">
                   <button
                     className={`text-sm text-left whitespace-nowrap lg:whitespace-normal w-auto lg:w-full py-2 sm:py-2.5 px-3 sm:px-4 rounded-sm transition-all duration-300 ${
@@ -100,12 +91,12 @@ export default function WritingsPage() {
           <div className="bg-[var(--color-royal-deep)] text-white p-7 sm:p-10 lg:p-14 rounded-sm relative overflow-hidden">
             <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "24px 24px" }} />
             <div className="relative z-10">
-              <h2 className="font-script text-2xl sm:text-3xl lg:text-4xl text-[var(--color-gold)] mb-3">Stay updated</h2>
-              <p className="text-white/50 text-sm mb-6 sm:mb-8">Subscribe to receive new writings and reflections directly to your inbox.</p>
+              <h2 className="font-script text-2xl sm:text-3xl lg:text-4xl text-[var(--color-gold)] mb-3">{writingsPageData.newsletter.heading}</h2>
+              <p className="text-white/50 text-sm mb-6 sm:mb-8">{writingsPageData.newsletter.description}</p>
               <div className="flex justify-center mt-8">
                 <Button variant="gold" className="rounded-sm text-[0.65rem] tracking-[0.2em] px-10 h-auto py-4 group hover:scale-105 transition-transform duration-300" asChild>
-                  <a href="https://intentionallistening1.substack.com" target="_blank" rel="noopener noreferrer">
-                    Subscribe on Substack <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+                  <a href={siteData.links.substackUrl} target="_blank" rel="noopener noreferrer">
+                    {writingsPageData.newsletter.ctaText} <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
                   </a>
                 </Button>
               </div>

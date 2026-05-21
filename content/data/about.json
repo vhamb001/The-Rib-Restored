@@ -1,0 +1,76 @@
+{
+  "hero": {
+    "sectionLabel": "Get to Know Me",
+    "headingLine1": "My Story.",
+    "headingLine2": "My Calling.",
+    "bioParagraphs": [
+      "Shalaymah Nurrayah Tzeduqah, known as <highlight>The Rib Restored</highlight>, is a prophetic dreamer, writer, seer, and spiritual teacher dedicated to helping others understand the language of dreams, discernment, and spiritual revelation through a grounded prophetic and scriptural lens.",
+      "Through her writings, teachings, and the mission of <highlight>Beit Yahweh HaGo'el</highlight>, Shalaymah seeks to bridge spiritual depth with practical understanding. Her approach combines symbolic interpretation, scriptural foundations, and personal refinement to help others recognize the voice of Elohim with wisdom, humility, and clarity."
+    ],
+    "amazonButtonText": "View Amazon Author Profile",
+    "instagramText": "Instagram: @The.Rib.Restored",
+    "stats": [
+      { "value": "2+", "label": "Books" },
+      { "value": "10+", "label": "Volumes" },
+      { "value": "∞", "label": "Dreams" }
+    ]
+  },
+
+  "quote": {
+    "text": "For we are His workmanship, created in Christ Jesus for good works, which God prepared beforehand that we should walk in them.",
+    "citation": "Ephesians 2:10"
+  },
+
+  "pillars": {
+    "sectionLabel": "What Drives Me",
+    "heading": "The Four Pillars",
+    "items": [
+      {
+        "iconName": "heart",
+        "title": "My Heart",
+        "body": "To see the broken made whole and the lost finding their identity. My heart beats for restoration — for the quiet moments where healing begins, and for the deep waters of understanding that transform lives."
+      },
+      {
+        "iconName": "target",
+        "title": "My Mission",
+        "body": "To write words that act as balm and blueprints. Through books, teachings, and reflections, my mission is to provide the resources and wisdom necessary for true, lasting, kingdom-aligned restoration."
+      },
+      {
+        "iconName": "eye",
+        "title": "My Calling",
+        "body": "I am called to be a watchwoman and a prophetic dreamer. I listen, I wait, and I record what is spoken in the stillness so that others may hear, see, and understand the divine timeline."
+      },
+      {
+        "iconName": "hammer",
+        "title": "My Purpose",
+        "body": "To build. Whether it is a book, a brand, or a house of healing, my purpose is to physically and spiritually manifest the kingdom through ventures that restore identity and impact lives."
+      }
+    ]
+  },
+
+  "beliefs": {
+    "sectionLabel": "My Manifesto",
+    "heading": "What I Believe",
+    "items": [
+      {
+        "keyword": "Restore",
+        "text": "Through The Rib Restored, Shalaymah shares teachings and resources designed to help others navigate spiritual experiences with maturity, wisdom, and balance."
+      },
+      {
+        "keyword": "Reveal",
+        "text": "Her approach combines symbolic interpretation and scriptural foundations, helping seekers recognize the voice of Elohim in dreams and symbols."
+      },
+      {
+        "keyword": "Redeem",
+        "text": "Connected to Beit Yahweh HaGo'el — House of Yahweh The Redeemer, her work focuses on restoration, discernment, and strengthening families."
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "Continue the journey",
+    "description": "Explore my books, read my writings, or reach out — I'd love to connect with you.",
+    "primaryButton": { "text": "Explore My Books", "href": "/books" },
+    "secondaryButton": { "text": "Read My Writings", "href": "/writings" }
+  }
+}

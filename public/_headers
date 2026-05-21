@@ -1,0 +1,29 @@
+# Cache rules for hashed Next.js static chunks and assets (1 year caching, immutable)
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache rules for static images and files (1 year caching, immutable)
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+/file.svg
+  Cache-Control: public, max-age=31536000, immutable
+/globe.svg
+  Cache-Control: public, max-age=31536000, immutable
+/next.svg
+  Cache-Control: public, max-age=31536000, immutable
+/vercel.svg
+  Cache-Control: public, max-age=31536000, immutable
+/window.svg
+  Cache-Control: public, max-age=31536000, immutable
+/icon.png
+  Cache-Control: public, max-age=86400
+
+# Security headers applied to all paths
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-XSS-Protection: 1; mode=block
+  X-Permitted-Cross-Domain-Policies: none
+  Permissions-Policy: geolocation=(), camera=(), microphone=(), interest-cohort=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.spotify.com https://*.substack.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: blob:; font-src 'self' https://fonts.gstatic.com; media-src 'self' https:; connect-src 'self' https:; frame-src 'self' https://*.spotify.com https://*.substack.com;

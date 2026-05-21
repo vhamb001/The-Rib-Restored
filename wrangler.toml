@@ -1,0 +1,4 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "the-rib-restored"
+compatibility_date = "2026-05-21"
+pages_build_output_dir = "out"

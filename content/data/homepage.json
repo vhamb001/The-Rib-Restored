@@ -1,0 +1,95 @@
+{
+  "hero": {
+    "welcomeLabel": "Welcome to",
+    "titleLine1": "The Rib",
+    "titleLine2": "Restored",
+    "authorByline": "By Shalaymah Nurrayah Tzeduqah",
+    "description": "A sacred space of restoration, prophetic writings, dream interpretation, spiritual discernment, and kingdom-centered creativity. Through books, scrolls, reflections, teachings, and revelations, The Rib Restored exists to help others understand the language of dreams, navigate spiritual encounters with wisdom, and rediscover identity, healing, and purpose through a grounded scriptural lens.",
+    "heroImage": "/images/main logo.png",
+    "heroImageAlt": "The Rib Restored – Brand Identity",
+    "ctaPrimary": {
+      "text": "Explore the Library",
+      "href": "/books"
+    },
+    "ctaSecondary": {
+      "text": "Read the Writings",
+      "href": "/writings"
+    }
+  },
+  "aboutAuthor": {
+    "sectionLabel": "About the Author",
+    "headingLine1": "The Story.",
+    "headingLine2": "The Calling.",
+    "authorImage": "/images/author.png",
+    "authorImageAlt": "Shalaymah Nurrayah Tzeduqah",
+    "bioParagraphs": [
+      "Shalaymah Nurrayah Tzeduqah, known as <highlight>The Rib Restored</highlight>, is a prophetic dreamer, writer, seer, creative visionary, and spiritual teacher dedicated to helping others understand dreams, discernment, symbolism, restoration, and spiritual revelation through wisdom, beauty, and scriptural grounding.",
+      "Through prophetic writings, teachings, reflections, books, and the mission of <highlight>Beit Yahweh HaGo'el</highlight>, she creates spaces where restoration, healing, identity, spiritual maturity, and revelation meet — guiding others to recognize the voice of Elohim with clarity, humility, discernment, and purpose."
+    ],
+    "bioCta": {
+      "text": "Read Full Biography",
+      "href": "/about"
+    },
+    "amazonLinkText": "View Amazon Author Profile",
+    "learnMoreText": "Learn More About The Mission",
+    "stats": [
+      {
+        "value": "2+",
+        "label": "Published Books"
+      },
+      {
+        "value": "10+",
+        "label": "Volumes & Scrolls"
+      },
+      {
+        "value": "∞",
+        "label": "Visions & Revelations"
+      }
+    ]
+  },
+  "featuredBooks": {
+    "sectionLabel": "The Library",
+    "heading": "Featured Books",
+    "description": "Books, scrolls, manuals, and prophetic writings created to awaken discernment, deepen understanding, restore identity, and reveal hidden wisdom through storytelling, dreams, scripture, and revelation.",
+    "comingSoonHeading": "More writings are unfolding",
+    "comingSoonDescription": "New books, scrolls, teachings, and restoration-centered works are currently being prepared. More revelations are on the way."
+  },
+  "childrensCorner": {
+    "sectionLabel": "For the Next Generation",
+    "heading": "Children’s Corner"
+  },
+  "scriptureQuote": {
+    "text": "She is clothed with strength and dignity, and she laughs without fear of the future.",
+    "citation": "Proverbs 31:25"
+  },
+  "latestWritings": {
+    "sectionLabel": "From the Journal",
+    "heading": "Latest Writings & Reflections",
+    "viewAllText": "View All Writings"
+  },
+  "projectsVentures": {
+    "sectionLabel": "Assignments & Initiatives",
+    "heading": "Projects & Ventures",
+    "description": "Purpose-driven visions, restoration-centered initiatives, creative ventures, and future projects designed to inspire, build, restore, teach, and impact lives through wisdom, beauty, technology, storytelling, and spiritual understanding."
+  },
+  "listenRead": {
+    "sectionLabel": "Connect & Consume",
+    "heading": "Listen & Read",
+    "description": "Dive deeper into the teachings, reflections, prophetic writings, podcasts, spoken word, and restoration-centered content across multiple platforms.",
+    "substack": {
+      "heading": "Read on Substack",
+      "description": "Explore in-depth prophetic writings, dream teachings, reflections, scrolls, and exclusive journal-style entries designed to deepen discernment and spiritual understanding.",
+      "ctaText": "Explore the Writings"
+    },
+    "spotify": {
+      "heading": "Listen on Spotify",
+      "description": "Immerse yourself in spoken word, reflections, teachings, meditations, and restoration-centered audio experiences created for moments of stillness, healing, and revelation.",
+      "ctaText": "Listen Now"
+    }
+  },
+  "newsletter": {
+    "heading": "Stay Connected to the Journey",
+    "description": "Subscribe to receive updates on new books, prophetic writings, teachings, reflections, scroll releases, and restoration-centered announcements directly to your inbox.",
+    "ctaText": "Subscribe on Substack"
+  }
+}

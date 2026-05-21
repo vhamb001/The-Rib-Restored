@@ -1,0 +1,43 @@
+{
+  "brand": {
+    "tagline": "Restored to Purpose. Called to Impact.",
+    "taglineSecondary": "A sacred space for restoration, discernment, prophetic writings, dreams, and revelation. Thank you for being here — you are part of the journey.",
+    "logoImage": "/images/second logo .png",
+    "logoAlt": "The Rib Restored Logo"
+  },
+  "quickLinks": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "About Me",
+      "href": "/about"
+    },
+    {
+      "label": "Books",
+      "href": "/books"
+    },
+    {
+      "label": "Writings",
+      "href": "/writings"
+    },
+    {
+      "label": "Projects",
+      "href": "/projects"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact"
+    }
+  ],
+  "stayConnected": {
+    "heading": "Stay Connected",
+    "description": "Subscribe to receive updates on new books, prophetic writings, scroll releases, teachings, reflections, podcasts, and restoration-centered announcements directly to your inbox.",
+    "emailPlaceholder": "Enter Your Email",
+    "submitText": "Subscribe"
+  },
+  "followMe": {
+    "heading": "Follow the Journey"
+  }
+}

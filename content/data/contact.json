@@ -1,0 +1,22 @@
+{
+  "hero": {
+    "sectionLabel": "Connect & Inquire",
+    "heading": "Let’s Connect",
+    "description": "Whether you’re reaching out with a question, collaboration, speaking invitation, creative opportunity, testimony, or simply a message from the heart — you are welcome here. I’d love to hear from you."
+  },
+  "sidebar": {
+    "greeting": "Shalom & Welcome",
+    "heading": "Let’s Connect",
+    "description": "Thank you for visiting The Rib Restored. This space was created to encourage restoration, discernment, healing, creativity, and spiritual understanding. Whether your message is personal, professional, ministry-related, or simply a greeting — feel free to reach out below.",
+    "emailHeading": "Email",
+    "emailText": "Official Contact Email Coming Soon",
+    "socialHeading": "Follow the Journey"
+  },
+  "form": {
+    "nameLabel": "Your Name",
+    "emailLabel": "Your Email",
+    "subjectLabel": "Subject",
+    "messageLabel": "Your Message",
+    "submitText": "Send Message"
+  }
+}

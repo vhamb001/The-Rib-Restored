@@ -1,0 +1,13 @@
+{
+  "hero": {
+    "sectionLabel": "Library",
+    "heading": "My Books",
+    "description": "Words that restore. Stories that reveal. Kingdom understanding, one page at a time."
+  },
+  "comingSoon": {
+    "heading": "More Revelations Are Coming",
+    "description": "I am currently working on new writings and books. Join the newsletter to be the first to know when they are released.",
+    "ctaText": "Stay Connected",
+    "ctaHref": "/#newsletter"
+  }
+}

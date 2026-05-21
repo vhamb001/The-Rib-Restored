@@ -1,0 +1,13 @@
+{
+  "hero": {
+    "sectionLabel": "Initiatives & Assignments",
+    "heading": "Projects & Ventures",
+    "description": "Purpose-driven ideas, restoration-centered ventures, creative visions, and future initiatives designed to inspire, build, restore, and impact lives. Each project represents a piece of the larger assignment — blending faith, creativity, wisdom, storytelling, technology, and transformation into meaningful experiences that leave lasting impact."
+  },
+  "cta": {
+    "heading": "Have an idea, vision, or collaboration in mind?",
+    "description": "Whether it’s a creative project, ministry initiative, restoration-centered venture, publishing opportunity, speaking invitation, or purposeful partnership — I’m always open to building meaningful things that align with vision, impact, and legacy.",
+    "ctaText": "Let’s Build Together",
+    "ctaHref": "/contact"
+  }
+}

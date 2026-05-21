@@ -1,0 +1,41 @@
+[
+  {
+    "id": "rib-restored",
+    "title": "The Rib Restored",
+    "description": "The Rib Restored is a prophetic and restorative platform dedicated to healing, spiritual awakening, discernment, and identity restoration. Through scrolls, writings, teachings, dream interpretation, reflections, and creative works, it serves as a sacred space for those navigating spiritual encounters, restoration journeys, and deeper intimacy with Yahweh. Blending beauty, wisdom, and revelation, the platform exists to restore what was hidden, strengthen spiritual maturity, and awaken purpose through truth, stillness, and divine understanding.",
+    "iconName": "crown",
+    "url": "/",
+    "image": "/images/second logo .png",
+    "socialUrl": "https://instagram.com/the.rib.restored",
+    "socialLabel": "Instagram",
+    "socialHandle": "@the.rib.restored",
+    "tagline": "Restoring what was hidden. Revealing what was always known."
+  },
+  {
+    "id": "listen-selah",
+    "title": "Listen Selah",
+    "description": "Listen Selah is a luxury audio and listening experience brand centered around stillness, intentionality, reflection, and immersive sound. Created for those who value depth over noise, the brand merges elegant design with purposeful listening — transforming music, spoken word, teachings, and moments of quiet into sacred experiences of clarity, creativity, and restoration.",
+    "iconName": "headphones",
+    "url": "#",
+    "tagline": "Where sound meets stillness."
+  },
+  {
+    "id": "beit-yahweh",
+    "title": "Beit Yahweh HaGo'el",
+    "description": "Beit Yahweh HaGo'el — The House of the Redeemer — is a spiritual mission and restoration movement focused on strengthening families, rebuilding foundations, cultivating discernment, and restoring people back to truth, identity, and spiritual maturity. Rooted in scripture, prophetic insight, and restoration, the mission exists to create spaces of wisdom, refuge, healing, and awakening for those seeking deeper understanding and alignment.",
+    "iconName": "home",
+    "url": "https://www.BeitYahwehHaGoel.org",
+    "socialUrl": "https://facebook.com/BeitYahwehHaGoel",
+    "socialLabel": "Facebook",
+    "socialHandle": "BeitYahwehHaGoel",
+    "tagline": "A house of restoration, truth, and spiritual awakening."
+  },
+  {
+    "id": "future-projects",
+    "title": "Future Projects",
+    "description": "A growing collection of visionary projects, digital platforms, creative ventures, applications, educational tools, books, and restoration-centered ideas designed to inspire, teach, heal, and impact lives globally. These projects are rooted in purpose, innovation, storytelling, spiritual insight, and legacy-building for future generations.",
+    "iconName": "lightbulb",
+    "url": "#",
+    "tagline": "Building what was seen before it fully arrives."
+  }
+]

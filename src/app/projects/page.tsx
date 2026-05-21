@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Crown, Home, Headphones, Lightbulb, ArrowRight } from "lucide-react";
 import { projects } from "@/data/projects";
+import projectsPageData from "../../../content/data/projects-page.json";
 
 const iconMap: Record<string, React.ReactNode> = {
   crown: <Crown className="w-6 h-6 sm:w-7 sm:h-7" strokeWidth={1.25} />,
@@ -17,13 +18,13 @@ export default function ProjectsPage() {
       <section className="relative bg-[var(--color-ivory)] py-16 sm:py-20 lg:py-28 overflow-hidden">
         <div className="absolute top-0 left-0 w-96 h-96 bg-[var(--color-gold)]/5 rounded-full blur-[120px] pointer-events-none" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 animate-fade-in-up">
-          <span className="inline-block text-[0.6rem] font-bold tracking-[0.3em] text-gray-400 uppercase mb-4">Initiatives</span>
+          <span className="inline-block text-[0.6rem] font-bold tracking-[0.3em] text-gray-400 uppercase mb-4">{projectsPageData.hero.sectionLabel}</span>
           <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--color-royal-deep)] mb-4">
-            Projects & Ventures
+            {projectsPageData.hero.heading}
           </h1>
           <div className="gold-rule w-24 mx-auto mb-6" />
           <p className="text-gray-500 text-base sm:text-lg max-w-lg mx-auto leading-relaxed">
-            Ideas. Impact. Purpose in motion. These are the initiatives assigned to build and impact lives.
+            {projectsPageData.hero.description}
           </p>
         </div>
       </section>
@@ -72,14 +73,14 @@ export default function ProjectsPage() {
       <section className="py-14 sm:py-20 lg:py-24 bg-[var(--color-ivory)]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl text-center">
           <h2 className="font-script text-3xl sm:text-4xl lg:text-5xl text-[var(--color-gold)] mb-3">
-            Have an idea or collaboration?
+            {projectsPageData.cta.heading}
           </h2>
           <p className="text-gray-500 text-sm sm:text-base mb-6 sm:mb-8 max-w-md mx-auto">
-            I&apos;m always open to new partnerships and purposeful ventures. Let&apos;s build together.
+            {projectsPageData.cta.description}
           </p>
           <Button variant="gold" size="lg" asChild>
-            <Link href="/contact">
-              Get in Touch <ArrowRight className="w-4 h-4 ml-2" />
+            <Link href={projectsPageData.cta.ctaHref}>
+              {projectsPageData.cta.ctaText} <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
           </Button>
         </div>

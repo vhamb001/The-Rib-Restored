@@ -1,0 +1,9 @@
+# Cloudflare Pages Redirects File
+# Format: /source-path /target-path [status-code]
+# Status code is optional, defaults to 301 (Permanent Redirect). Supports 301, 302, 200 (Rewrite), etc.
+#
+# Examples:
+# /old-page          /new-page
+# /about-us          /about
+# /external-link     https://example.com          302
+# /blog/:slug        /posts/:slug                 301

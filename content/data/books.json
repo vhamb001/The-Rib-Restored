@@ -1,0 +1,109 @@
+[
+  {
+    "id": "watchwoman",
+    "title": "The Watchwoman's Dream Book",
+    "subtitle": "How to Decode Prophetic Dreams, Symbols, Numbers & Spiritual Signs",
+    "description": "A foundational guide into prophetic dreaming, spiritual symbolism, discernment, and divine revelation. This book walks readers through the sacred language of dreams, helping uncover spiritual meanings, hidden messages, patterns, numbers, warnings, and kingdom insight revealed through the night watches.",
+    "cover": "/images/books/watchwomans-dream-book.jpg",
+    "status": "Available",
+    "category": "Adult",
+    "formats": [
+      {
+        "type": "Ebook",
+        "url": "https://www.amazon.com/WATCHWOMANS-DREAM-BOOK-Prophetic-Spiritual-ebook/dp/B0H17G39D2",
+        "price": "$9.99"
+      },
+      {
+        "type": "Paperback",
+        "url": "https://www.amazon.com/WATCHWOMANS-DREAM-BOOK-Prophetic-Spiritual/dp/B0H1M3GWT6",
+        "price": "$19.99"
+      },
+      {
+        "type": "Hardcover",
+        "url": "https://www.amazon.com/WATCHWOMANS-DREAM-BOOK-Prophetic-Spiritual/dp/B0H1QCL8JY",
+        "price": "$27.99"
+      }
+    ]
+  },
+  {
+    "id": "watchwoman-manual-book2",
+    "title": "The Watchwoman’s Dream Manual — Book 2",
+    "subtitle": "Advanced Dream Discernment: Interpreting Symbols, Atmospheres, Patterns & Spiritual Revelation",
+    "description": "A deeper exploration into advanced prophetic dream interpretation, spiritual symbolism, atmospheres, recurring patterns, hidden revelations, and kingdom discernment. This volume is designed for serious dreamers, watchmen, intercessors, and seekers desiring greater clarity and spiritual maturity in understanding the language of dreams, visions, warnings, spiritual encounters, and revelatory symbolism through a grounded scriptural lens.",
+    "cover": "/images/books/watchwomans-dream-manual-book2.jpg",
+    "status": "Available",
+    "series": "The Watchwoman Collection",
+    "category": "Adult",
+    "author": "Shalaymah Nurrayah Tzeduqah",
+    "formats": [
+      {
+        "type": "Ebook",
+        "url": "https://www.amazon.com/dp/B0H231DBDG",
+        "price": "$9.99",
+        "asin": "B0H231DBDG",
+        "kdpSelect": true,
+        "status": "Live"
+      },
+      {
+        "type": "Paperback",
+        "url": "https://www.amazon.com/dp/B0H242HXN6",
+        "price": "$24.99",
+        "asin": "B0H242HXN6",
+        "status": "Live"
+      },
+      {
+        "type": "Hardcover",
+        "url": "https://www.amazon.com/dp/B0H25K86GT",
+        "price": "$39.99",
+        "asin": "B0H25K86GT",
+        "status": "Live"
+      }
+    ]
+  },
+  {
+    "id": "scroll",
+    "title": "The Prophetic Dreamer's Scroll",
+    "subtitle": "Volume X: A Spiritual Awakening Guide",
+    "description": "A guided prophetic companion created for dreamers, visionaries, and seekers navigating spiritual awakening, divine encounters, hidden revelations, and kingdom understanding. Designed to help preserve, document, discern, and interpret dreams, visions, and spiritual experiences received in the night season.",
+    "cover": "/images/books/prophetic-dreamers-scroll.jpg",
+    "status": "Available",
+    "category": "Adult",
+    "formats": [
+      {
+        "type": "Ebook",
+        "url": "https://www.amazon.com/Prophetic-Dreamers-Scroll-Spiritual-Awakening-ebook/dp/B0GY9ZX8ZF",
+        "price": "$2.99"
+      },
+      {
+        "type": "Paperback",
+        "url": "https://www.amazon.com/Prophetic-Dreamers-Scroll-Completion-Becoming/dp/B0GY3GFW43",
+        "price": "$12.99"
+      },
+      {
+        "type": "Hardcover",
+        "url": "https://www.amazon.com/PROPHETIC-DREAMERS-SCROLL-Spiritual-Awakening/dp/B0GZ8B3ZJT",
+        "price": "$17.99"
+      }
+    ]
+  },
+  {
+    "id": "childrens-dreams",
+    "title": "Little Dreamers",
+    "subtitle": "Children's Corner",
+    "description": "A beautifully illustrated children’s collection designed to help young dreamers understand dreams, imagination, wisdom, prayer, and the voice of Yahweh in gentle and age-appropriate ways. Created to encourage curiosity, creativity, faith, discernment, and meaningful family conversations.",
+    "cover": "/images/books/littledreamers.png",
+    "status": "Coming Soon",
+    "category": "Children",
+    "formats": []
+  },
+  {
+    "id": "more-revelations",
+    "title": "More Revelations Coming Soon",
+    "subtitle": "",
+    "description": "More writings, teachings, manuals, reflections, scrolls, restoration-centered works, and kingdom revelations are currently unfolding. Additional releases are on the way.",
+    "cover": "/images/books/revelations.png",
+    "status": "Coming Soon",
+    "category": "Adult",
+    "formats": []
+  }
+]
