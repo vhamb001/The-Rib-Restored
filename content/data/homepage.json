@@ -58,6 +58,10 @@
     "sectionLabel": "For the Next Generation",
     "heading": "Children’s Corner"
   },
+  "communityCorner": {
+    "sectionLabel": "For the Fellowship",
+    "heading": "Community Corner"
+  },
   "scriptureQuote": {
     "text": "She is clothed with strength and dignity, and she laughs without fear of the future.",
     "citation": "Proverbs 31:25"

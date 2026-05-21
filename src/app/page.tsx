@@ -8,6 +8,7 @@ import { Crown, Home, Headphones, Lightbulb, ArrowRight, BookOpen, Quote } from 
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/ui/fade-in";
 import homepageData from "../../content/data/homepage.json";
 import siteData from "../../content/data/site.json";
+import communityData from "../../content/data/community.json";
 
 const projectIcons: Record<string, React.ReactNode> = {
   crown: <Crown className="w-6 h-6" strokeWidth={1.25} />,
@@ -312,6 +313,62 @@ export default function HomePage() {
                       <div className="mt-auto">
                         <Button variant="gold" className="w-fit rounded-full px-6" disabled={book.status === "Coming Soon"}>
                           {book.status === "Coming Soon" ? "Coming Soon" : "View Book"}
+                        </Button>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          </div>
+        </section>
+      )}
+
+      {/* ════════════════════════════════════════════
+          3C. COMMUNITY CORNER
+          ════════════════════════════════════════════ */}
+      {communityData.length > 0 && (
+        <section className="py-14 sm:py-20 lg:py-24 bg-white border-t border-gray-100">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+            <FadeIn className="text-center mb-10 sm:mb-14">
+              <span className="inline-block text-[0.6rem] font-bold tracking-[0.3em] text-[var(--color-gold)] uppercase mb-4">
+                {homepageData.communityCorner.sectionLabel}
+              </span>
+              <h2 className="font-heading text-3xl lg:text-4xl font-bold text-[var(--color-royal-deep)] mb-4">
+                {homepageData.communityCorner.heading}
+              </h2>
+              <div className="gold-rule w-20 mx-auto mb-6" />
+            </FadeIn>
+
+            <StaggerContainer className="grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 justify-center">
+              {communityData.map((item) => (
+                <StaggerItem key={item.id}>
+                  <div className="group bg-white rounded-3xl border-2 border-[var(--color-ivory)] overflow-hidden transition-all duration-500 hover:shadow-[0_16px_48px_rgba(0,0,0,0.06)] hover:border-[var(--color-gold)]/30 h-full">
+                  <div className="flex flex-col h-full">
+                    <div className="w-full bg-gradient-to-br from-[#fdfbf7] to-[#f4f1e9] flex justify-center items-center p-4 sm:p-6 border-b border-gray-100/50">
+                      <div className="relative w-full aspect-[3/2] rounded-xl overflow-hidden shadow-sm border border-gray-100/50">
+                        <Image
+                          src={item.cover}
+                          alt={item.title}
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                        />
+                      </div>
+                    </div>
+                    <div className="p-5 sm:p-5 lg:p-7 flex flex-col justify-center flex-grow">
+                      <span className="text-[0.6rem] font-bold tracking-widest text-[#d4af37] uppercase mb-2 bg-[#fdfbf7] w-fit px-2 py-1 rounded-md">
+                        {item.subtitle}
+                      </span>
+                      <h3 className="font-heading text-xl lg:text-2xl font-bold text-[var(--color-royal-deep)] mb-3 leading-tight">
+                        {item.title}
+                      </h3>
+                      <p className="text-gray-500 text-sm leading-[1.7] mb-5">
+                        {item.description}
+                      </p>
+                      <div className="mt-auto">
+                        <Button variant="gold" className="w-fit rounded-full px-6" asChild>
+                          <Link href={item.link}>Explore</Link>
                         </Button>
                       </div>
                     </div>
