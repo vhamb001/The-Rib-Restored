@@ -489,22 +489,53 @@ export default function HomePage() {
             </p>
           </FadeIn>
 
-          <StaggerContainer className="grid sm:grid-cols-2 gap-4 sm:gap-5 lg:gap-6">
+          <StaggerContainer className="grid md:grid-cols-2 gap-8">
             {projects.map((project) => (
               <StaggerItem key={project.id}>
-                <Link href={project.url} className="group block h-full">
-                  <div className="h-full bg-white p-6 sm:p-7 lg:p-8 rounded-sm border border-gray-100 hover:border-[var(--color-gold)]/20 transition-all duration-500 hover:shadow-[0_8px_30px_rgba(200,151,62,0.06)] flex items-start gap-4 sm:gap-5">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-[var(--color-ivory)] to-white border border-gray-100 shadow-sm text-[var(--color-royal-deep)] flex items-center justify-center shrink-0 transition-all duration-500 group-hover:from-[var(--color-gold)] group-hover:to-[var(--color-soft-gold)] group-hover:text-white group-hover:shadow-[0_8px_16px_rgba(200,151,62,0.25)] group-hover:border-transparent">
-                      {projectIcons[project.iconName] || <Lightbulb className="w-5 h-5" strokeWidth={1.25} />}
-                    </div>
-                    <div>
-                      <h3 className="font-heading text-base sm:text-lg font-bold text-[var(--color-royal-deep)] mb-1.5 group-hover:text-[var(--color-gold)] transition-colors duration-300">
+                <div className="flex flex-col h-full bg-white rounded-3xl border-2 border-[var(--color-ivory)] overflow-hidden transition-all duration-500 hover:shadow-[0_16px_48px_rgba(0,0,0,0.06)] hover:border-[var(--color-gold)]/30">
+                  <div className="w-full bg-gradient-to-br from-[#fdfbf7] to-[#f4f1e9] flex justify-center items-center p-4 sm:p-6 border-b border-gray-100/50">
+                    <Link href={project.url} className="relative w-full aspect-[3/2] rounded-xl overflow-hidden shadow-sm border border-gray-100/50 block">
+                      {project.image ? (
+                        <Image src={project.image} alt={project.title} fill className="object-cover transition-transform duration-700 group-hover:scale-[1.05]" />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center bg-white text-[var(--color-gold)] transition-transform duration-700 group-hover:scale-[1.05]">
+                          {projectIcons[project.iconName] || <Lightbulb className="w-12 h-12" strokeWidth={1.25} />}
+                        </div>
+                      )}
+                    </Link>
+                  </div>
+                  <div className="p-5 sm:p-6 lg:p-8 flex flex-col flex-grow">
+                    <span className="text-[0.6rem] font-bold tracking-widest text-[#d4af37] uppercase mb-3 bg-[#fdfbf7] w-fit px-2 py-1 rounded-md">
+                      {project.tagline || "Initiative"}
+                    </span>
+                    <Link href={project.url} className="block group/title">
+                      <h3 className="font-heading text-xl lg:text-2xl font-bold text-[var(--color-royal-deep)] mb-3 leading-tight group-hover/title:text-[var(--color-gold)] transition-colors duration-300">
                         {project.title}
                       </h3>
-                      <p className="text-gray-500 text-sm leading-[1.7]">{project.description}</p>
+                    </Link>
+                    <p className="text-gray-500 text-sm leading-[1.7] mb-6 flex-grow">
+                      {project.description}
+                    </p>
+                    
+                    <div className="mt-auto pt-5 border-t border-gray-100 flex flex-col gap-3">
+                      {project.url !== '#' && (
+                         <Link href={project.url} className="inline-flex items-center text-xs font-bold tracking-wider text-[var(--color-royal-deep)] uppercase hover:text-[var(--color-gold)] transition-colors group/link">
+                           Explore Project <ArrowRight className="w-3.5 h-3.5 ml-1.5 transition-transform duration-300 group-hover/link:translate-x-1" />
+                         </Link>
+                      )}
+                      {project.socialUrl && (
+                        <a 
+                          href={project.socialUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-[var(--color-gold)] font-bold text-[0.7rem] tracking-widest uppercase hover:text-[var(--color-royal-deep)] transition-colors duration-300"
+                        >
+                          <span className="opacity-50 italic normal-case tracking-normal">Visit on {project.socialLabel}:</span> {project.socialHandle || project.socialLabel}
+                        </a>
+                      )}
                     </div>
                   </div>
-                </Link>
+                </div>
               </StaggerItem>
             ))}
           </StaggerContainer>

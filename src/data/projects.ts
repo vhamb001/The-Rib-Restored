@@ -10,6 +10,7 @@ export interface Project {
   socialUrl?: string;
   socialLabel?: string;
   socialHandle?: string;
+  tagline?: string;
 }
 
 export const projects: Project[] = projectsData as Project[];
