@@ -56,15 +56,15 @@ export default function BooksPage() {
                     <p className="text-gray-500 text-sm sm:text-[0.95rem] leading-[1.9] mb-6 sm:mb-8 max-w-lg">{book.description}</p>
                     <div className="space-y-3 sm:space-y-4">
                       <h3 className="text-[0.6rem] font-bold tracking-[0.3em] text-gray-400 uppercase">Available Formats</h3>
-                      <div className="flex flex-col sm:flex-row gap-3">
+                      <div className="flex flex-wrap gap-3">
                         {book.formats.map((format) => (
-                          <a key={format.type} href={format.url} target="_blank" rel="noopener noreferrer" className="group/btn flex items-center gap-3 bg-white border border-gray-200 hover:border-[var(--color-gold)] rounded-sm px-4 sm:px-5 py-3 sm:py-3.5 transition-all duration-300 hover:shadow-[0_4px_16px_rgba(200,151,62,0.12)]">
-                            <span className="w-8 h-8 rounded-full bg-[var(--color-ivory)] text-[var(--color-gold)] flex items-center justify-center shrink-0 transition-all duration-300 group-hover/btn:bg-[var(--color-gold)] group-hover/btn:text-white">{formatIcons[format.type]}</span>
-                            <div className="text-left">
-                              <span className="block text-sm font-semibold text-[var(--color-royal-deep)] group-hover/btn:text-[var(--color-gold)] transition-colors duration-300">{format.type}</span>
-                              {format.price && <span className="block text-[0.65rem] text-gray-400">{format.price}</span>}
+                          <a key={format.type} href={format.url} target="_blank" rel="noopener noreferrer" className="group/btn flex-1 min-w-[140px] flex items-center gap-3 bg-white border border-gray-100 hover:border-[var(--color-gold)]/40 rounded-xl px-4 py-3 sm:py-3.5 transition-all duration-300 hover:shadow-[0_8px_24px_rgba(200,151,62,0.08)]">
+                            <span className="w-8 h-8 rounded-full bg-gradient-to-br from-[var(--color-ivory)] to-[#f4f1e9] text-[var(--color-gold)] flex items-center justify-center shrink-0 transition-all duration-300 group-hover/btn:bg-[var(--color-gold)] group-hover/btn:text-white shadow-sm">{formatIcons[format.type]}</span>
+                            <div className="text-left min-w-0">
+                              <span className="block text-xs sm:text-sm font-bold text-[var(--color-royal-deep)] group-hover/btn:text-[var(--color-gold)] transition-colors duration-300 truncate">{format.type}</span>
+                              {format.price && <span className="block text-[0.65rem] sm:text-xs text-gray-400 font-medium truncate mt-0.5">{format.price}</span>}
                             </div>
-                            <ArrowRight className="w-4 h-4 text-gray-300 ml-auto transition-all duration-300 group-hover/btn:text-[var(--color-gold)] group-hover/btn:translate-x-1" />
+                            <ArrowRight className="w-4 h-4 text-gray-300 ml-auto shrink-0 transition-all duration-300 group-hover/btn:text-[var(--color-gold)] group-hover/btn:translate-x-1" />
                           </a>
                         ))}
                       </div>
