@@ -22,6 +22,11 @@
         "type": "Hardcover",
         "url": "https://www.amazon.com/WATCHWOMANS-DREAM-BOOK-Prophetic-Spiritual/dp/B0H1QCL8JY",
         "price": "$27.99"
+      },
+      {
+        "type": "PDF",
+        "url": "https://intentionallistening1.substack.com/subscribe",
+        "price": "$14.99"
       }
     ]
   },
@@ -57,6 +62,11 @@
         "price": "$39.99",
         "asin": "B0H25K86GT",
         "status": "Live"
+      },
+      {
+        "type": "PDF",
+        "url": "https://intentionallistening1.substack.com/subscribe",
+        "price": "$18.99"
       }
     ]
   },
@@ -83,6 +93,11 @@
         "type": "Hardcover",
         "url": "https://www.amazon.com/PROPHETIC-DREAMERS-SCROLL-Spiritual-Awakening/dp/B0GZ8B3ZJT",
         "price": "$17.99"
+      },
+      {
+        "type": "PDF",
+        "url": "https://intentionallistening1.substack.com/subscribe",
+        "price": "$7.99"
       }
     ]
   },

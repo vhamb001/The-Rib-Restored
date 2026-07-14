@@ -71,7 +71,7 @@ export function BookShowcase({ book, layout = "card", className, priority = fals
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      {format.type}
+                      {format.type} {format.price ? `— ${format.price}` : ""}
                     </a>
                   </Button>
                 ))}
@@ -147,7 +147,7 @@ export function BookShowcase({ book, layout = "card", className, priority = fals
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {format.type}
+                    {format.type} {format.price ? `(${format.price})` : ""}
                   </a>
                 </Button>
               ))}

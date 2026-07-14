@@ -1,7 +1,7 @@
 import booksData from "../../content/data/books.json";
 
 export interface BookFormat {
-  type: "Ebook" | "Paperback" | "Hardcover";
+  type: "Ebook" | "Paperback" | "Hardcover" | "PDF";
   url: string;
   price?: string;
 }
