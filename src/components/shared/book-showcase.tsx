@@ -23,29 +23,25 @@ export function BookShowcase({ book, layout = "card", className, priority = fals
           className
         )}
       >
-        {/* Cover with 3D Effect */}
-        <div className="w-full max-w-[280px] sm:max-w-[320px] lg:w-1/3 flex-shrink-0 book-cover-3d aspect-[2/3]">
-          <div className="book-inner relative w-full h-full rounded-r-[4px] overflow-hidden book-shadow bg-[var(--color-ivory)] border border-gray-100/50">
-            {/* Book Spine Highlight for Realistic Depth */}
-            <div className="absolute top-0 left-0 bottom-0 w-2.5 bg-gradient-to-r from-black/25 via-white/10 to-transparent z-10" />
-            <Image
-              src={book.cover}
-              alt={book.title}
-              fill
-              sizes="(max-width: 640px) 280px, (max-width: 1024px) 320px, 400px"
-              priority={priority}
-              className="object-cover"
-            />
-            {book.status === "Coming Soon" && (
-              <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm text-[var(--color-royal)] text-[0.65rem] font-bold px-3 py-1.5 rounded-sm uppercase tracking-widest shadow-sm z-20">
-                Coming Soon
-              </div>
-            )}
-          </div>
+        {/* Lifestyle Book Mockup Photo (Landscape aspect-[3/2]) */}
+        <div className="w-full lg:w-1/2 flex-shrink-0 aspect-[3/2] relative rounded-sm overflow-hidden border border-gray-100/60 shadow-[0_12px_35px_rgba(0,0,0,0.05)] bg-[var(--color-ivory)]">
+          <Image
+            src={book.cover}
+            alt={book.title}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
+            priority={priority}
+            className="object-cover transition-transform duration-750 hover:scale-[1.02]"
+          />
+          {book.status === "Coming Soon" && (
+            <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm text-[var(--color-royal)] text-[0.65rem] font-bold px-3 py-1.5 rounded-sm uppercase tracking-widest shadow-sm z-20">
+              Coming Soon
+            </div>
+          )}
         </div>
 
         {/* Content Details */}
-        <div className="flex-grow flex flex-col justify-center text-center lg:text-left w-full lg:w-2/3">
+        <div className="flex-grow flex flex-col justify-center text-center lg:text-left w-full lg:w-1/2">
           {book.subtitle && (
             <span className="text-label text-[0.7rem] mb-2">
               {book.subtitle}
@@ -54,7 +50,7 @@ export function BookShowcase({ book, layout = "card", className, priority = fals
           <h3 className="font-heading text-2xl md:text-3xl lg:text-4xl font-bold text-[var(--color-royal-deep)] mb-4 leading-tight">
             {book.title}
           </h3>
-          <p className="text-body-lg text-sm md:text-base text-gray-600 mb-8 max-w-xl mx-auto lg:mx-0">
+          <p className="text-body-lg text-sm md:text-base text-gray-600 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
             {book.description}
           </p>
 
@@ -103,27 +99,21 @@ export function BookShowcase({ book, layout = "card", className, priority = fals
         className
       )}
     >
-      {/* Cover Area with 3D Effect */}
-      <div className="relative p-6 pb-2 aspect-[2/3] w-full flex items-center justify-center bg-[var(--color-ivory)]/30 border-b border-gray-100/30 overflow-hidden">
-        <div className="book-cover-3d w-[170px] sm:w-[190px] aspect-[2/3] relative">
-          <div className="book-inner relative w-full h-full rounded-r-[3px] overflow-hidden book-shadow bg-white">
-            {/* Book Spine Highlight */}
-            <div className="absolute top-0 left-0 bottom-0 w-2 bg-gradient-to-r from-black/20 via-white/5 to-transparent z-10" />
-            <Image
-              src={book.cover}
-              alt={book.title}
-              fill
-              sizes="(max-width: 640px) 170px, 200px"
-              priority={priority}
-              className="object-cover"
-            />
-            {!isAvailable && (
-              <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-[var(--color-royal)] text-[0.6rem] font-bold px-2.5 py-1 rounded-sm uppercase tracking-wider shadow-sm z-20">
-                Soon
-              </div>
-            )}
+      {/* Cover Area with Landscape Mockup Photo */}
+      <div className="relative aspect-[3/2] w-full overflow-hidden bg-[var(--color-ivory)] border-b border-gray-100/50">
+        <Image
+          src={book.cover}
+          alt={book.title}
+          fill
+          sizes="(max-width: 640px) 100vw, 350px"
+          priority={priority}
+          className="object-cover transition-transform duration-750 group-hover:scale-[1.03]"
+        />
+        {!isAvailable && (
+          <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-[var(--color-royal)] text-[0.65rem] font-bold px-2.5 py-1 rounded-sm uppercase tracking-wider shadow-sm z-20">
+            Soon
           </div>
-        </div>
+        )}
       </div>
 
       {/* Metadata and content */}
@@ -136,7 +126,7 @@ export function BookShowcase({ book, layout = "card", className, priority = fals
         <h3 className="font-heading text-lg font-bold text-[var(--color-royal-deep)] text-center mb-3 line-clamp-2 leading-snug group-hover:text-[var(--color-royal)] transition-colors duration-300">
           {book.title}
         </h3>
-        <p className="text-gray-500 text-xs line-clamp-3 text-center mb-5 flex-grow">
+        <p className="text-gray-500 text-xs line-clamp-3 text-center mb-5 flex-grow leading-relaxed">
           {book.description}
         </p>
 
