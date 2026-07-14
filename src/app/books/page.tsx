@@ -1,14 +1,11 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { books } from "@/data/books";
-import { BookOpen, Tablet, Book, BookMarked, ArrowRight } from "lucide-react";
+import { BookOpen } from "lucide-react";
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/ui/fade-in";
+import { SectionHeader } from "@/components/ui/section-header";
+import { BookShowcase } from "@/components/shared/book-showcase";
 import booksPageData from "../../../content/data/books-page.json";
-
-const formatIcons: Record<string, React.ReactNode> = {
-  Ebook: <Tablet className="w-4 h-4" />,
-  Paperback: <Book className="w-4 h-4" />,
-  Hardcover: <BookMarked className="w-4 h-4" />,
-};
 
 export default function BooksPage() {
   const availableBooks = books.filter((b) => b.status === "Available");
@@ -16,82 +13,66 @@ export default function BooksPage() {
 
   return (
     <div className="bg-white min-h-screen">
-      {/* Hero */}
-      <section className="relative bg-[var(--color-ivory)] py-16 sm:py-20 lg:py-28 overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--color-gold)]/5 rounded-full blur-[120px] pointer-events-none" />
+      {/* ════════════════════════════════════════════
+          1. HERO — Editorial Header
+          ════════════════════════════════════════════ */}
+      <section className="relative bg-gradient-to-br from-white via-[var(--color-ivory)]/40 to-white py-16 sm:py-24 lg:py-32 overflow-hidden border-b border-gray-100/35">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--color-gold)]/8 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-72 h-72 bg-[var(--color-royal)]/5 rounded-full blur-[100px] pointer-events-none" />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 animate-fade-in-up">
-          <span className="inline-block text-[0.6rem] font-bold tracking-[0.3em] text-gray-400 uppercase mb-4">{booksPageData.hero.sectionLabel}</span>
-          <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--color-royal-deep)] mb-4">
-            {booksPageData.hero.heading}
-          </h1>
-          <div className="gold-rule w-24 mx-auto mb-6" />
-          <p className="text-gray-500 text-base sm:text-lg max-w-lg mx-auto leading-relaxed">
-            {booksPageData.hero.description}
-          </p>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <FadeIn>
+            <SectionHeader
+              label={booksPageData.hero.sectionLabel}
+              heading={booksPageData.hero.heading}
+              description={booksPageData.hero.description}
+              align="center"
+            />
+          </FadeIn>
         </div>
       </section>
 
-      {/* Featured Books */}
-      <section className="py-14 sm:py-20 lg:py-28">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-          <div className="space-y-16 sm:space-y-20 lg:space-y-28">
+      {/* ════════════════════════════════════════════
+          2. FEATURED BOOKS — High prominent list
+          ════════════════════════════════════════════ */}
+      <section className="section-padding">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+          <div className="space-y-12">
             {availableBooks.map((book, index) => (
-              <div key={book.id} className="animate-fade-in-up" style={{ animationDelay: `${index * 0.15}s` }}>
-                <div className={`grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-center ${index % 2 === 1 ? "lg:direction-rtl" : ""}`}>
-                  <div className={`relative ${index % 2 === 1 ? "lg:order-2" : ""}`}>
-                    <div className="relative max-w-sm sm:max-w-md lg:max-w-lg mx-auto rounded-sm overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.12)] group bg-white">
-                      <img src={book.cover} alt={book.title} className="w-full h-auto block transition-transform duration-700 group-hover:scale-[1.03]" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    </div>
-                    <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-[var(--color-gold)]/10 rounded-sm -z-10 hidden sm:block" />
-                    <div className="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-[var(--color-gold)]/20 rounded-tl-sm hidden sm:block" />
-                  </div>
-                  <div className={`${index % 2 === 1 ? "lg:order-1" : ""}`}>
-                    {book.subtitle && (
-                      <span className="inline-block text-[0.6rem] font-bold tracking-[0.3em] text-[var(--color-gold)] uppercase mb-3 sm:mb-4">{book.subtitle}</span>
-                    )}
-                    <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-[var(--color-royal-deep)] mb-4 sm:mb-5 leading-tight">{book.title}</h2>
-                    <div className="w-12 h-[2px] bg-gradient-to-r from-[var(--color-gold)] to-transparent mb-5 sm:mb-6" />
-                    <p className="text-gray-500 text-sm sm:text-[0.95rem] leading-[1.9] mb-6 sm:mb-8 max-w-lg">{book.description}</p>
-                    <div className="space-y-3 sm:space-y-4">
-                      <h3 className="text-[0.6rem] font-bold tracking-[0.3em] text-gray-400 uppercase">Available Formats</h3>
-                      <div className="flex flex-wrap gap-3">
-                        {book.formats.map((format) => (
-                          <a key={format.type} href={format.url} target="_blank" rel="noopener noreferrer" className="group/btn flex-1 min-w-[140px] flex items-center gap-3 bg-white border border-gray-100 hover:border-[var(--color-gold)]/40 rounded-xl px-4 py-3 sm:py-3.5 transition-all duration-300 hover:shadow-[0_8px_24px_rgba(200,151,62,0.08)]">
-                            <span className="w-8 h-8 rounded-full bg-gradient-to-br from-[var(--color-ivory)] to-[#f4f1e9] text-[var(--color-gold)] flex items-center justify-center shrink-0 transition-all duration-300 group-hover/btn:bg-[var(--color-gold)] group-hover/btn:text-white shadow-sm">{formatIcons[format.type]}</span>
-                            <div className="text-left min-w-0">
-                              <span className="block text-xs sm:text-sm font-bold text-[var(--color-royal-deep)] group-hover/btn:text-[var(--color-gold)] transition-colors duration-300 truncate">{format.type}</span>
-                              {format.price && <span className="block text-[0.65rem] sm:text-xs text-gray-400 font-medium truncate mt-0.5">{format.price}</span>}
-                            </div>
-                            <ArrowRight className="w-4 h-4 text-gray-300 ml-auto shrink-0 transition-all duration-300 group-hover/btn:text-[var(--color-gold)] group-hover/btn:translate-x-1" />
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <FadeIn key={book.id} delay={index * 0.15}>
+                <BookShowcase book={book} layout="featured" priority={index === 0} />
+              </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Coming Soon */}
+      {/* ════════════════════════════════════════════
+          3. COMING SOON — Sacred teaser
+          ════════════════════════════════════════════ */}
       {comingBooks.length > 0 && (
-        <section className="py-14 sm:py-20 lg:py-24 bg-[var(--color-ivory)]">
+        <section className="section-padding bg-[var(--color-ivory)]/40 border-t border-gray-100/35">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center">
-            <div className="bg-white p-8 sm:p-10 lg:p-14 rounded-sm border border-gray-100 shadow-sm">
-              <div className="w-14 h-14 rounded-full bg-[var(--color-ivory)] text-[var(--color-gold)] flex items-center justify-center mx-auto mb-6">
-                <BookOpen className="w-7 h-7" />
+            <FadeIn>
+              <div className="bg-white p-8 sm:p-12 lg:p-16 rounded-sm border border-gray-100/80 shadow-sm relative overflow-hidden">
+                {/* Accent frames */}
+                <div className="absolute top-4 left-4 w-4 h-4 border-t border-l border-[var(--color-gold)]/35" />
+                <div className="absolute bottom-4 right-4 w-4 h-4 border-b border-r border-[var(--color-gold)]/35" />
+
+                <div className="w-16 h-16 rounded-full bg-[var(--color-ivory)] text-[var(--color-gold)] flex items-center justify-center mx-auto mb-8 shadow-sm">
+                  <BookOpen className="w-8 h-8" />
+                </div>
+                
+                <h2 className="font-heading text-2xl sm:text-3xl font-bold text-[var(--color-royal-deep)] mb-4">{booksPageData.comingSoon.heading}</h2>
+                <div className="gold-rule w-16 mx-auto mb-6" />
+                
+                <p className="text-gray-500 text-sm sm:text-base leading-relaxed mb-8 max-w-md mx-auto">{booksPageData.comingSoon.description}</p>
+                
+                <Button variant="gold" size="lg" asChild className="shadow-sm">
+                  <Link href={booksPageData.comingSoon.ctaHref}>{booksPageData.comingSoon.ctaText}</Link>
+                </Button>
               </div>
-              <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-[var(--color-royal-deep)] mb-4">{booksPageData.comingSoon.heading}</h2>
-              <div className="gold-rule w-16 mx-auto mb-6" />
-              <p className="text-gray-500 text-sm sm:text-base leading-[1.7] mb-8 max-w-md mx-auto">{booksPageData.comingSoon.description}</p>
-              <Button variant="gold" size="lg" asChild>
-                <Link href={booksPageData.comingSoon.ctaHref}>{booksPageData.comingSoon.ctaText}</Link>
-              </Button>
-            </div>
+            </FadeIn>
           </div>
         </section>
       )}

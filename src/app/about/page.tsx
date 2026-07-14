@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Heart, Target, Eye, Hammer, ArrowRight, Quote } from "lucide-react";
+import { FadeIn, StaggerContainer, StaggerItem, ParallaxSection, CountUp } from "@/components/ui/fade-in";
+import { SectionHeader } from "@/components/ui/section-header";
 import aboutData from "../../../content/data/about.json";
 import siteData from "../../../content/data/site.json";
 
@@ -21,124 +23,201 @@ function renderBioText(text: string) {
   );
 }
 
+const renderStatValue = (value: string) => {
+  const num = parseInt(value);
+  if (!isNaN(num)) {
+    const suffix = value.replace(num.toString(), "");
+    return <CountUp end={num} suffix={suffix} />;
+  }
+  return value;
+};
+
 export default function AboutPage() {
   return (
     <div className="bg-white min-h-screen">
-      {/* Hero */}
-      <section className="relative bg-[var(--color-ivory)] overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[var(--color-gold)]/5 rounded-full blur-[140px] pointer-events-none" />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl relative z-10">
-          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center py-14 sm:py-20 lg:py-28">
-            <div className="animate-fade-in-up order-2 lg:order-1 text-center lg:text-left">
-              <span className="inline-block text-[0.6rem] font-bold tracking-[0.3em] text-[var(--color-gold)] uppercase mb-4">{aboutData.hero.sectionLabel}</span>
-              <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--color-royal-deep)] mb-2 leading-tight">{aboutData.hero.headingLine1}</h1>
-              <h1 className="font-script text-4xl sm:text-5xl md:text-6xl text-[var(--color-gold)] mb-6 sm:mb-8 leading-none">{aboutData.hero.headingLine2}</h1>
-              <div className="w-12 h-[2px] bg-gradient-to-r from-[var(--color-gold)] to-transparent mb-6 sm:mb-8 mx-auto lg:mx-0" />
-              {aboutData.hero.bioParagraphs.map((p, i) => (
-                <p key={i} className="text-gray-500 text-sm lg:text-[0.95rem] leading-[1.9] mb-4 sm:mb-6 mx-auto lg:mx-0">
-                  {renderBioText(p)}
-                </p>
-              ))}
-              <div className="flex flex-wrap items-center gap-4 sm:gap-6 justify-center lg:justify-start mb-8">
+      {/* ════════════════════════════════════════════
+          1. HERO — Elegant Editorial Intro
+          ════════════════════════════════════════════ */}
+      <section className="relative bg-gradient-to-br from-white via-[var(--color-ivory)]/40 to-white overflow-hidden border-b border-gray-100/30">
+        {/* Soft glowing orbs */}
+        <div className="absolute top-[-10%] right-[-5%] w-[45vw] h-[45vw] bg-[var(--color-gold)]/8 rounded-full blur-[130px] pointer-events-none" />
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl relative z-10 py-16 sm:py-24 lg:py-32">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+            {/* Biography content */}
+            <div className="lg:col-span-7 flex flex-col text-center lg:text-left">
+              <FadeIn>
+                <SectionHeader
+                  label={aboutData.hero.sectionLabel}
+                  heading={aboutData.hero.headingLine1}
+                  headingAccent={aboutData.hero.headingLine2}
+                  align="left"
+                  className="mb-8"
+                />
+              </FadeIn>
+
+              <FadeIn delay={0.2} className="space-y-6 mb-10 text-gray-500 text-sm sm:text-base leading-relaxed max-w-xl mx-auto lg:mx-0">
+                {aboutData.hero.bioParagraphs.map((p, i) => (
+                  <p key={i} className="text-body leading-[1.85]">
+                    {renderBioText(p)}
+                  </p>
+                ))}
+              </FadeIn>
+
+              {/* Action Area */}
+              <FadeIn delay={0.3} className="flex flex-wrap items-center gap-6 justify-center lg:justify-start mb-10 pb-8 border-b border-gray-100">
                 <Button variant="gold" size="sm" asChild>
                   <a href={siteData.links.amazonAuthorUrl} target="_blank" rel="noopener noreferrer">{aboutData.hero.amazonButtonText}</a>
                 </Button>
-                <a href={siteData.socialLinks.find(s => s.fullLabel === "Instagram")?.url || "#"} target="_blank" rel="noopener noreferrer" className="text-[0.6rem] font-bold tracking-[0.2em] text-[var(--color-royal-deep)] uppercase hover:text-[var(--color-gold)] transition-colors">
+                
+                <a
+                  href={siteData.socialLinks.find(s => s.fullLabel === "Instagram")?.url || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-micro font-bold text-[var(--color-royal-deep)] hover:text-[var(--color-gold)] uppercase tracking-wider transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-px after:bg-[var(--color-gold)] after:scale-x-100 hover:after:scale-x-0 after:origin-left after:transition-transform after:duration-300"
+                >
                   {aboutData.hero.instagramText}
                 </a>
-              </div>
-              <div className="flex items-center gap-6 sm:gap-8 justify-center lg:justify-start">
+              </FadeIn>
+
+              {/* Stats */}
+              <StaggerContainer staggerDelay={0.12} className="flex items-center justify-center lg:justify-start gap-8 md:gap-12">
                 {aboutData.hero.stats.map((stat, i) => (
-                  <div key={i} className="contents">
-                    {i > 0 && <div className="w-px h-10 bg-gray-200" />}
-                    <div className="text-center">
-                      <span className="font-heading text-2xl sm:text-3xl font-bold text-[var(--color-royal-deep)]">{stat.value}</span>
-                      <p className="text-[0.55rem] sm:text-[0.6rem] tracking-[0.2em] text-gray-400 uppercase mt-1">{stat.label}</p>
+                  <StaggerItem key={i} className="flex items-center">
+                    {i > 0 && <div className="w-px h-12 bg-gray-200 mr-8 md:mr-12" />}
+                    <div className="text-left">
+                      <div className="font-heading text-3xl sm:text-4xl font-bold text-[var(--color-royal-deep)] tracking-tight">
+                        {renderStatValue(stat.value)}
+                      </div>
+                      <div className="text-micro text-gray-400 font-bold tracking-wider mt-1">{stat.label}</div>
                     </div>
-                  </div>
+                  </StaggerItem>
                 ))}
-              </div>
+              </StaggerContainer>
             </div>
-            <div className="relative order-1 lg:order-2 animate-fade-in-up" style={{ animationDelay: "0.15s" }}>
-              <div className="relative aspect-[3/4] max-w-[280px] sm:max-w-sm md:max-w-md mx-auto rounded-sm overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.12)]">
-                <Image src="/images/author.png" alt="Shalaymah" fill className="object-cover" priority />
-              </div>
-              <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 w-full h-full border-2 border-[var(--color-gold)]/20 rounded-sm -z-10 hidden sm:block" />
-              <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 w-20 h-20 sm:w-24 sm:h-24 border-t-2 border-l-2 border-[var(--color-gold)]/30 rounded-tl-sm hidden sm:block" />
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Quote */}
-      <section className="bg-[var(--color-royal-deep)] py-10 sm:py-12 lg:py-16 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "24px 24px" }} />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center relative z-10">
-          <Quote className="w-7 h-7 sm:w-8 sm:h-8 text-[var(--color-gold)]/40 mx-auto mb-4 sm:mb-5 rotate-180" />
-          <blockquote className="font-heading text-base sm:text-lg lg:text-xl text-white/90 italic leading-relaxed mb-4 sm:mb-5 px-2">
-            &ldquo;{aboutData.quote.text}&rdquo;
-          </blockquote>
-          <cite className="text-[0.6rem] font-bold tracking-[0.3em] text-[var(--color-gold)] uppercase not-italic">{aboutData.quote.citation}</cite>
-        </div>
-      </section>
-
-      {/* Pillars */}
-      <section className="py-14 sm:py-20 lg:py-28 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-          <div className="text-center mb-10 sm:mb-14">
-            <span className="inline-block text-[0.6rem] font-bold tracking-[0.3em] text-[var(--color-gold)] uppercase mb-4">{aboutData.pillars.sectionLabel}</span>
-            <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-[var(--color-royal-deep)]">{aboutData.pillars.heading}</h2>
-            <div className="gold-rule w-16 mx-auto mt-5" />
-          </div>
-          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 stagger-children">
-            {aboutData.pillars.items.map((pillar) => (
-              <div key={pillar.title} className="group bg-white p-6 sm:p-8 lg:p-10 rounded-sm border border-gray-100 hover:border-[var(--color-gold)]/30 transition-all duration-500 hover:shadow-[0_8px_30px_rgba(200,151,62,0.06)]">
-                <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-5">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[var(--color-ivory)] text-[var(--color-gold)] flex items-center justify-center transition-all duration-500 group-hover:bg-[var(--color-gold)] group-hover:text-white group-hover:shadow-[0_4px_12px_rgba(200,151,62,0.25)] shrink-0">
-                    {pillarIcons[pillar.iconName]}
+            {/* Photo Column */}
+            <div className="lg:col-span-5 relative flex justify-center lg:justify-end">
+              <FadeIn delay={0.3} className="relative w-full max-w-[320px] sm:max-w-[360px] lg:max-w-full">
+                <ParallaxSection speed={0.04} className="relative z-10">
+                  <div className="relative aspect-[3/4] w-full rounded-sm overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] bg-[var(--color-ivory)] border border-white/60">
+                    <Image
+                      src="/images/author.png"
+                      alt="Shalaymah"
+                      fill
+                      priority
+                      className="object-cover transition-transform duration-700 hover:scale-105"
+                    />
                   </div>
-                  <h3 className="font-heading text-lg sm:text-xl lg:text-2xl font-bold text-[var(--color-royal-deep)]">{pillar.title}</h3>
+                  {/* Decorative Frame */}
+                  <div className="absolute -bottom-5 -right-5 w-full h-full border border-[var(--color-gold)]/30 rounded-sm -z-10" />
+                  <div className="absolute -top-5 -left-5 w-20 h-20 border-t border-l border-[var(--color-gold)]/30 rounded-sm -z-10" />
+                </ParallaxSection>
+              </FadeIn>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════
+          2. INTERLUDE — Scripture Glow
+          ════════════════════════════════════════════ */}
+      <section className="bg-[var(--color-royal-deep)] py-16 sm:py-20 overflow-hidden relative">
+        <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 2px, transparent 0)", backgroundSize: "36px 36px" }} />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-36 bg-[var(--color-gold)]/10 rounded-full blur-[80px] pointer-events-none" />
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center relative z-10">
+          <FadeIn>
+            <Quote className="w-9 h-9 text-[var(--color-gold)]/35 mx-auto mb-6 rotate-180" />
+            <blockquote className="font-heading text-lg sm:text-xl lg:text-2xl text-white/90 italic leading-relaxed mb-6 px-4">
+              &ldquo;{aboutData.quote.text}&rdquo;
+            </blockquote>
+            <div className="flex items-center justify-center gap-4">
+              <div className="w-8 h-px bg-[var(--color-gold)]/35" />
+              <cite className="text-micro font-bold tracking-[0.25em] text-[var(--color-gold)] uppercase not-italic">
+                {aboutData.quote.citation}
+              </cite>
+              <div className="w-8 h-px bg-[var(--color-gold)]/35" />
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════
+          3. PILLARS — Core Foundations
+          ════════════════════════════════════════════ */}
+      <section className="section-padding bg-white relative">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl relative z-10">
+          <SectionHeader
+            label={aboutData.pillars.sectionLabel}
+            heading={aboutData.pillars.heading}
+            align="center"
+            className="mb-14 md:mb-20"
+          />
+
+          <StaggerContainer className="grid md:grid-cols-2 gap-8 lg:gap-10 max-w-5xl mx-auto">
+            {aboutData.pillars.items.map((pillar) => (
+              <StaggerItem key={pillar.title}>
+                <div className="group bg-white p-8 sm:p-10 rounded-sm border border-gray-100/80 hover:border-[var(--color-soft-gold)]/40 hover:shadow-xl transition-all duration-500 flex flex-col h-full">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-12 h-12 rounded-full bg-[var(--color-ivory)] text-[var(--color-gold)] flex items-center justify-center transition-all duration-500 group-hover:bg-[var(--color-gold)] group-hover:text-white group-hover:shadow-[0_6px_20px_rgba(200,151,62,0.2)] shrink-0">
+                      {pillarIcons[pillar.iconName]}
+                    </div>
+                    <h3 className="font-heading text-xl font-bold text-[var(--color-royal-deep)]">{pillar.title}</h3>
+                  </div>
+                  <p className="text-gray-500 text-sm leading-[1.8] flex-grow">{pillar.body}</p>
                 </div>
-                <p className="text-gray-500 text-sm leading-[1.8]">{pillar.body}</p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
-      {/* Beliefs */}
-      <section className="py-14 sm:py-20 lg:py-28 bg-[var(--color-ivory)]">
+      {/* ════════════════════════════════════════════
+          4. BELIEFS — Poetic Timelines
+          ════════════════════════════════════════════ */}
+      <section className="section-padding bg-[var(--color-ivory)]/40 border-t border-b border-gray-100/35">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-          <div className="text-center mb-10 sm:mb-14">
-            <span className="inline-block text-[0.6rem] font-bold tracking-[0.3em] text-[var(--color-gold)] uppercase mb-4">{aboutData.beliefs.sectionLabel}</span>
-            <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-[var(--color-royal-deep)]">{aboutData.beliefs.heading}</h2>
-            <div className="gold-rule w-16 mx-auto mt-5" />
-          </div>
-          <div className="space-y-4 sm:space-y-6">
+          <SectionHeader
+            label={aboutData.beliefs.sectionLabel}
+            heading={aboutData.beliefs.heading}
+            align="center"
+            className="mb-14 md:mb-20"
+          />
+
+          <StaggerContainer staggerDelay={0.15} className="space-y-6">
             {aboutData.beliefs.items.map((belief) => (
-              <div key={belief.keyword} className="flex flex-col sm:flex-row gap-3 sm:gap-6 items-start bg-white p-5 sm:p-6 lg:p-8 rounded-sm border border-gray-100">
-                <span className="font-heading text-xl sm:text-2xl lg:text-3xl font-bold text-[var(--color-gold)] italic shrink-0 sm:w-28 sm:text-right">{belief.keyword}.</span>
-                <div className="w-full sm:w-px h-px sm:h-12 bg-[var(--color-gold)]/30 shrink-0 sm:mt-1" />
-                <p className="text-gray-500 text-sm lg:text-[0.95rem] leading-[1.8]">{belief.text}</p>
-              </div>
+              <StaggerItem key={belief.keyword}>
+                <div className="group flex flex-col sm:flex-row gap-4 sm:gap-8 items-start bg-white p-6 sm:p-8 rounded-sm border border-gray-100 hover:shadow-md transition-all duration-300">
+                  <span className="font-heading text-xl sm:text-2xl lg:text-3xl font-bold text-[var(--color-gold)] italic shrink-0 sm:w-32 sm:text-right select-none">
+                    {belief.keyword}.
+                  </span>
+                  <div className="hidden sm:block w-px h-12 bg-[var(--color-gold)]/20 shrink-0 sm:mt-1" />
+                  <p className="text-gray-500 text-sm lg:text-[0.95rem] leading-[1.8]">{belief.text}</p>
+                </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-14 sm:py-20 lg:py-24 bg-white">
+      {/* ════════════════════════════════════════════
+          5. CTA — Sacred Invitation
+          ════════════════════════════════════════════ */}
+      <section className="py-20 sm:py-28 bg-white border-t border-gray-100/20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl text-center">
-          <h2 className="font-script text-3xl sm:text-4xl lg:text-5xl text-[var(--color-gold)] mb-3">{aboutData.cta.heading}</h2>
-          <p className="text-gray-500 text-sm mb-6 sm:mb-8 max-w-sm mx-auto">{aboutData.cta.description}</p>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-            <Button variant="gold" size="lg" asChild>
-              <Link href={aboutData.cta.primaryButton.href}>{aboutData.cta.primaryButton.text}</Link>
-            </Button>
-            <Button variant="secondary" size="lg" asChild>
-              <Link href={aboutData.cta.secondaryButton.href}>{aboutData.cta.secondaryButton.text}</Link>
-            </Button>
-          </div>
+          <FadeIn>
+            <h2 className="font-script text-4xl sm:text-5xl text-[var(--color-gold)] mb-4">{aboutData.cta.heading}</h2>
+            <p className="text-gray-500 text-sm sm:text-base mb-10 max-w-md mx-auto leading-relaxed">{aboutData.cta.description}</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button variant="gold" size="lg" className="w-full sm:w-auto px-10" asChild>
+                <Link href={aboutData.cta.primaryButton.href}>{aboutData.cta.primaryButton.text}</Link>
+              </Button>
+              <Button variant="secondary" size="lg" className="w-full sm:w-auto px-10" asChild>
+                <Link href={aboutData.cta.secondaryButton.href}>{aboutData.cta.secondaryButton.text}</Link>
+              </Button>
+            </div>
+          </FadeIn>
         </div>
       </section>
     </div>

@@ -5,16 +5,18 @@ import { books } from "@/data/books";
 import { projects } from "@/data/projects";
 import { getSortedWritingsData } from "@/lib/writings";
 import { Crown, Home, Headphones, Lightbulb, ArrowRight, BookOpen, Quote } from "lucide-react";
-import { FadeIn, StaggerContainer, StaggerItem } from "@/components/ui/fade-in";
+import { FadeIn, ScaleIn, StaggerContainer, StaggerItem, ParallaxSection, CountUp, TextReveal } from "@/components/ui/fade-in";
+import { SectionHeader } from "@/components/ui/section-header";
+import { BookShowcase } from "@/components/shared/book-showcase";
 import homepageData from "../../content/data/homepage.json";
 import siteData from "../../content/data/site.json";
 import communityData from "../../content/data/community.json";
 
 const projectIcons: Record<string, React.ReactNode> = {
-  crown: <Crown className="w-6 h-6" strokeWidth={1.25} />,
-  home: <Home className="w-6 h-6" strokeWidth={1.25} />,
-  headphones: <Headphones className="w-6 h-6" strokeWidth={1.25} />,
-  lightbulb: <Lightbulb className="w-6 h-6" strokeWidth={1.25} />,
+  crown: <Crown className="w-6 h-6 text-[var(--color-gold)]" strokeWidth={1.25} />,
+  home: <Home className="w-6 h-6 text-[var(--color-gold)]" strokeWidth={1.25} />,
+  headphones: <Headphones className="w-6 h-6 text-[var(--color-gold)]" strokeWidth={1.25} />,
+  lightbulb: <Lightbulb className="w-6 h-6 text-[var(--color-gold)]" strokeWidth={1.25} />,
 };
 
 function renderBioText(text: string) {
@@ -26,243 +28,218 @@ function renderBioText(text: string) {
   );
 }
 
+const renderStatValue = (value: string) => {
+  const num = parseInt(value);
+  if (!isNaN(num)) {
+    const suffix = value.replace(num.toString(), "");
+    return <CountUp end={num} suffix={suffix} />;
+  }
+  return value;
+};
+
 export default function HomePage() {
   const writings = getSortedWritingsData().slice(0, 3);
   const featuredBooks = books.filter((b) => b.category !== "Children" && b.status === "Available");
   const childrensBooks = books.filter((b) => b.category === "Children");
 
   return (
-    <>
+    <div className="overflow-hidden">
       {/* ════════════════════════════════════════════
-          1. HERO — Full-width immersive layout
+          1. HERO — Immersive Editorial Layout
           ════════════════════════════════════════════ */}
-      <section className="relative w-full min-h-[85vh] md:min-h-[600px] lg:min-h-[720px] flex items-center overflow-hidden">
-        {/* Soft background wash */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white via-[var(--color-ivory)] to-white" />
+      <section className="relative w-full min-h-[92vh] flex items-center bg-gradient-to-br from-white via-[var(--color-ivory)]/40 to-white overflow-hidden border-b border-gray-100/30">
+        {/* Decorative soft glowing orbs */}
+        <div className="absolute top-[-10%] right-[-5%] w-[45vw] h-[45vw] bg-[var(--color-gold)]/10 rounded-full blur-[130px] animate-pulse-gold pointer-events-none" />
+        <div className="absolute bottom-[-10%] left-[-5%] w-[35vw] h-[35vw] bg-[var(--color-royal)]/5 rounded-full blur-[120px] pointer-events-none" />
 
-        {/* Decorative light effects */}
-        <div className="absolute top-10 right-[10%] w-96 h-96 bg-[var(--color-gold)]/15 rounded-full blur-[120px] animate-pulse-gold pointer-events-none" />
-        <div className="absolute bottom-10 left-[10%] w-64 h-64 bg-[var(--color-royal)]/10 rounded-full blur-[100px] pointer-events-none" />
+        {/* Floating fine grid line accents */}
+        <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: "linear-gradient(to right, var(--color-royal) 1px, transparent 1px), linear-gradient(to bottom, var(--color-royal) 1px, transparent 1px)", backgroundSize: "64px 64px" }} />
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-12 sm:py-16 lg:py-28">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-            {/* Text content — full-width on mobile */}
-            <FadeIn className="order-2 lg:order-1 text-center lg:text-left">
-              <span className="inline-block text-[0.6rem] font-bold tracking-[0.35em] text-gray-400 uppercase mb-4 sm:mb-6">
-                {homepageData.hero.welcomeLabel}
-              </span>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-16 sm:py-24 lg:py-32">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Text content — left side */}
+            <div className="lg:col-span-7 flex flex-col text-center lg:text-left">
+              <FadeIn className="mb-4">
+                <span className="inline-block text-micro text-[0.7rem] font-bold tracking-[0.3em] text-[var(--color-gold)] uppercase">
+                  {homepageData.hero.welcomeLabel}
+                </span>
+              </FadeIn>
 
-              {/* Title lockup */}
-              <div className="relative mb-6 sm:mb-8">
-                <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-[0.06em] text-[var(--color-royal-deep)] uppercase leading-[0.95]">
-                  {homepageData.hero.titleLine1}
+              {/* Responsive title block */}
+              <div className="relative mb-6">
+                <h1 className="text-display tracking-tight text-[var(--color-royal-deep)] leading-[0.9] select-none">
+                  <TextReveal text={homepageData.hero.titleLine1} delay={0.1} />
                 </h1>
-                <span className="font-script text-5xl sm:text-6xl md:text-7xl lg:text-[6.5rem] text-[var(--color-gold)] block -mt-2 sm:-mt-3 ml-4 sm:ml-6 lg:ml-10">
+                <span className="font-script text-5xl sm:text-6xl md:text-7xl lg:text-[7rem] text-[var(--color-gold)] block mt-2 ml-4 lg:ml-12 select-none animate-fade-in" style={{ animationDelay: "0.8s" }}>
                   {homepageData.hero.titleLine2}
                 </span>
               </div>
 
-              <div className="flex items-center gap-4 mb-6 sm:mb-8 justify-center lg:justify-start">
-                <div className="w-8 h-px bg-gradient-to-r from-transparent to-[var(--color-gold)]" />
-                <span className="font-heading text-sm sm:text-base lg:text-lg font-bold tracking-[0.25em] text-[var(--color-royal-deep)] uppercase">
+              {/* Byline with gold-rule brackets */}
+              <FadeIn delay={0.4} className="flex items-center gap-4 mb-8 justify-center lg:justify-start">
+                <div className="w-10 h-px bg-gradient-to-r from-transparent to-[var(--color-gold)]" />
+                <span className="font-heading text-xs sm:text-sm font-bold tracking-[0.25em] text-[var(--color-royal-deep)] uppercase">
                   {homepageData.hero.authorByline}
                 </span>
-                <div className="w-8 h-px bg-gradient-to-l from-transparent to-[var(--color-gold)]" />
-              </div>
+                <div className="w-10 h-px bg-gradient-to-l from-transparent to-[var(--color-gold)]" />
+              </FadeIn>
 
-              <p className="text-gray-500 text-sm sm:text-lg mb-8 max-w-lg leading-relaxed">
-                {homepageData.hero.description}
-              </p>
+              {/* Short descriptive block */}
+              <FadeIn delay={0.5}>
+                <p className="text-body-lg text-sm sm:text-base md:text-lg mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed text-gray-500">
+                  {homepageData.hero.description}
+                </p>
+              </FadeIn>
 
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
-                <Button variant="gold" size="lg" asChild>
+              {/* CTAs */}
+              <FadeIn delay={0.6} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Button variant="gold" size="lg" asChild className="shadow-md hover:shadow-lg transition-all duration-300">
                   <Link href={homepageData.hero.ctaPrimary.href}>{homepageData.hero.ctaPrimary.text}</Link>
                 </Button>
-                <Button variant="secondary" size="lg" asChild>
+                <Button variant="secondary" size="lg" asChild className="hover:shadow-sm transition-all duration-300">
                   <Link href={homepageData.hero.ctaSecondary.href}>{homepageData.hero.ctaSecondary.text}</Link>
                 </Button>
-              </div>
-            </FadeIn>
+              </FadeIn>
+            </div>
 
-            {/* Author image — right side */}
-            <FadeIn delay={0.15} className="relative order-1 lg:order-2 flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl">
-                <div className="relative overflow-hidden">
-                  <img
-                    src={homepageData.hero.heroImage}
-                    alt={homepageData.hero.heroImageAlt}
-                    className="w-full h-auto block drop-shadow-[0_10px_30px_rgba(0,0,0,0.05)]"
-                  />
-                </div>
-              </div>
-            </FadeIn>
+            {/* Author Portrait Image — right side */}
+            <div className="lg:col-span-5 flex justify-center lg:justify-end relative">
+              <FadeIn delay={0.3} className="relative w-full max-w-[340px] sm:max-w-[380px] lg:max-w-full">
+                {/* Parallax elements */}
+                <ParallaxSection speed={0.06} className="relative z-10">
+                  <div className="relative aspect-[3/4] w-full rounded-sm overflow-hidden shadow-[0_20px_50px_rgba(12,45,122,0.12)] bg-[var(--color-ivory)] border border-white/60">
+                    <img
+                      src="/images/author.png"
+                      alt={homepageData.hero.heroImageAlt}
+                      className="w-full h-full object-cover"
+                    />
+                    {/* Shadow overlay overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
+                  </div>
+
+                  {/* Absolute Gold Frames */}
+                  <div className="absolute -bottom-6 -right-6 w-full h-full border border-[var(--color-gold)]/35 rounded-sm -z-10" />
+                  <div className="absolute -top-6 -left-6 w-16 h-16 border-t border-l border-[var(--color-gold)]/40 rounded-sm -z-10" />
+                </ParallaxSection>
+              </FadeIn>
+            </div>
           </div>
         </div>
-
-        {/* Gold accent bar at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-[var(--color-gold)] to-transparent" />
       </section>
 
       {/* ════════════════════════════════════════════
-          2. ABOUT THE AUTHOR
+          2. ABOUT THE AUTHOR — Poetic Storytelling
           ════════════════════════════════════════════ */}
-      <section className="py-14 sm:py-20 lg:py-28 bg-white relative overflow-hidden">
-        {/* Subtle decorative blob */}
-        <div className="absolute -top-20 -right-20 w-96 h-96 bg-[var(--color-gold)]/3 rounded-full blur-[140px] pointer-events-none" />
+      <section className="section-padding bg-white relative overflow-hidden">
+        {/* Delicate floating shapes */}
+        <div className="absolute -top-24 -right-24 w-80 h-80 bg-[var(--color-gold)]/3 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-96 h-96 bg-[var(--color-royal)]/3 rounded-full blur-[140px] pointer-events-none" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl relative z-10">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
-            {/* Author Image */}
-            <FadeIn className="relative">
-              <div className="relative aspect-[3/4] max-w-xs sm:max-w-sm md:max-w-md mx-auto lg:mx-0 rounded-sm overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.12)]">
-                <Image
-                  src={homepageData.aboutAuthor.authorImage}
-                  alt={homepageData.aboutAuthor.authorImageAlt}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              {/* Decorative frame */}
-              <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-[var(--color-gold)]/20 rounded-sm -z-10 hidden sm:block" />
-              <div className="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-[var(--color-gold)]/30 rounded-tl-sm hidden sm:block" />
-            </FadeIn>
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+            {/* Visual Column */}
+            <div className="lg:col-span-5 relative">
+              <FadeIn direction="right" className="relative max-w-xs sm:max-w-sm mx-auto lg:mx-0">
+                <ParallaxSection speed={0.03} className="relative z-10">
+                  <div className="relative aspect-[3/4] w-full rounded-sm overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.08)] bg-[var(--color-ivory)] border border-gray-100">
+                    <Image
+                      src={homepageData.aboutAuthor.authorImage}
+                      alt={homepageData.aboutAuthor.authorImageAlt}
+                      fill
+                      sizes="(max-width: 640px) 300px, 450px"
+                      className="object-cover transition-transform duration-700 hover:scale-105"
+                    />
+                  </div>
+                  {/* Outer Frame */}
+                  <div className="absolute -bottom-5 -right-5 w-full h-full border border-[var(--color-gold)]/30 rounded-sm -z-10" />
+                  <div className="absolute -top-5 -left-5 w-20 h-20 border-t border-l border-[var(--color-gold)]/30 rounded-sm -z-10" />
+                </ParallaxSection>
+              </FadeIn>
+            </div>
 
-            {/* Text content */}
-            <FadeIn delay={0.15}>
-              <span className="inline-block text-[0.6rem] font-bold tracking-[0.3em] text-[var(--color-gold)] uppercase mb-4">
-                {homepageData.aboutAuthor.sectionLabel}
-              </span>
-              <h2 className="font-heading text-3xl lg:text-4xl font-bold text-[var(--color-royal-deep)] mb-2 leading-tight">
-                {homepageData.aboutAuthor.headingLine1}
-              </h2>
-              <h2 className="font-script text-4xl lg:text-5xl text-[var(--color-gold)] mb-6 sm:mb-8 leading-none">
-                {homepageData.aboutAuthor.headingLine2}
-              </h2>
-              <div className="w-12 h-[2px] bg-gradient-to-r from-[var(--color-gold)] to-transparent mb-6 sm:mb-8" />
-              
-              {homepageData.aboutAuthor.bioParagraphs.map((p, i) => (
-                <p key={i} className="text-gray-500 text-sm lg:text-[0.95rem] leading-[1.9] mb-4 sm:mb-6">
-                  {renderBioText(p)}
-                </p>
-              ))}
+            {/* Text details column */}
+            <div className="lg:col-span-7 flex flex-col justify-center">
+              <SectionHeader
+                label={homepageData.aboutAuthor.sectionLabel}
+                heading={homepageData.aboutAuthor.headingLine1}
+                headingAccent={homepageData.aboutAuthor.headingLine2}
+                align="left"
+                className="mb-8"
+              />
 
-              <div className="flex flex-wrap items-center gap-4 sm:gap-6 mb-8">
+              <FadeIn delay={0.2} className="space-y-6 mb-10">
+                {homepageData.aboutAuthor.bioParagraphs.map((p, i) => (
+                  <p key={i} className="text-body text-sm md:text-base leading-[1.85] text-gray-500">
+                    {renderBioText(p)}
+                  </p>
+                ))}
+              </FadeIn>
+
+              {/* Action buttons and Amazon Link */}
+              <FadeIn delay={0.3} className="flex flex-wrap items-center gap-6 mb-10 pb-8 border-b border-gray-100">
                 <Button variant="gold" size="sm" asChild>
                   <Link href={homepageData.aboutAuthor.bioCta.href}>{homepageData.aboutAuthor.bioCta.text}</Link>
                 </Button>
-                <Link 
+                <a
                   href={siteData.links.amazonAuthorUrl}
                   target="_blank"
-                  className="text-[0.6rem] font-bold tracking-[0.2em] text-[var(--color-royal-deep)] uppercase hover:text-[var(--color-gold)] transition-colors"
+                  rel="noopener noreferrer"
+                  className="text-micro font-bold text-[var(--color-royal-deep)] hover:text-[var(--color-gold)] transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-px after:bg-[var(--color-gold)] after:scale-x-100 hover:after:scale-x-0 after:origin-left after:transition-transform after:duration-300"
                 >
                   {homepageData.aboutAuthor.amazonLinkText}
-                </Link>
-              </div>
-              <div className="flex items-center gap-6 sm:gap-8 justify-start">
+                </a>
+              </FadeIn>
+
+              {/* Animated statistics row */}
+              <StaggerContainer staggerDelay={0.15} className="flex items-center gap-8 md:gap-12">
                 {homepageData.aboutAuthor.stats.map((stat, i) => (
-                  <div key={i} className="contents">
-                    {i > 0 && <div className="w-px h-10 bg-gray-200" />}
-                    <div className="text-center">
-                      <span className="font-heading text-2xl sm:text-3xl font-bold text-[var(--color-royal-deep)]">{stat.value}</span>
-                      <p className="text-[0.55rem] sm:text-[0.6rem] tracking-[0.2em] text-gray-400 uppercase mt-1">{stat.label}</p>
+                  <StaggerItem key={i} className="flex items-center">
+                    {i > 0 && <div className="w-px h-12 bg-gray-200 mr-8 md:mr-12" />}
+                    <div className="text-left">
+                      <div className="font-heading text-3xl md:text-4xl font-bold text-[var(--color-royal-deep)] tracking-tight">
+                        {renderStatValue(stat.value)}
+                      </div>
+                      <div className="text-micro text-gray-400 font-bold tracking-wider mt-1">{stat.label}</div>
                     </div>
-                  </div>
+                  </StaggerItem>
                 ))}
-              </div>
-              <div className="mt-8">
-                <Button variant="ghost" size="lg" className="group" asChild>
-                  <Link href={homepageData.aboutAuthor.bioCta.href}>
-                    {homepageData.aboutAuthor.learnMoreText}
-                    <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-                  </Link>
-                </Button>
-              </div>
-            </FadeIn>
+              </StaggerContainer>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ════════════════════════════════════════════
-          3. FEATURED BOOKS SHOWCASE
+          3. FEATURED BOOKS — Curated Editorial Showcase
           ════════════════════════════════════════════ */}
-      <section className="py-14 sm:py-20 lg:py-28 bg-[var(--color-ivory)] relative">
+      <section className="section-padding bg-[var(--color-ivory)]/40 border-t border-b border-gray-100/35 relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-          {/* Section header */}
-          <FadeIn className="text-center mb-10 sm:mb-14">
-            <span className="inline-block text-[0.6rem] font-bold tracking-[0.3em] text-[var(--color-gold)] uppercase mb-4">
-              {homepageData.featuredBooks.sectionLabel}
-            </span>
-            <h2 className="font-heading text-3xl lg:text-4xl font-bold text-[var(--color-royal-deep)] mb-4">
-              {homepageData.featuredBooks.heading}
-            </h2>
-            <div className="gold-rule w-20 mx-auto mb-6" />
-            <p className="text-gray-500 text-sm lg:text-base max-w-md mx-auto">
-              {homepageData.featuredBooks.description}
-            </p>
-          </FadeIn>
+          <SectionHeader
+            label={homepageData.featuredBooks.sectionLabel}
+            heading={homepageData.featuredBooks.heading}
+            description={homepageData.featuredBooks.description}
+            align="center"
+            className="mb-14 md:mb-20"
+          />
 
-          {/* Books */}
-          <StaggerContainer className="grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 max-w-5xl mx-auto">
-            {featuredBooks.map((book) => (
-              <StaggerItem key={book.id}>
-                <div className="group bg-white rounded-sm border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-[0_16px_48px_rgba(0,0,0,0.08)] hover:border-[var(--color-gold)]/20 h-full">
-                <div className="flex flex-col h-full">
-                  <div className="w-full bg-[var(--color-ivory)]/30 flex justify-center items-center p-4 sm:p-6 border-b border-gray-100/50">
-                    <div className="relative w-full aspect-[3/2] rounded-md overflow-hidden shadow-sm">
-                      <Image
-                        src={book.cover}
-                        alt={book.title}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                      />
-                    </div>
-                  </div>
-                  <div className="p-5 sm:p-5 lg:p-7 flex flex-col justify-center flex-grow">
-                    <span className="text-[0.55rem] font-bold tracking-[0.25em] text-[var(--color-gold)] uppercase mb-2">
-                      {book.subtitle}
-                    </span>
-                    <h3 className="font-heading text-xl lg:text-2xl font-bold text-[var(--color-royal-deep)] mb-3 leading-tight">
-                      {book.title}
-                    </h3>
-                    <p className="text-gray-500 text-sm leading-[1.7] mb-5">
-                      {book.description}
-                    </p>
-                    {book.formats.length > 0 && (
-                      <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-auto">
-                        {book.formats.map((format) => (
-                          <a
-                            key={format.type}
-                            href={format.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex-1 min-w-[90px] sm:flex-none inline-flex justify-center sm:justify-start items-center gap-1 text-[0.6rem] sm:text-[0.55rem] font-bold tracking-[0.15em] sm:tracking-wider uppercase border border-gray-200 hover:border-[var(--color-gold)] text-gray-500 hover:text-[var(--color-gold)] px-3 py-2.5 sm:px-2 sm:py-1.5 rounded-sm transition-all duration-300 hover:shadow-sm"
-                          >
-                            <span>{format.type}</span>
-                            {format.price && <span className="text-gray-300 hidden sm:inline">·</span>}
-                            {format.price && <span className="text-[var(--color-gold)] ml-1 sm:ml-0">{format.price}</span>}
-                          </a>
-                        ))}
-                      </div>
-                    )}
-                    {book.formats.length === 0 && (
-                      <Button variant="secondary" className="w-fit mt-auto" disabled>
-                        Coming Soon
-                      </Button>
-                    )}
-                  </div>
-                </div>
-                </div>
-              </StaggerItem>
+          {/* Book Showcase Stagger Row */}
+          <div className="space-y-12 max-w-5xl mx-auto">
+            {featuredBooks.map((book, index) => (
+              <FadeIn key={book.id} delay={index * 0.15}>
+                <BookShowcase book={book} layout="featured" priority={index === 0} />
+              </FadeIn>
             ))}
-          </StaggerContainer>
+          </div>
 
           {/* Coming Soon Teaser */}
-          <FadeIn className="text-center mt-10 sm:mt-12">
-            <div className="inline-flex items-center gap-3 bg-white border border-gray-100 px-5 sm:px-6 py-3 sm:py-4 rounded-sm">
-              <BookOpen className="w-5 h-5 text-[var(--color-gold)]" />
+          <FadeIn className="text-center mt-16 md:mt-20">
+            <div className="inline-flex items-center gap-4 bg-white border border-gray-100/80 px-6 py-4 rounded-sm shadow-[0_4px_16px_rgba(0,0,0,0.02)] max-w-md mx-auto">
+              <div className="w-10 h-10 rounded-full bg-[var(--color-ivory)] flex items-center justify-center text-[var(--color-gold)] flex-shrink-0">
+                <BookOpen className="w-5 h-5" />
+              </div>
               <div className="text-left">
-                <p className="text-sm font-semibold text-[var(--color-royal-deep)]">{homepageData.featuredBooks.comingSoonHeading}</p>
-                <p className="text-[0.6rem] text-gray-400 tracking-wider uppercase">{homepageData.featuredBooks.comingSoonDescription}</p>
+                <h4 className="text-sm font-bold text-[var(--color-royal-deep)] leading-tight">{homepageData.featuredBooks.comingSoonHeading}</h4>
+                <p className="text-[0.6875rem] text-gray-400 font-bold uppercase tracking-wider mt-0.5">{homepageData.featuredBooks.comingSoonDescription}</p>
               </div>
             </div>
           </FadeIn>
@@ -270,54 +247,25 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════════
-          3B. CHILDREN'S CORNER
+          3B. CHILDREN'S CORNER — Whimsical, Warm Grid
           ════════════════════════════════════════════ */}
       {childrensBooks.length > 0 && (
-        <section className="py-14 sm:py-20 lg:py-24 bg-gradient-to-b from-white to-[var(--color-ivory)]/30 border-t border-gray-100">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-            <FadeIn className="text-center mb-10 sm:mb-14">
-              <span className="inline-block text-[0.6rem] font-bold tracking-[0.3em] text-[var(--color-gold)] uppercase mb-4">
-                {homepageData.childrensCorner.sectionLabel}
-              </span>
-              <h2 className="font-heading text-3xl lg:text-4xl font-bold text-[var(--color-royal-deep)] mb-4">
-                {homepageData.childrensCorner.heading}
-              </h2>
-              <div className="gold-rule w-20 mx-auto mb-6" />
-            </FadeIn>
+        <section className="section-padding bg-white relative overflow-hidden">
+          {/* Gentle background wash */}
+          <div className="absolute inset-0 bg-gradient-to-b from-white to-[var(--color-ivory)]/25 pointer-events-none" />
 
-            <StaggerContainer className="grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl relative z-10">
+            <SectionHeader
+              label={homepageData.childrensCorner.sectionLabel}
+              heading={homepageData.childrensCorner.heading}
+              align="center"
+              className="mb-14"
+            />
+
+            <StaggerContainer className="grid md:grid-cols-2 gap-8 lg:gap-12">
               {childrensBooks.map((book) => (
                 <StaggerItem key={book.id}>
-                  <div className="group bg-white rounded-3xl border-2 border-[var(--color-ivory)] overflow-hidden transition-all duration-500 hover:shadow-[0_16px_48px_rgba(0,0,0,0.06)] hover:border-[var(--color-gold)]/30 h-full">
-                  <div className="flex flex-col h-full">
-                    <div className="w-full bg-gradient-to-br from-[#fdfbf7] to-[#f4f1e9] flex justify-center items-center p-4 sm:p-6 border-b border-gray-100/50">
-                      <div className="relative w-full aspect-[3/2] rounded-xl overflow-hidden shadow-sm border border-gray-100/50">
-                        <Image
-                          src={book.cover}
-                          alt={book.title}
-                          fill
-                          className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
-                        />
-                      </div>
-                    </div>
-                    <div className="p-5 sm:p-5 lg:p-7 flex flex-col justify-center flex-grow">
-                      <span className="text-[0.6rem] font-bold tracking-widest text-[#d4af37] uppercase mb-2 bg-[#fdfbf7] w-fit px-2 py-1 rounded-md">
-                        {book.subtitle}
-                      </span>
-                      <h3 className="font-heading text-xl lg:text-2xl font-bold text-[var(--color-royal-deep)] mb-3 leading-tight">
-                        {book.title}
-                      </h3>
-                      <p className="text-gray-500 text-sm leading-[1.7] mb-5">
-                        {book.description}
-                      </p>
-                      <div className="mt-auto">
-                        <Button variant="gold" className="w-fit rounded-full px-6" disabled={book.status === "Coming Soon"}>
-                          {book.status === "Coming Soon" ? "Coming Soon" : "View Book"}
-                        </Button>
-                      </div>
-                    </div>
-                    </div>
-                  </div>
+                  <BookShowcase book={book} layout="card" />
                 </StaggerItem>
               ))}
             </StaggerContainer>
@@ -326,53 +274,49 @@ export default function HomePage() {
       )}
 
       {/* ════════════════════════════════════════════
-          3C. COMMUNITY CORNER
+          3C. COMMUNITY CORNER — Fellowship Grid
           ════════════════════════════════════════════ */}
       {communityData.length > 0 && (
-        <section className="py-14 sm:py-20 lg:py-24 bg-white border-t border-gray-100">
+        <section className="section-padding bg-white border-t border-gray-100/50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-            <FadeIn className="text-center mb-10 sm:mb-14">
-              <span className="inline-block text-[0.6rem] font-bold tracking-[0.3em] text-[var(--color-gold)] uppercase mb-4">
-                {homepageData.communityCorner.sectionLabel}
-              </span>
-              <h2 className="font-heading text-3xl lg:text-4xl font-bold text-[var(--color-royal-deep)] mb-4">
-                {homepageData.communityCorner.heading}
-              </h2>
-              <div className="gold-rule w-20 mx-auto mb-6" />
-            </FadeIn>
+            <SectionHeader
+              label={homepageData.communityCorner.sectionLabel}
+              heading={homepageData.communityCorner.heading}
+              align="center"
+              className="mb-14"
+            />
 
-            <StaggerContainer className="grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 justify-center">
-              {communityData.map((item) => (
+            <StaggerContainer className="grid md:grid-cols-2 gap-8 lg:gap-12 justify-center">
+              {communityData.map((item: any) => (
                 <StaggerItem key={item.id}>
-                  <div className="group bg-white rounded-3xl border-2 border-[var(--color-ivory)] overflow-hidden transition-all duration-500 hover:shadow-[0_16px_48px_rgba(0,0,0,0.06)] hover:border-[var(--color-gold)]/30 h-full">
-                  <div className="flex flex-col h-full">
-                    <div className="w-full bg-gradient-to-br from-[#fdfbf7] to-[#f4f1e9] flex justify-center items-center p-4 sm:p-6 border-b border-gray-100/50">
-                      <div className="relative w-full aspect-[3/2] rounded-xl overflow-hidden shadow-sm border border-gray-100/50">
-                        <Image
-                          src={item.cover}
-                          alt={item.title}
-                          fill
-                          className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
-                        />
-                      </div>
+                  <div className="group flex flex-col h-full bg-white rounded-sm border border-gray-100 hover:border-[var(--color-soft-gold)]/40 hover:shadow-xl transition-all duration-500">
+                    <div className="w-full bg-[var(--color-ivory)]/30 flex justify-center items-center p-6 border-b border-gray-100/40 relative aspect-[3/2] overflow-hidden">
+                      <Image
+                        src={item.cover}
+                        alt={item.title}
+                        fill
+                        sizes="(max-width: 640px) 100vw, 450px"
+                        className="object-cover transition-transform duration-700 group-hover:scale-103"
+                      />
                     </div>
-                    <div className="p-5 sm:p-5 lg:p-7 flex flex-col justify-center flex-grow">
-                      <span className="text-[0.6rem] font-bold tracking-widest text-[#d4af37] uppercase mb-2 bg-[#fdfbf7] w-fit px-2 py-1 rounded-md">
-                        {item.subtitle}
-                      </span>
-                      <h3 className="font-heading text-xl lg:text-2xl font-bold text-[var(--color-royal-deep)] mb-3 leading-tight">
+                    <div className="p-6 md:p-8 flex flex-col flex-grow text-center md:text-left">
+                      {item.subtitle && (
+                        <span className="text-label text-[0.625rem] mb-2">
+                          {item.subtitle}
+                        </span>
+                      )}
+                      <h3 className="font-heading text-xl font-bold text-[var(--color-royal-deep)] mb-3 leading-snug group-hover:text-[var(--color-royal)] transition-colors duration-300">
                         {item.title}
                       </h3>
-                      <p className="text-gray-500 text-sm leading-[1.7] mb-5">
+                      <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-grow">
                         {item.description}
                       </p>
                       <div className="mt-auto">
-                        <Button variant="gold" className="w-fit rounded-full px-6" asChild>
+                        <Button variant="gold" className="w-full sm:w-auto" asChild>
                           <Link href={item.link}>Explore</Link>
                         </Button>
                       </div>
                     </div>
-                    </div>
                   </div>
                 </StaggerItem>
               ))}
@@ -382,85 +326,85 @@ export default function HomePage() {
       )}
 
       {/* ════════════════════════════════════════════
-          4. SCRIPTURE / QUOTE INTERLUDE
+          4. POETIC INTERLUDE — Scripture Glow
           ════════════════════════════════════════════ */}
-      <section className="relative bg-[var(--color-royal-deep)] py-12 sm:py-16 lg:py-20 overflow-hidden">
-        {/* Subtle dot pattern */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "28px 28px" }} />
-        {/* Gold glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-32 bg-[var(--color-gold)]/10 rounded-full blur-[80px] pointer-events-none" />
+      <section className="relative bg-[var(--color-royal-deep)] py-16 sm:py-24 lg:py-28 overflow-hidden">
+        {/* Soft elegant mesh background pattern */}
+        <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 2px, transparent 0)", backgroundSize: "36px 36px" }} />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-40 bg-[var(--color-gold)]/15 rounded-full blur-[90px] pointer-events-none animate-pulse-gold" />
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center relative z-10">
-          <Quote className="w-8 h-8 sm:w-10 sm:h-10 text-[var(--color-gold)]/40 mx-auto mb-4 sm:mb-6 rotate-180" />
-          <blockquote className="font-heading text-lg sm:text-xl lg:text-2xl text-white/90 italic leading-relaxed mb-4 sm:mb-6 px-2">
-            &ldquo;{homepageData.scriptureQuote.text}&rdquo;
-          </blockquote>
-          <div className="flex items-center justify-center gap-4">
-            <div className="w-8 h-px bg-[var(--color-gold)]/40" />
-            <cite className="text-[0.6rem] font-bold tracking-[0.3em] text-[var(--color-gold)] uppercase not-italic">
-              {homepageData.scriptureQuote.citation}
-            </cite>
-            <div className="w-8 h-px bg-[var(--color-gold)]/40" />
-          </div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center relative z-10">
+          <FadeIn>
+            <Quote className="w-10 h-10 text-[var(--color-gold)]/35 mx-auto mb-6 rotate-180" />
+            <blockquote className="font-heading text-xl sm:text-2xl lg:text-3xl text-white/90 italic leading-relaxed mb-8 px-4">
+              &ldquo;{homepageData.scriptureQuote.text}&rdquo;
+            </blockquote>
+            <div className="flex items-center justify-center gap-4">
+              <div className="w-10 h-px bg-[var(--color-gold)]/30" />
+              <cite className="text-micro font-bold tracking-[0.25em] text-[var(--color-gold)] uppercase not-italic">
+                {homepageData.scriptureQuote.citation}
+              </cite>
+              <div className="w-10 h-px bg-[var(--color-gold)]/30" />
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* ════════════════════════════════════════════
-          5. LATEST WRITINGS
+          5. JOURNAL — Magazine Layout
           ════════════════════════════════════════════ */}
-      <section className="py-14 sm:py-20 lg:py-28 bg-white">
+      <section className="section-padding bg-white relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-          {/* Section header */}
-          <FadeIn className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-10 sm:mb-14">
-            <div>
-              <span className="inline-block text-[0.6rem] font-bold tracking-[0.3em] text-[var(--color-gold)] uppercase mb-4">
-                {homepageData.latestWritings.sectionLabel}
-              </span>
-              <h2 className="font-heading text-3xl lg:text-4xl font-bold text-[var(--color-royal-deep)]">
-                {homepageData.latestWritings.heading}
-              </h2>
-            </div>
-            <Link
-              href="/writings"
-              className="group inline-flex items-center text-sm font-bold tracking-wider text-[var(--color-royal-deep)] uppercase mt-4 sm:mt-0 hover:text-[var(--color-gold)] transition-colors"
-            >
-              {homepageData.latestWritings.viewAllText}
-              <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-            </Link>
-          </FadeIn>
+          {/* Split row header */}
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12 lg:mb-16">
+            <SectionHeader
+              label={homepageData.latestWritings.sectionLabel}
+              heading={homepageData.latestWritings.heading}
+              align="left"
+              className="mb-6 md:mb-0"
+            />
+            <FadeIn>
+              <Button variant="ghost" asChild className="group pr-0 hover:text-[var(--color-gold)]">
+                <Link href="/writings">
+                  {homepageData.latestWritings.viewAllText}
+                  <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1.5" />
+                </Link>
+              </Button>
+            </FadeIn>
+          </div>
 
-          {/* Writings Grid */}
-          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {writings.map((writing) => {
+          {/* Writings Editorial Grid */}
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {writings.map((writing, index) => {
               const date = new Date(writing.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
               return (
-                <StaggerItem key={writing.slug}>
-                  <Link
-                    href={`/writings/${writing.slug}`}
-                    className="group flex flex-col h-full"
-                  >
-                    <div className="relative aspect-[4/3] rounded-sm overflow-hidden bg-[var(--color-ivory)] mb-4 sm:mb-5">
+                <StaggerItem key={writing.slug} className="group">
+                  <Link href={`/writings/${writing.slug}`} className="flex flex-col h-full">
+                    {/* Cover Wrap */}
+                    <div className="relative aspect-[4/3] rounded-sm overflow-hidden bg-[var(--color-ivory)] mb-5 shadow-sm group-hover:shadow-md transition-shadow duration-300">
                       <Image
                         src={writing.image}
                         alt={writing.title}
                         fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 380px"
+                        className="object-cover transition-transform duration-700 group-hover:scale-104"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
-                    <div className="flex items-center gap-3 mb-2 sm:mb-3">
-                      <span className="text-[0.55rem] font-bold tracking-[0.2em] text-[var(--color-gold)] uppercase">{writing.category}</span>
-                      <span className="w-1 h-1 rounded-full bg-gray-300" />
-                      <span className="text-[0.65rem] text-gray-400">{date}</span>
+                    {/* Metatags */}
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className="text-[0.6rem] font-bold tracking-widest text-[var(--color-gold)] uppercase">{writing.category}</span>
+                      <span className="w-1 h-1 rounded-full bg-gray-200" />
+                      <span className="text-micro text-gray-400 font-medium">{date}</span>
                     </div>
-                    <h3 className="font-heading text-lg lg:text-xl font-bold text-[var(--color-royal-deep)] mb-2 group-hover:text-[var(--color-gold)] transition-colors duration-300 leading-tight">
+                    <h3 className="font-heading text-xl font-bold text-[var(--color-royal-deep)] mb-3 leading-snug group-hover:text-[var(--color-gold)] transition-colors duration-300">
                       {writing.title}
                     </h3>
-                    <p className="text-gray-500 text-sm leading-[1.7] line-clamp-2 mb-3 sm:mb-4">
+                    <p className="text-gray-500 text-sm leading-[1.7] line-clamp-3 mb-5">
                       {writing.excerpt}
                     </p>
-                    <span className="inline-flex items-center text-[0.65rem] font-bold tracking-wider text-[var(--color-royal)] uppercase mt-auto">
-                      Read More <ArrowRight className="w-3 h-3 ml-1.5 transition-transform duration-300 group-hover:translate-x-1" />
+                    <span className="inline-flex items-center text-micro text-[var(--color-royal)] font-bold tracking-wider mt-auto group-hover:text-[var(--color-gold)] transition-colors duration-300">
+                      Read Entry <ArrowRight className="w-3.5 h-3.5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
                     </span>
                   </Link>
                 </StaggerItem>
@@ -471,69 +415,63 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════════
-          6. PROJECTS & VENTURES
+          6. PROJECTS & VENTURES — Lightweight Grid
           ════════════════════════════════════════════ */}
-      <section className="py-14 sm:py-20 lg:py-28 bg-[var(--color-ivory)]">
+      <section className="section-padding bg-[var(--color-ivory)]/40 border-t border-b border-gray-100/35">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-          {/* Section header */}
-          <FadeIn className="text-center mb-10 sm:mb-14">
-            <span className="inline-block text-[0.6rem] font-bold tracking-[0.3em] text-[var(--color-gold)] uppercase mb-4">
-              {homepageData.projectsVentures.sectionLabel}
-            </span>
-            <h2 className="font-heading text-3xl lg:text-4xl font-bold text-[var(--color-royal-deep)] mb-4">
-              {homepageData.projectsVentures.heading}
-            </h2>
-            <div className="gold-rule w-20 mx-auto mb-6" />
-            <p className="text-gray-500 text-sm lg:text-base max-w-md mx-auto">
-              {homepageData.projectsVentures.description}
-            </p>
-          </FadeIn>
+          <SectionHeader
+            label={homepageData.projectsVentures.sectionLabel}
+            heading={homepageData.projectsVentures.heading}
+            description={homepageData.projectsVentures.description}
+            align="center"
+            className="mb-16"
+          />
 
-          <StaggerContainer className="grid md:grid-cols-2 gap-8">
+          <StaggerContainer className="grid md:grid-cols-2 gap-8 lg:gap-10">
             {projects.map((project) => (
-              <StaggerItem key={project.id}>
-                <div className="flex flex-col h-full bg-white rounded-3xl border-2 border-[var(--color-ivory)] overflow-hidden transition-all duration-500 hover:shadow-[0_16px_48px_rgba(0,0,0,0.06)] hover:border-[var(--color-gold)]/30">
-                  <div className="w-full bg-gradient-to-br from-[#fdfbf7] to-[#f4f1e9] flex justify-center items-center p-4 sm:p-6 border-b border-gray-100/50">
-                    <Link href={project.url} className="relative w-full aspect-[3/2] rounded-xl overflow-hidden shadow-sm border border-gray-100/50 block">
-                      {project.image ? (
-                        <Image src={project.image} alt={project.title} fill className="object-cover transition-transform duration-700 group-hover:scale-[1.05]" />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center bg-white text-[var(--color-gold)] transition-transform duration-700 group-hover:scale-[1.05]">
-                          {projectIcons[project.iconName] || <Lightbulb className="w-12 h-12" strokeWidth={1.25} />}
-                        </div>
-                      )}
-                    </Link>
-                  </div>
-                  <div className="p-5 sm:p-6 lg:p-8 flex flex-col flex-grow">
-                    <span className="text-[0.6rem] font-bold tracking-widest text-[#d4af37] uppercase mb-3 bg-[#fdfbf7] w-fit px-2 py-1 rounded-md">
-                      {project.tagline || "Initiative"}
-                    </span>
-                    <Link href={project.url} className="block group/title">
-                      <h3 className="font-heading text-xl lg:text-2xl font-bold text-[var(--color-royal-deep)] mb-3 leading-tight group-hover/title:text-[var(--color-gold)] transition-colors duration-300">
-                        {project.title}
-                      </h3>
-                    </Link>
-                    <p className="text-gray-500 text-sm leading-[1.7] mb-6 flex-grow">
-                      {project.description}
-                    </p>
-                    
-                    <div className="mt-auto pt-5 border-t border-gray-100 flex flex-col gap-3">
-                      {project.url !== '#' && (
-                         <Link href={project.url} className="inline-flex items-center text-xs font-bold tracking-wider text-[var(--color-royal-deep)] uppercase hover:text-[var(--color-gold)] transition-colors group/link">
-                           Explore Project <ArrowRight className="w-3.5 h-3.5 ml-1.5 transition-transform duration-300 group-hover/link:translate-x-1" />
-                         </Link>
-                      )}
-                      {project.socialUrl && (
-                        <a 
-                          href={project.socialUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-[var(--color-gold)] font-bold text-[0.7rem] tracking-widest uppercase hover:text-[var(--color-royal-deep)] transition-colors duration-300"
-                        >
-                          <span className="opacity-50 italic normal-case tracking-normal">Visit on {project.socialLabel}:</span> {project.socialHandle || project.socialLabel}
-                        </a>
-                      )}
+              <StaggerItem key={project.id} className="card-premium h-full bg-white rounded-sm border border-gray-100 overflow-hidden flex flex-col">
+                <div className="p-6 md:p-8 flex flex-col flex-grow">
+                  {/* Top line with Icon and category tag */}
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-12 h-12 rounded-full bg-[var(--color-ivory)] flex items-center justify-center shadow-sm">
+                      {projectIcons[project.iconName] || <Lightbulb className="w-6 h-6 text-[var(--color-gold)]" strokeWidth={1.25} />}
                     </div>
+                    {project.tagline && (
+                      <span className="text-micro text-[0.6rem] text-gray-400 font-semibold tracking-wider max-w-[200px] text-right line-clamp-1">
+                        {project.tagline}
+                      </span>
+                    )}
+                  </div>
+
+                  <h3 className="font-heading text-2xl font-bold text-[var(--color-royal-deep)] mb-3 leading-snug">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-500 text-sm leading-[1.7] mb-8 flex-grow">
+                    {project.description}
+                  </p>
+
+                  <div className="mt-auto pt-6 border-t border-gray-100 flex flex-wrap gap-4 items-center justify-between">
+                    {project.url !== "#" ? (
+                      <Button variant="ghost" size="sm" asChild className="group font-bold text-[var(--color-royal-deep)] pr-0 hover:text-[var(--color-gold)]">
+                        <Link href={project.url}>
+                          Explore Project
+                          <ArrowRight className="w-4 h-4 ml-1.5 transition-transform duration-300 group-hover:translate-x-1" />
+                        </Link>
+                      </Button>
+                    ) : (
+                      <span className="text-micro text-gray-300 font-bold uppercase">Development Phase</span>
+                    )}
+
+                    {project.socialUrl && (
+                      <a
+                        href={project.socialUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[0.625rem] font-bold text-gray-400 hover:text-[var(--color-gold)] tracking-wider uppercase transition-colors"
+                      >
+                        {project.socialHandle || project.socialLabel}
+                      </a>
+                    )}
                   </div>
                 </div>
               </StaggerItem>
@@ -543,37 +481,32 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════════
-          6B. LISTEN & READ (SUBSTACK / SPOTIFY)
+          6B. LISTEN & READ — Premium Glass Layout
           ════════════════════════════════════════════ */}
-      <section className="py-14 sm:py-20 lg:py-28 bg-white border-t border-gray-100">
+      <section className="section-padding bg-white relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-          <FadeIn className="text-center mb-10 sm:mb-16">
-            <span className="inline-block text-[0.6rem] font-bold tracking-[0.3em] text-[var(--color-gold)] uppercase mb-4">
-              {homepageData.listenRead.sectionLabel}
-            </span>
-            <h2 className="font-heading text-3xl lg:text-4xl font-bold text-[var(--color-royal-deep)] mb-4">
-              {homepageData.listenRead.heading}
-            </h2>
-            <div className="gold-rule w-20 mx-auto mb-6" />
-            <p className="text-gray-500 text-sm lg:text-base max-w-md mx-auto">
-              {homepageData.listenRead.description}
-            </p>
-          </FadeIn>
+          <SectionHeader
+            label={homepageData.listenRead.sectionLabel}
+            heading={homepageData.listenRead.heading}
+            description={homepageData.listenRead.description}
+            align="center"
+            className="mb-16"
+          />
 
-          <StaggerContainer className="grid md:grid-cols-2 gap-6 lg:gap-10">
+          <StaggerContainer className="grid md:grid-cols-2 gap-8 lg:gap-12">
             {/* Substack Card */}
             <StaggerItem>
-              <div className="group relative bg-gradient-to-br from-[#fdfbf7] to-white border border-gray-100 rounded-sm p-8 sm:p-10 overflow-hidden shadow-sm hover:shadow-[0_20px_60px_rgba(200,151,62,0.08)] hover:border-[var(--color-gold)]/30 transition-all duration-500 h-full flex flex-col items-center text-center">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white border border-gray-100 rounded-full flex items-center justify-center text-[var(--color-gold)] mb-6 sm:mb-8 group-hover:bg-[var(--color-gold)] group-hover:text-white transition-colors duration-500 shadow-[0_8px_20px_rgba(0,0,0,0.04)]">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
+              <div className="group relative bg-gradient-to-br from-[#fdfbf7] to-white border border-gray-100/80 rounded-sm p-8 sm:p-12 overflow-hidden shadow-sm hover:shadow-xl hover:border-[var(--color-gold)]/35 transition-all duration-500 h-full flex flex-col items-center text-center">
+                <div className="w-20 h-20 bg-white border border-gray-100 rounded-full flex items-center justify-center text-[var(--color-gold)] mb-8 group-hover:bg-[var(--color-gold)] group-hover:text-white transition-colors duration-500 shadow-sm">
+                  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
                 </div>
-                <h3 className="font-heading text-xl sm:text-2xl font-bold text-[var(--color-royal-deep)] mb-3 group-hover:text-[var(--color-gold)] transition-colors duration-300">
+                <h3 className="font-heading text-2xl font-bold text-[var(--color-royal-deep)] mb-4">
                   {homepageData.listenRead.substack.heading}
                 </h3>
-                <p className="text-gray-500 text-sm leading-[1.8] mb-8 max-w-sm">
+                <p className="text-gray-500 text-sm leading-[1.8] mb-10 max-w-sm">
                   {homepageData.listenRead.substack.description}
                 </p>
-                <Button variant="gold" className="rounded-full px-8 mt-auto group-hover:scale-105 transition-transform duration-300" asChild>
+                <Button variant="gold" size="lg" className="rounded-sm w-full sm:w-auto px-8 mt-auto shadow-sm hover:scale-103 transition-transform duration-300" asChild>
                   <a href={siteData.links.substackUrl} target="_blank" rel="noopener noreferrer">{homepageData.listenRead.substack.ctaText}</a>
                 </Button>
               </div>
@@ -581,20 +514,20 @@ export default function HomePage() {
 
             {/* Spotify Card */}
             <StaggerItem>
-              <div className="group relative bg-gradient-to-br from-[var(--color-royal-darkest)] to-[var(--color-royal-deep)] border border-white/10 rounded-sm p-8 sm:p-10 overflow-hidden shadow-sm hover:shadow-[0_20px_60px_rgba(0,0,0,0.2)] hover:border-[var(--color-gold)]/40 transition-all duration-500 h-full flex flex-col items-center text-center">
-                {/* Subtle glow */}
-                <div className="absolute top-0 right-0 w-48 h-48 bg-[var(--color-gold)]/10 rounded-full blur-[60px] pointer-events-none" />
-                
-                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-white mb-6 sm:mb-8 group-hover:bg-[var(--color-gold)] group-hover:border-[var(--color-gold)] transition-colors duration-500 backdrop-blur-md">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.6 14.4c-.2.3-.6.4-.9.2-2.5-1.5-5.7-1.8-9.4-1-.3.1-.7-.1-.8-.4-.1-.3.1-.7.4-.8 4.1-.9 7.6-.5 10.4 1.2.3.1.4.5.3.8zm1.2-2.7c-.2.4-.7.5-1 .3-2.9-1.8-6.6-2.2-10-1.2-.4.1-.9-.1-1-.5-.1-.4.1-.9.5-1 3.9-1.2 8.1-.7 11.4 1.3.3.3.4.8.1 1.1zm.1-2.9c-3.4-2-8.1-2.2-11-1.2-.5.2-1-.1-1.2-.6-.2-.5.1-1 .6-1.2 3.4-1.2 8.6-1 12.5 1.3.5.3.6.9.3 1.4-.2.4-.7.6-1.2.3z"/></svg>
+              <div className="group relative bg-[var(--color-royal-darkest)] border border-white/5 rounded-sm p-8 sm:p-12 overflow-hidden shadow-[0_20px_50px_rgba(6,27,78,0.15)] hover:shadow-[0_25px_60px_rgba(6,27,78,0.25)] hover:border-[var(--color-gold)]/40 transition-all duration-500 h-full flex flex-col items-center text-center">
+                {/* Glowing light effect */}
+                <div className="absolute top-[-10%] right-[-10%] w-60 h-60 bg-[var(--color-gold)]/10 rounded-full blur-[80px] pointer-events-none" />
+
+                <div className="w-20 h-20 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-white mb-8 group-hover:bg-[var(--color-gold)] group-hover:border-[var(--color-gold)] transition-colors duration-500 backdrop-blur-md shadow-sm">
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.6 14.4c-.2.3-.6.4-.9.2-2.5-1.5-5.7-1.8-9.4-1-.3.1-.7-.1-.8-.4-.1-.3.1-.7.4-.8 4.1-.9 7.6-.5 10.4 1.2.3.1.4.5.3.8zm1.2-2.7c-.2.4-.7.5-1 .3-2.9-1.8-6.6-2.2-10-1.2-.4.1-.9-.1-1-.5-.1-.4.1-.9.5-1 3.9-1.2 8.1-.7 11.4 1.3.3.3.4.8.1 1.1zm.1-2.9c-3.4-2-8.1-2.2-11-1.2-.5.2-1-.1-1.2-.6-.2-.5.1-1 .6-1.2 3.4-1.2 8.6-1 12.5 1.3.5.3.6.9.3 1.4-.2.4-.7.6-1.2.3z"/></svg>
                 </div>
-                <h3 className="font-heading text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-[var(--color-gold)] transition-colors duration-300 relative z-10">
+                <h3 className="font-heading text-2xl font-bold text-white mb-4 relative z-10">
                   {homepageData.listenRead.spotify.heading}
                 </h3>
-                <p className="text-white/60 text-sm leading-[1.8] mb-8 max-w-sm relative z-10">
+                <p className="text-white/60 text-sm leading-[1.8] mb-10 max-w-sm relative z-10">
                   {homepageData.listenRead.spotify.description}
                 </p>
-                <Button variant="secondary" className="rounded-full px-8 mt-auto border-transparent hover:bg-[var(--color-gold)] hover:text-white group-hover:scale-105 transition-transform duration-300 relative z-10" asChild>
+                <Button variant="secondary" size="lg" className="rounded-sm w-full sm:w-auto px-8 mt-auto border-white/20 text-white hover:bg-[var(--color-gold)] hover:border-[var(--color-gold)] hover:text-white hover:scale-103 transition-all duration-300 relative z-10" asChild>
                   <a href={siteData.links.spotifyUrl} target="_blank" rel="noopener noreferrer">{homepageData.listenRead.spotify.ctaText}</a>
                 </Button>
               </div>
@@ -604,28 +537,37 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════════
-          7. NEWSLETTER CTA
+          7. NEWSLETTER — Elegant Frame Callout
           ════════════════════════════════════════════ */}
-      <section id="newsletter" className="relative bg-[var(--color-royal-deep)] py-12 sm:py-16 lg:py-20 overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "32px 32px" }} />
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-[var(--color-gold)]/8 rounded-full blur-[100px] pointer-events-none" />
+      <section id="newsletter" className="relative bg-[var(--color-royal-deep)] py-20 sm:py-28 overflow-hidden border-t border-white/5">
+        <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: "linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)", backgroundSize: "48px 48px" }} />
+        <div className="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-[var(--color-gold)]/10 rounded-full blur-[110px] pointer-events-none animate-pulse-gold" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center relative z-10">
-          <h2 className="font-script text-2xl sm:text-3xl lg:text-4xl text-[var(--color-gold)] mb-3">
-            {homepageData.newsletter.heading}
-          </h2>
-          <p className="text-white/40 text-sm mb-6 sm:mb-8 max-w-md mx-auto">
-            {homepageData.newsletter.description}
-          </p>
-          <div className="flex justify-center mt-8">
-            <Button variant="gold" className="rounded-sm text-[0.65rem] tracking-[0.2em] px-10 h-auto py-4 group hover:scale-105 transition-transform duration-300" asChild>
-              <a href={siteData.links.substackUrl} target="_blank" rel="noopener noreferrer">
-                {homepageData.newsletter.ctaText} <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-              </a>
-            </Button>
-          </div>
+          <FadeIn className="bg-white/[0.02] border border-white/10 rounded-sm p-8 sm:p-12 backdrop-blur-sm relative">
+            {/* Elegant corner brackets */}
+            <div className="absolute top-4 left-4 w-6 h-6 border-t border-l border-[var(--color-gold)]/50" />
+            <div className="absolute top-4 right-4 w-6 h-6 border-t border-r border-[var(--color-gold)]/50" />
+            <div className="absolute bottom-4 left-4 w-6 h-6 border-b border-l border-[var(--color-gold)]/50" />
+            <div className="absolute bottom-4 right-4 w-6 h-6 border-b border-r border-[var(--color-gold)]/50" />
+
+            <h2 className="font-script text-4xl sm:text-5xl text-[var(--color-gold)] mb-4">
+              {homepageData.newsletter.heading}
+            </h2>
+            <p className="text-white/60 text-sm sm:text-base mb-8 max-w-md mx-auto leading-relaxed">
+              {homepageData.newsletter.description}
+            </p>
+            <div className="flex justify-center">
+              <Button variant="gold" size="lg" className="rounded-sm text-[0.7rem] tracking-[0.2em] font-bold px-12 group hover:scale-104 transition-all duration-300" asChild>
+                <a href={siteData.links.substackUrl} target="_blank" rel="noopener noreferrer">
+                  {homepageData.newsletter.ctaText}
+                  <ArrowRight className="w-4 h-4 ml-2.5 transition-transform duration-300 group-hover:translate-x-1.5" />
+                </a>
+              </Button>
+            </div>
+          </FadeIn>
         </div>
       </section>
-    </>
+    </div>
   );
 }

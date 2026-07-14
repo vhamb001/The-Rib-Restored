@@ -14,6 +14,7 @@ export interface WritingMeta {
   excerpt: string;
   image: string;
   featured?: boolean;
+  readingTime?: number;
 }
 
 export interface Writing extends WritingMeta {
@@ -33,10 +34,13 @@ export function getSortedWritingsData(): WritingMeta[] {
 
     // Use gray-matter to parse the post metadata section
     const matterResult = matter(fileContents);
+    const wordCount = matterResult.content.split(/\s+/).filter(Boolean).length;
+    const readingTime = Math.max(1, Math.ceil(wordCount / 200));
 
     // Combine the data with the id
     return {
       slug,
+      readingTime,
       ...(matterResult.data as Omit<WritingMeta, "slug">),
     };
   });
@@ -57,6 +61,8 @@ export async function getWritingData(slug: string): Promise<Writing> {
 
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents);
+  const wordCount = matterResult.content.split(/\s+/).filter(Boolean).length;
+  const readingTime = Math.max(1, Math.ceil(wordCount / 200));
 
   // Use remark to convert markdown into HTML string
   const processedContent = await remark()
@@ -68,6 +74,7 @@ export async function getWritingData(slug: string): Promise<Writing> {
   return {
     slug,
     contentHtml,
+    readingTime,
     ...(matterResult.data as Omit<WritingMeta, "slug">),
   };
 }
