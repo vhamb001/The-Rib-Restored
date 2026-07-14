@@ -138,7 +138,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
             {/* Visual Column */}
-            <div className="lg:col-span-5 relative">
+            <div className="lg:col-span-5 relative order-2 lg:order-1">
               <FadeIn direction="right" className="relative max-w-xs sm:max-w-sm mx-auto lg:mx-0">
                 <ParallaxSection speed={0.03} className="relative z-10">
                   <div className="relative aspect-[3/4] w-full rounded-sm overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.08)] bg-[var(--color-ivory)] border border-gray-100">
@@ -158,7 +158,7 @@ export default function HomePage() {
             </div>
 
             {/* Text details column */}
-            <div className="lg:col-span-7 flex flex-col justify-center">
+            <div className="lg:col-span-7 flex flex-col justify-center order-1 lg:order-2">
               <SectionHeader
                 label={homepageData.aboutAuthor.sectionLabel}
                 heading={homepageData.aboutAuthor.headingLine1}
