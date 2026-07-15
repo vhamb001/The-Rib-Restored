@@ -95,7 +95,7 @@ export default function HomePage() {
 
               {/* Mobile-only Brand Logo */}
               <FadeIn delay={0.45} className="lg:hidden my-6 flex justify-center">
-                <div className="relative w-full max-w-[200px] aspect-square flex items-center justify-center">
+                <div className="relative w-full max-w-[250px] aspect-square flex items-center justify-center">
                   <img
                     src={homepageData.hero.heroImage}
                     alt={homepageData.hero.heroImageAlt}
@@ -124,7 +124,7 @@ export default function HomePage() {
 
             {/* Website Brand Logo — right side (Desktop only) */}
             <div className="hidden lg:flex lg:col-span-5 justify-center lg:justify-end relative">
-              <FadeIn delay={0.3} className="relative w-full max-w-[340px] sm:max-w-[380px] lg:max-w-full">
+              <FadeIn delay={0.3} className="relative w-full max-w-[400px] sm:max-w-[440px] lg:max-w-full">
                 {/* Parallax elements */}
                 <ParallaxSection speed={0.06} className="relative z-10">
                   <div className="relative aspect-square w-full rounded-sm overflow-hidden bg-transparent p-4 flex items-center justify-center">
