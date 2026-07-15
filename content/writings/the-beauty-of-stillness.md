@@ -33,7 +33,7 @@ It is the posture of a watchwoman standing quietly upon the wall.
 The posture of a dreamer listening carefully in the night.
 The posture of a soul no longer frantic for control, but surrendered enough to hear.
 
-The world often glorifies speed, but Yahweh frequently works through process, silence, waiting, and hiddenness.
+The world often glorifies speed, but YHWH frequently works through process, silence, waiting, and hiddenness.
 
 Seeds grow in stillness.
 Roots deepen in stillness.
@@ -65,7 +65,7 @@ A deep inward peace that settles where confusion once lived.
 
 Stillness creates room for revelation.
 
-There are seasons where Yahweh intentionally slows everything down — not to delay you, but to align you. Because sometimes we move ahead of wisdom. Sometimes we chase outcomes without first allowing Heaven to establish foundations within us.
+There are seasons where YHWH intentionally slows everything down — not to delay you, but to align you. Because sometimes we move ahead of wisdom. Sometimes we chase outcomes without first allowing Heaven to establish foundations within us.
 
 Stillness teaches trust.
 

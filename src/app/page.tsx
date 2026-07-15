@@ -42,6 +42,15 @@ export default function HomePage() {
   const featuredBooks = books.filter((b) => b.category !== "Children" && b.status === "Available");
   const childrensBooks = books.filter((b) => b.category === "Children");
 
+  const publishedBooksCount = books.filter((b) => b.status === "Available").length;
+  const totalVolumesCount = books.length;
+
+  const dynamicStats = homepageData.aboutAuthor.stats.map((stat, idx) => {
+    if (idx === 0) return { ...stat, value: `${publishedBooksCount}+` };
+    if (idx === 1) return { ...stat, value: `${totalVolumesCount}+` };
+    return stat;
+  });
+
   return (
     <div className="overflow-hidden">
       {/* ════════════════════════════════════════════
@@ -219,7 +228,7 @@ export default function HomePage() {
 
               {/* Animated statistics row */}
               <StaggerContainer staggerDelay={0.15} className="flex items-center gap-8 md:gap-12">
-                {homepageData.aboutAuthor.stats.map((stat, i) => (
+                {dynamicStats.map((stat, i) => (
                   <StaggerItem key={i} className="flex items-center">
                     {i > 0 && <div className="w-px h-12 bg-gray-200 mr-8 md:mr-12" />}
                     <div className="text-left">

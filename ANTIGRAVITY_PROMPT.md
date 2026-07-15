@@ -11,6 +11,7 @@ Create a personal brand website where Shalaymah can showcase her books, writings
 Use a bright royal blue, gold, ivory, and white theme. The site should look elegant, feminine, royal, peaceful, and author-centered. It should not be dark navy. Use true royal blue as the primary color.
 
 Colors:
+
 - Royal Blue: #0B4EDB
 - Deep Royal Blue: #063A9B
 - Gold: #C99A2E
@@ -21,6 +22,7 @@ Colors:
 - Text Dark: #1C1C1C
 
 Fonts:
+
 - Headings: Playfair Display
 - Body: Inter
 - Accent script: Allura
@@ -39,6 +41,7 @@ Use Google Fonts or Next Font.
 ## Navigation
 
 Header links:
+
 - Home
 - About Me
 - Books
@@ -47,6 +50,7 @@ Header links:
 - Contact
 
 Right button:
+
 - Let’s Connect
 
 ## Home Page Sections
@@ -82,6 +86,7 @@ Copy:
 I am Shalaymah, a prophetic dreamer, watchwoman, and author called to remember, restore, heal, and build through words, wisdom, and divine revelation. Everything I create flows from purpose.
 
 Add four cards:
+
 - My Heart
 - My Mission
 - My Calling
@@ -90,12 +95,14 @@ Add four cards:
 ## Books Page
 
 Show cards for:
+
 - Watchwoman’s Dream Book
 - The Prophetic Dreamer’s Scroll
 - More Revelations Coming Soon
 - New Book In Progress
 
 Each card should support:
+
 - cover image
 - title
 - description
@@ -105,11 +112,13 @@ Each card should support:
 ## Writings Page
 
 Create a blog-style list with example posts:
+
 - The Beauty of Stillness
 - Dreams Are Downloads
 - Restoration Is a Process
 
 Include categories:
+
 - All Writings
 - Dreams & Visions
 - Reflections
@@ -122,14 +131,16 @@ Include categories:
 ## Projects Page
 
 Create cards for:
+
 - The Rib Restored
-- Beit Yahweh HaGo’el
+- Beit YHWH HaGo’el
 - Listen Selah
 - Future Projects
 
 ## Contact Page
 
 Create a contact form with:
+
 - name
 - email
 - subject
@@ -141,6 +152,7 @@ Add social/contact card.
 ## Footer
 
 Include:
+
 - Logo
 - Tagline: Restored to Purpose. Called to Impact.
 - Quick links

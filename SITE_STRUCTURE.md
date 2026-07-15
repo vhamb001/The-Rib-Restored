@@ -12,11 +12,13 @@ Top navigation:
 - Contact
 
 Button:
+
 - Let's Connect
 
 ## Footer
 
 Footer should include:
+
 - The Rib Restored logo
 - Short tagline
 - Quick links
@@ -36,6 +38,7 @@ Footer text:
 Purpose: introduce the full personal brand quickly.
 
 Sections:
+
 1. Header/Nav
 2. Hero
 3. Quick Explore Cards
@@ -50,6 +53,7 @@ Sections:
 Purpose: tell Shalaymah’s story simply.
 
 Sections:
+
 1. Page hero
 2. My Story. My Calling.
 3. My Heart / My Mission / My Calling / My Purpose
@@ -61,6 +65,7 @@ Sections:
 Purpose: showcase published and upcoming books.
 
 Sections:
+
 1. Page hero
 2. Featured books grid
 3. Upcoming books
@@ -72,12 +77,14 @@ Sections:
 Purpose: blog/archive for reflections, teachings, announcements, scrolls.
 
 Sections:
+
 1. Page hero
 2. Category filter/sidebar
 3. Post list
 4. Newsletter signup
 
 Categories:
+
 - All Writings
 - Dreams & Visions
 - Reflections
@@ -92,8 +99,9 @@ Categories:
 Purpose: showcase ventures and initiatives.
 
 Current project cards:
+
 - The Rib Restored
-- Beit Yahweh HaGo’el
+- Beit YHWH HaGo’el
 - Listen Selah
 - Future Projects
 
@@ -102,6 +110,7 @@ Current project cards:
 Purpose: help people reach Shalaymah.
 
 Sections:
+
 1. Contact intro
 2. Contact form
 3. Social links

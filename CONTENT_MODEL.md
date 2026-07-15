@@ -12,7 +12,7 @@ export const books = [
     description: "A prophetic journey through dreams and divine revelation.",
     cover: "/images/books/watchwomans-dream-book.jpg",
     status: "Available",
-    amazonUrl: "#"
+    amazonUrl: "#",
   },
   {
     title: "The Prophetic Dreamer’s Scroll",
@@ -20,7 +20,7 @@ export const books = [
     description: "Divine dreams. Hidden messages. Kingdom understanding.",
     cover: "/images/books/prophetic-dreamers-scroll.jpg",
     status: "Available",
-    amazonUrl: "#"
+    amazonUrl: "#",
   },
   {
     title: "More Revelations Coming Soon",
@@ -28,9 +28,9 @@ export const books = [
     description: "New writings. New revelations. More kingdom insight.",
     cover: "/images/books/coming-soon-blue.jpg",
     status: "Coming Soon",
-    amazonUrl: ""
-  }
-]
+    amazonUrl: "",
+  },
+];
 ```
 
 ## Writings
@@ -62,27 +62,30 @@ Create project cards:
 export const projects = [
   {
     title: "The Rib Restored",
-    description: "My personal brand and platform for books, writings, and resources that restore identity and purpose.",
+    description:
+      "My personal brand and platform for books, writings, and resources that restore identity and purpose.",
     icon: "crown",
-    url: "/"
+    url: "/",
   },
   {
-    title: "Beit Yahweh HaGo’el",
+    title: "Beit YHWH HaGo’el",
     description: "A house of restoration, healing, and divine purpose.",
     icon: "home",
-    url: "#"
+    url: "#",
   },
   {
     title: "Listen Selah",
-    description: "A premium headphone brand created for deep listening and purpose.",
+    description:
+      "A premium headphone brand created for deep listening and purpose.",
     icon: "headphones",
-    url: "#"
+    url: "#",
   },
   {
     title: "Future Projects",
-    description: "Ideas, apps, and ventures assigned to build and impact lives.",
+    description:
+      "Ideas, apps, and ventures assigned to build and impact lives.",
     icon: "lightbulb",
-    url: "#"
-  }
-]
+    url: "#",
+  },
+];
 ```

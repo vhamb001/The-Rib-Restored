@@ -9,7 +9,7 @@ featured: false
 
 We often pray for immediate healing.
 
-We ask Yahweh to remove the pain overnight, close the wounds instantly, restore what was lost by morning, and make whole what life, betrayal, grief, disappointment, or warfare shattered. We long for sudden restoration because pain is heavy, and waiting can feel unbearable.
+We ask YHWH to remove the pain overnight, close the wounds instantly, restore what was lost by morning, and make whole what life, betrayal, grief, disappointment, or warfare shattered. We long for sudden restoration because pain is heavy, and waiting can feel unbearable.
 
 But true restoration — the kind that reaches beyond appearances and touches the depths of the soul — is rarely rushed.
 
@@ -30,7 +30,7 @@ In stillness.
 In separation.
 In pruning seasons.
 In hidden places where no applause exists.
-In moments where Yahweh is removing false identities, exposing wounds long buried beneath survival, and teaching the soul how to breathe again.
+In moments where YHWH is removing false identities, exposing wounds long buried beneath survival, and teaching the soul how to breathe again.
 
 Sometimes restoration looks like breaking before rebuilding.
 
@@ -38,7 +38,7 @@ Sometimes it looks like silence before clarity.
 Weakness before strength.
 Exposure before transformation.
 
-There are seasons where Yahweh will allow you to sit with your own brokenness — not to shame you, but to heal you properly. Because what is ignored cannot truly be restored.
+There are seasons where YHWH will allow you to sit with your own brokenness — not to shame you, but to heal you properly. Because what is ignored cannot truly be restored.
 
 The process can feel uncomfortable because restoration requires honesty.
 
@@ -62,7 +62,7 @@ but reshaping you.
 
 What feels delayed is often being established deeply enough to last.
 
-A hurried healing may soothe the surface while leaving fractures underneath untouched. But Yahweh restores from the root. He heals foundations. He rebuilds identity. He restores vision, discernment, confidence, purity, wisdom, and purpose.
+A hurried healing may soothe the surface while leaving fractures underneath untouched. But YHWH restores from the root. He heals foundations. He rebuilds identity. He restores vision, discernment, confidence, purity, wisdom, and purpose.
 
 This is why you must not despise the slow seasons.
 
@@ -90,7 +90,7 @@ You are not too broken to restore.
 
 You are being rebuilt carefully because your purpose carries weight.
 
-Yahweh is not merely patching what broke.
+YHWH is not merely patching what broke.
 He is restoring breath to places that once felt lifeless.
 He is strengthening what collapsed.
 He is healing what was hidden.

@@ -11,7 +11,7 @@ Many dismiss dreams as mere fragments of the subconscious — echoes of stress, 
 
 Dreams are not merely stories our minds create while we sleep. They can become divine downloads — spiritual transmissions carrying revelation, wisdom, warnings, correction, direction, remembrance, and understanding from realms beyond the natural eye.
 
-When the body sleeps, the flesh becomes still, but the spirit remains awake before Yahweh.
+When the body sleeps, the flesh becomes still, but the spirit remains awake before YHWH.
 
 It is often in the quietness of the night, away from distractions, noise, performance, and human reasoning, that deeper things are revealed. Instructions are deposited. Mysteries unfold through symbols. Patterns emerge. Hidden matters surface. What cannot be heard clearly during the busyness of the day is sometimes whispered through dreams in the language of the Spirit.
 
@@ -23,7 +23,7 @@ The responsibility of the dreamer is not simply to dream, but to pay attention.
 
 Write the vision.
 
-Keep your scroll close beside you. Record what you see before it fades with the morning light. A staircase. A river. A trumpet. A child. A key. A house. A garment. A field. A name repeated more than once. None of these details are accidental when Yahweh is speaking symbolically.
+Keep your scroll close beside you. Record what you see before it fades with the morning light. A staircase. A river. A trumpet. A child. A key. A house. A garment. A field. A name repeated more than once. None of these details are accidental when YHWH is speaking symbolically.
 
 Many times, the interpretation is layered. A dream may speak personally, spiritually, prophetically, and symbolically all at once. What appears simple on the surface may carry deeper instruction beneath it.
 
