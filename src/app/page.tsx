@@ -102,24 +102,22 @@ export default function HomePage() {
               </FadeIn>
             </div>
 
-            {/* Author Portrait Image — right side */}
+            {/* Website Brand Logo — right side */}
             <div className="lg:col-span-5 flex justify-center lg:justify-end relative">
               <FadeIn delay={0.3} className="relative w-full max-w-[340px] sm:max-w-[380px] lg:max-w-full">
                 {/* Parallax elements */}
                 <ParallaxSection speed={0.06} className="relative z-10">
-                  <div className="relative aspect-[3/4] w-full rounded-sm overflow-hidden shadow-[0_20px_50px_rgba(12,45,122,0.12)] bg-[var(--color-ivory)] border border-white/60">
+                  <div className="relative aspect-square w-full rounded-sm overflow-hidden bg-transparent p-4 flex items-center justify-center">
                     <img
-                      src="/images/author.png"
+                      src={homepageData.hero.heroImage}
                       alt={homepageData.hero.heroImageAlt}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain filter drop-shadow-[0_15px_30px_rgba(212,175,55,0.2)]"
                     />
-                    {/* Shadow overlay overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
                   </div>
 
                   {/* Absolute Gold Frames */}
-                  <div className="absolute -bottom-6 -right-6 w-full h-full border border-[var(--color-gold)]/35 rounded-sm -z-10" />
-                  <div className="absolute -top-6 -left-6 w-16 h-16 border-t border-l border-[var(--color-gold)]/40 rounded-sm -z-10" />
+                  <div className="absolute -bottom-6 -right-6 w-full h-full border border-[var(--color-gold)]/25 rounded-sm -z-10" />
+                  <div className="absolute -top-6 -left-6 w-16 h-16 border-t border-l border-[var(--color-gold)]/30 rounded-sm -z-10" />
                 </ParallaxSection>
               </FadeIn>
             </div>
