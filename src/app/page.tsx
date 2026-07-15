@@ -84,6 +84,17 @@ export default function HomePage() {
                 <div className="w-10 h-px bg-gradient-to-l from-transparent to-[var(--color-gold)]" />
               </FadeIn>
 
+              {/* Mobile-only Brand Logo */}
+              <FadeIn delay={0.45} className="lg:hidden my-6 flex justify-center">
+                <div className="relative w-full max-w-[200px] aspect-square flex items-center justify-center">
+                  <img
+                    src={homepageData.hero.heroImage}
+                    alt={homepageData.hero.heroImageAlt}
+                    className="w-full h-full object-contain filter drop-shadow-[0_12px_24px_rgba(212,175,55,0.18)] animate-fade-in"
+                  />
+                </div>
+              </FadeIn>
+
               {/* Short descriptive block */}
               <FadeIn delay={0.5}>
                 <p className="text-body-lg text-sm sm:text-base md:text-lg mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed text-gray-500">
@@ -102,8 +113,8 @@ export default function HomePage() {
               </FadeIn>
             </div>
 
-            {/* Website Brand Logo — right side */}
-            <div className="lg:col-span-5 flex justify-center lg:justify-end relative">
+            {/* Website Brand Logo — right side (Desktop only) */}
+            <div className="hidden lg:flex lg:col-span-5 justify-center lg:justify-end relative">
               <FadeIn delay={0.3} className="relative w-full max-w-[340px] sm:max-w-[380px] lg:max-w-full">
                 {/* Parallax elements */}
                 <ParallaxSection speed={0.06} className="relative z-10">
@@ -135,8 +146,8 @@ export default function HomePage() {
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-            {/* Visual Column */}
-            <div className="lg:col-span-5 relative order-2 lg:order-1">
+            {/* Visual Column (Desktop only) */}
+            <div className="hidden lg:block lg:col-span-5 relative">
               <FadeIn direction="right" className="relative max-w-xs sm:max-w-sm mx-auto lg:mx-0">
                 <ParallaxSection speed={0.03} className="relative z-10">
                   <div className="relative aspect-[3/4] w-full rounded-sm overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.08)] bg-[var(--color-ivory)] border border-gray-100">
@@ -156,7 +167,7 @@ export default function HomePage() {
             </div>
 
             {/* Text details column */}
-            <div className="lg:col-span-7 flex flex-col justify-center order-1 lg:order-2">
+            <div className="lg:col-span-7 flex flex-col justify-center">
               <SectionHeader
                 label={homepageData.aboutAuthor.sectionLabel}
                 heading={homepageData.aboutAuthor.headingLine1}
@@ -164,6 +175,24 @@ export default function HomePage() {
                 align="left"
                 className="mb-8"
               />
+
+              {/* Mobile-only Author Portrait */}
+              <div className="lg:hidden my-8 flex justify-center">
+                <FadeIn direction="right" className="relative w-full max-w-[260px] sm:max-w-[300px]">
+                  <div className="relative aspect-[3/4] w-full rounded-sm overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.06)] bg-[var(--color-ivory)] border border-gray-100">
+                    <Image
+                      src={homepageData.aboutAuthor.authorImage}
+                      alt={homepageData.aboutAuthor.authorImageAlt}
+                      fill
+                      sizes="(max-width: 640px) 260px, 300px"
+                      className="object-cover"
+                    />
+                  </div>
+                  {/* Outer Frame */}
+                  <div className="absolute -bottom-4 -right-4 w-full h-full border border-[var(--color-gold)]/30 rounded-sm -z-10" />
+                  <div className="absolute -top-4 -left-4 w-16 h-16 border-t border-l border-[var(--color-gold)]/30 rounded-sm -z-10" />
+                </FadeIn>
+              </div>
 
               <FadeIn delay={0.2} className="space-y-6 mb-10">
                 {homepageData.aboutAuthor.bioParagraphs.map((p, i) => (
