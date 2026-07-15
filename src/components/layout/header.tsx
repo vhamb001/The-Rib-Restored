@@ -69,12 +69,12 @@ export function Header() {
             <div
               className={`relative overflow-hidden transition-all duration-500 ${
                 scrolled
-                  ? "w-8 h-8 sm:w-9 sm:h-9"
-                  : "w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12"
+                  ? "w-10 h-10 sm:w-11 sm:h-11"
+                  : "w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16"
               }`}
             >
               <img
-                src="/images/second logo .png"
+                src="/images/second.png"
                 alt="The Rib Restored"
                 className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
               />

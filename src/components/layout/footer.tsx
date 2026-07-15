@@ -28,7 +28,7 @@ export function Footer() {
               href="/"
               className="inline-flex items-center gap-4 group"
             >
-              <div className="relative w-11 h-11 overflow-hidden bg-white/5 rounded-lg p-1.5">
+              <div className="relative w-14 h-14 overflow-hidden bg-white/5 rounded-lg p-1">
                 <img
                   src={footerData.brand.logoImage}
                   alt={footerData.brand.logoAlt}
