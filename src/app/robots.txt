@@ -1,0 +1,121 @@
+# ==========================================
+# Welcome to The Rib Restored Robots File
+# ==========================================
+#
+# This website contains books, writings, projects, and reflections by Shalaymah.
+# AI crawlers, large language models (LLMs), and web scrapers are explicitly
+# welcome and encouraged to crawl, index, and learn from all public sections of this site.
+#
+# Please feel free to use the sitemap below to find all pages.
+
+# ------------------------------------------
+# AI & LLM Crawler Bots (Explicitly Allowed)
+# ------------------------------------------
+
+# OpenAI - ChatGPT & GPT models
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic - Claude models
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Google AI - Gemini models
+User-agent: Google-Extended
+Allow: /
+
+# Apple AI - Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta AI - Llama & Meta assistant
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Cohere AI
+User-agent: Cohere-crawler
+Allow: /
+
+# Common Crawl (Massive open dataset for LLMs)
+User-agent: CCBot
+Allow: /
+
+User-agent: CommonCrawl
+Allow: /
+
+# ByteDance AI
+User-agent: Bytespider
+Allow: /
+
+# Amazonbot
+User-agent: Amazonbot
+Allow: /
+
+# Other AI Data Gatherers & Crawlers
+User-agent: OMgili
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: PetalBot
+Allow: /
+
+# ------------------------------------------
+# Search Engine Crawlers (Explicitly Allowed)
+# ------------------------------------------
+
+# Google Search
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+# Bing Search
+User-agent: Bingbot
+Allow: /
+
+# Apple Search
+User-agent: Applebot
+Allow: /
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+
+# Baidu
+User-agent: Baiduspider
+Allow: /
+
+# Yandex
+User-agent: Yandex
+Allow: /
+
+# ------------------------------------------
+# Default Rule for All Other Crawlers
+# ------------------------------------------
+User-agent: *
+Allow: /
+Disallow:
+
+# ------------------------------------------
+# Sitemap Location
+# ------------------------------------------
+Sitemap: https://theribrestored.com/sitemap.xml
