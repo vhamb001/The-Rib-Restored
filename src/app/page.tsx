@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { books } from "@/data/books";
 import { projects } from "@/data/projects";
 import { getSortedWritingsData } from "@/lib/writings";
-import { Crown, Home, Headphones, Lightbulb, ArrowRight, BookOpen, Quote } from "lucide-react";
+import { Crown, Home, Headphones, Lightbulb, ArrowRight, BookOpen, Quote, Sparkles, Clock, Star, BookMarked, Scroll } from "lucide-react";
 import { FadeIn, ScaleIn, StaggerContainer, StaggerItem, ParallaxSection, CountUp, TextReveal } from "@/components/ui/fade-in";
 import { SectionHeader } from "@/components/ui/section-header";
 import { BookShowcase } from "@/components/shared/book-showcase";
@@ -59,18 +59,21 @@ export default function HomePage() {
       <section className="relative w-full min-h-[92vh] flex items-center bg-gradient-to-br from-white via-[var(--color-ivory)]/40 to-white overflow-hidden border-b border-gray-100/30">
         {/* Decorative soft glowing orbs */}
         <div className="absolute top-[-10%] right-[-5%] w-[45vw] h-[45vw] bg-[var(--color-gold)]/10 rounded-full blur-[130px] animate-pulse-gold pointer-events-none" />
-        <div className="absolute bottom-[-10%] left-[-5%] w-[35vw] h-[35vw] bg-[var(--color-royal)]/5 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-[-10%] left-[-5%] w-[35vw] h-[35vw] bg-[var(--color-royal)]/8 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-[20%] left-[40%] w-[20vw] h-[20vw] bg-[var(--color-royal-light)]/5 rounded-full blur-[100px] pointer-events-none animate-float-gentle" />
 
         {/* Floating fine grid line accents */}
-        <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: "linear-gradient(to right, var(--color-royal) 1px, transparent 1px), linear-gradient(to bottom, var(--color-royal) 1px, transparent 1px)", backgroundSize: "64px 64px" }} />
+        <div className="absolute inset-0 opacity-[0.018]" style={{ backgroundImage: "linear-gradient(to right, var(--color-royal) 1px, transparent 1px), linear-gradient(to bottom, var(--color-royal) 1px, transparent 1px)", backgroundSize: "64px 64px" }} />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-16 sm:py-24 lg:py-32">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Text content — left side */}
             <div className="lg:col-span-7 flex flex-col text-center lg:text-left">
               <FadeIn className="mb-4">
-                <span className="inline-block text-micro text-[0.7rem] font-bold tracking-[0.3em] text-[var(--color-gold)] uppercase">
+                <span className="inline-flex items-center gap-2 text-micro text-[0.7rem] font-bold tracking-[0.3em] text-[var(--color-gold)] uppercase">
+                  <Sparkles className="w-3.5 h-3.5 animate-pulse-gold" />
                   {homepageData.hero.welcomeLabel}
+                  <Sparkles className="w-3.5 h-3.5 animate-pulse-gold" />
                 </span>
               </FadeIn>
 
@@ -228,17 +231,24 @@ export default function HomePage() {
 
               {/* Animated statistics row */}
               <StaggerContainer staggerDelay={0.15} className="flex items-center gap-8 md:gap-12">
-                {dynamicStats.map((stat, i) => (
+                {dynamicStats.map((stat, i) => {
+                  const statIcons = [BookOpen, Scroll, Sparkles];
+                  const StatIcon = statIcons[i] || Sparkles;
+                  return (
                   <StaggerItem key={i} className="flex items-center">
                     {i > 0 && <div className="w-px h-12 bg-gray-200 mr-8 md:mr-12" />}
                     <div className="text-left">
-                      <div className="font-heading text-3xl md:text-4xl font-bold text-[var(--color-royal-deep)] tracking-tight">
-                        {renderStatValue(stat.value)}
+                      <div className="flex items-center gap-2 mb-1">
+                        <StatIcon className="w-4 h-4 text-[var(--color-gold)]" />
+                        <div className="font-heading text-3xl md:text-4xl font-bold text-[var(--color-royal-deep)] tracking-tight">
+                          {renderStatValue(stat.value)}
+                        </div>
                       </div>
                       <div className="text-micro text-gray-400 font-bold tracking-wider mt-1">{stat.label}</div>
                     </div>
                   </StaggerItem>
-                ))}
+                  );
+                })}
               </StaggerContainer>
             </div>
           </div>
@@ -364,15 +374,20 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════
           4. POETIC INTERLUDE — Scripture Glow
           ════════════════════════════════════════════ */}
-      <section className="relative bg-[var(--color-royal-deep)] py-16 sm:py-24 lg:py-28 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-[var(--color-royal-deep)] via-[var(--color-royal-mid)] to-[var(--color-royal-darkest)] py-16 sm:py-24 lg:py-28 overflow-hidden bg-gradient-shift">
         {/* Soft elegant mesh background pattern */}
-        <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 2px, transparent 0)", backgroundSize: "36px 36px" }} />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-40 bg-[var(--color-gold)]/15 rounded-full blur-[90px] pointer-events-none animate-pulse-gold" />
+        <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 2px, transparent 0)", backgroundSize: "36px 36px" }} />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-48 bg-[var(--color-gold)]/15 rounded-full blur-[90px] pointer-events-none animate-pulse-gold" />
+        <div className="absolute bottom-[-10%] right-[-5%] w-72 h-72 bg-[var(--color-royal-light)]/8 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center relative z-10">
           <FadeIn>
-            <Quote className="w-10 h-10 text-[var(--color-gold)]/35 mx-auto mb-6 rotate-180" />
-            <blockquote className="font-heading text-xl sm:text-2xl lg:text-3xl text-white/90 italic leading-relaxed mb-8 px-4">
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <Star className="w-4 h-4 text-[var(--color-gold)]/40" />
+              <Quote className="w-10 h-10 text-[var(--color-gold)]/35 rotate-180" />
+              <Star className="w-4 h-4 text-[var(--color-gold)]/40" />
+            </div>
+            <blockquote className="font-heading text-2xl sm:text-3xl lg:text-4xl text-white/90 italic leading-relaxed mb-8 px-4">
               &ldquo;{homepageData.scriptureQuote.text}&rdquo;
             </blockquote>
             <div className="flex items-center justify-center gap-4">
@@ -432,6 +447,15 @@ export default function HomePage() {
                       <span className="text-[0.6rem] font-bold tracking-widest text-[var(--color-gold)] uppercase">{writing.category}</span>
                       <span className="w-1 h-1 rounded-full bg-gray-200" />
                       <span className="text-micro text-gray-400 font-medium">{date}</span>
+                      {writing.readingTime && (
+                        <>
+                          <span className="w-1 h-1 rounded-full bg-gray-200" />
+                          <span className="inline-flex items-center gap-1 text-micro text-gray-400">
+                            <Clock className="w-3 h-3 text-[var(--color-gold)]" />
+                            {writing.readingTime} min
+                          </span>
+                        </>
+                      )}
                     </div>
                     <h3 className="font-heading text-xl font-bold text-[var(--color-royal-deep)] mb-3 leading-snug group-hover:text-[var(--color-gold)] transition-colors duration-300">
                       {writing.title}
@@ -465,7 +489,7 @@ export default function HomePage() {
 
           <StaggerContainer className="grid md:grid-cols-2 gap-8 lg:gap-10">
             {projects.map((project) => (
-              <StaggerItem key={project.id} className="card-premium h-full bg-white rounded-sm border border-gray-100 overflow-hidden flex flex-col">
+              <StaggerItem key={project.id} className="card-premium h-full bg-white rounded-sm border border-gray-100 overflow-hidden flex flex-col hover-glow-gold">
                 <div className="p-6 md:p-8 flex flex-col flex-grow">
                   {/* Top line with Icon and category tag */}
                   <div className="flex items-center justify-between mb-6">
@@ -488,14 +512,20 @@ export default function HomePage() {
 
                   <div className="mt-auto pt-6 border-t border-gray-100 flex flex-wrap gap-4 items-center justify-between">
                     {project.url !== "#" ? (
-                      <Button variant="ghost" size="sm" asChild className="group font-bold text-[var(--color-royal-deep)] pr-0 hover:text-[var(--color-gold)]">
-                        <Link href={project.url}>
-                          Explore Project
-                          <ArrowRight className="w-4 h-4 ml-1.5 transition-transform duration-300 group-hover:translate-x-1" />
-                        </Link>
-                      </Button>
+                      <div className="flex items-center gap-3">
+                        <span className="status-dot status-dot-live" />
+                        <Button variant="ghost" size="sm" asChild className="group font-bold text-[var(--color-royal-deep)] pr-0 hover:text-[var(--color-gold)]">
+                          <Link href={project.url}>
+                            Explore Project
+                            <ArrowRight className="w-4 h-4 ml-1.5 transition-transform duration-300 group-hover:translate-x-1" />
+                          </Link>
+                        </Button>
+                      </div>
                     ) : (
-                      <span className="text-micro text-gray-300 font-bold uppercase">Development Phase</span>
+                      <div className="flex items-center gap-2">
+                        <span className="status-dot status-dot-coming" />
+                        <span className="text-micro text-gray-400 font-bold uppercase">Coming Soon</span>
+                      </div>
                     )}
 
                     {project.socialUrl && (
@@ -532,9 +562,9 @@ export default function HomePage() {
           <StaggerContainer className="grid md:grid-cols-2 gap-8 lg:gap-12">
             {/* Substack Card */}
             <StaggerItem>
-              <div className="group relative bg-gradient-to-br from-[#fdfbf7] to-white border border-gray-100/80 rounded-sm p-8 sm:p-12 overflow-hidden shadow-sm hover:shadow-xl hover:border-[var(--color-gold)]/35 transition-all duration-500 h-full flex flex-col items-center text-center">
+              <div className="group relative bg-gradient-to-br from-[#fdfbf7] to-white border border-gray-100/80 rounded-sm p-8 sm:p-12 overflow-hidden shadow-sm hover:shadow-xl hover:border-[var(--color-gold)]/35 transition-all duration-500 h-full flex flex-col items-center text-center hover-glow-gold">
                 <div className="w-20 h-20 bg-white border border-gray-100 rounded-full flex items-center justify-center text-[var(--color-gold)] mb-8 group-hover:bg-[var(--color-gold)] group-hover:text-white transition-colors duration-500 shadow-sm">
-                  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
+                  <BookMarked className="w-8 h-8" />
                 </div>
                 <h3 className="font-heading text-2xl font-bold text-[var(--color-royal-deep)] mb-4">
                   {homepageData.listenRead.substack.heading}
@@ -550,12 +580,13 @@ export default function HomePage() {
 
             {/* Spotify Card */}
             <StaggerItem>
-              <div className="group relative bg-[var(--color-royal-darkest)] border border-white/5 rounded-sm p-8 sm:p-12 overflow-hidden shadow-[0_20px_50px_rgba(6,27,78,0.15)] hover:shadow-[0_25px_60px_rgba(6,27,78,0.25)] hover:border-[var(--color-gold)]/40 transition-all duration-500 h-full flex flex-col items-center text-center">
+              <div className="group relative bg-gradient-to-br from-[var(--color-royal-darkest)] to-[var(--color-royal-deep)] border border-white/5 rounded-sm p-8 sm:p-12 overflow-hidden shadow-[0_20px_50px_rgba(6,27,78,0.15)] hover:shadow-[0_25px_60px_rgba(6,27,78,0.25)] hover:border-[var(--color-gold)]/40 transition-all duration-500 h-full flex flex-col items-center text-center">
                 {/* Glowing light effect */}
                 <div className="absolute top-[-10%] right-[-10%] w-60 h-60 bg-[var(--color-gold)]/10 rounded-full blur-[80px] pointer-events-none" />
+                <div className="absolute bottom-[-10%] left-[-10%] w-40 h-40 bg-[var(--color-royal-light)]/8 rounded-full blur-[60px] pointer-events-none" />
 
                 <div className="w-20 h-20 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-white mb-8 group-hover:bg-[var(--color-gold)] group-hover:border-[var(--color-gold)] transition-colors duration-500 backdrop-blur-md shadow-sm">
-                  <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.6 14.4c-.2.3-.6.4-.9.2-2.5-1.5-5.7-1.8-9.4-1-.3.1-.7-.1-.8-.4-.1-.3.1-.7.4-.8 4.1-.9 7.6-.5 10.4 1.2.3.1.4.5.3.8zm1.2-2.7c-.2.4-.7.5-1 .3-2.9-1.8-6.6-2.2-10-1.2-.4.1-.9-.1-1-.5-.1-.4.1-.9.5-1 3.9-1.2 8.1-.7 11.4 1.3.3.3.4.8.1 1.1zm.1-2.9c-3.4-2-8.1-2.2-11-1.2-.5.2-1-.1-1.2-.6-.2-.5.1-1 .6-1.2 3.4-1.2 8.6-1 12.5 1.3.5.3.6.9.3 1.4-.2.4-.7.6-1.2.3z"/></svg>
+                  <Headphones className="w-8 h-8" />
                 </div>
                 <h3 className="font-heading text-2xl font-bold text-white mb-4 relative z-10">
                   {homepageData.listenRead.spotify.heading}
@@ -575,12 +606,13 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════
           7. NEWSLETTER — Elegant Frame Callout
           ════════════════════════════════════════════ */}
-      <section id="newsletter" className="relative bg-[var(--color-royal-deep)] py-20 sm:py-28 overflow-hidden border-t border-white/5">
+      <section id="newsletter" className="relative bg-gradient-to-br from-[var(--color-royal-deep)] via-[var(--color-royal-mid)] to-[var(--color-royal-darkest)] py-20 sm:py-28 overflow-hidden border-t border-white/5 bg-gradient-shift">
         <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: "linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)", backgroundSize: "48px 48px" }} />
         <div className="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-[var(--color-gold)]/10 rounded-full blur-[110px] pointer-events-none animate-pulse-gold" />
+        <div className="absolute top-[-5%] left-[-5%] w-72 h-72 bg-[var(--color-royal-light)]/8 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center relative z-10">
-          <FadeIn className="bg-white/[0.02] border border-white/10 rounded-sm p-8 sm:p-12 backdrop-blur-sm relative">
+          <FadeIn className="bg-white/[0.03] border border-white/10 rounded-sm p-8 sm:p-12 backdrop-blur-sm relative animate-glow-pulse">
             {/* Elegant corner brackets */}
             <div className="absolute top-4 left-4 w-6 h-6 border-t border-l border-[var(--color-gold)]/50" />
             <div className="absolute top-4 right-4 w-6 h-6 border-t border-r border-[var(--color-gold)]/50" />

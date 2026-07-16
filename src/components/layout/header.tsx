@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "../ui/button";
+import { Sparkles } from "lucide-react";
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -54,6 +55,13 @@ export function Header() {
           : "bg-white/80 backdrop-blur-sm border-b border-transparent"
       }`}
     >
+      {/* Gold shimmer line when scrolled */}
+      <div
+        className={`absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[var(--color-gold)]/40 to-transparent transition-opacity duration-500 ${
+          scrolled ? "opacity-100" : "opacity-0"
+        }`}
+      />
+
       <div
         className={`container mx-auto px-4 lg:px-8 flex items-center justify-between transition-all duration-500 ${
           scrolled ? "h-14 sm:h-16" : "h-16 sm:h-20 lg:h-[4.5rem]"
@@ -148,8 +156,9 @@ export function Header() {
             <Button
               variant="gold"
               size="sm"
-              className="text-[0.6rem] tracking-[0.18em] rounded-full px-5"
+              className="text-[0.6rem] tracking-[0.18em] rounded-full px-5 group"
             >
+              <Sparkles className="w-3 h-3 mr-1.5 transition-transform duration-300 group-hover:rotate-12" />
               Let&apos;s Connect
             </Button>
           </Link>
@@ -236,8 +245,15 @@ export function Header() {
               ))}
             </ul>
 
+            {/* Gold divider accent */}
+            <div className="flex items-center gap-2 my-4 justify-center">
+              <div className="w-6 h-px bg-gradient-to-r from-transparent to-[var(--color-gold)]/40" />
+              <span className="text-[var(--color-gold)] text-[0.4rem] opacity-40">◆</span>
+              <div className="w-6 h-px bg-gradient-to-l from-transparent to-[var(--color-gold)]/40" />
+            </div>
+
             <div
-              className={`mt-6 pt-6 border-t border-gray-100 ${
+              className={`pt-2 ${
                 mobileOpen ? "animate-fade-in-up" : "opacity-0"
               }`}
               style={{ animationDelay: mobileOpen ? `${navItems.length * 60}ms` : "0ms" }}
@@ -247,6 +263,7 @@ export function Header() {
                   variant="gold"
                   className="w-full text-sm tracking-[0.15em] rounded-xl h-12"
                 >
+                  <Sparkles className="w-3.5 h-3.5 mr-2" />
                   Let&apos;s Connect
                 </Button>
               </Link>

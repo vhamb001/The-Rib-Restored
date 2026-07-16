@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Mail, MessageCircle, Feather } from "lucide-react";
 import { FadeIn } from "@/components/ui/fade-in";
 import { SectionHeader } from "@/components/ui/section-header";
 import contactData from "../../../content/data/contact.json";
@@ -36,7 +37,7 @@ export default function ContactPage() {
       <section className="section-padding-sm py-12 sm:py-16 md:py-20 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
           <FadeIn>
-            <div className="bg-white rounded-sm border border-gray-100/80 shadow-lg overflow-hidden">
+            <div className="bg-white rounded-sm border border-gray-100/80 shadow-lg overflow-hidden hover-glow-gold transition-all duration-500">
               <div className="grid md:grid-cols-5">
                 {/* Info Side (Royal Blue and Gold theme) */}
                 <div className="md:col-span-2 bg-[var(--color-royal-deep)] p-8 sm:p-10 lg:p-12 text-white flex flex-col relative overflow-hidden">
@@ -44,20 +45,26 @@ export default function ContactPage() {
                   <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "24px 24px" }} />
                   <div className="absolute bottom-[-10%] right-[-10%] w-60 h-60 bg-[var(--color-gold)]/10 rounded-full blur-[70px] pointer-events-none" />
 
-                  <div className="relative z-10 flex flex-col h-full">
-                    <div className="mb-10">
-                      <span className="font-script text-3xl text-[var(--color-gold)] block mb-1">{contactData.sidebar.greeting}</span>
-                      <h2 className="font-heading text-xl sm:text-2xl font-bold text-white tracking-wide">{contactData.sidebar.heading}</h2>
-                      <div className="w-10 h-px bg-[var(--color-gold)] mt-5" />
-                    </div>
+                    <div className="relative z-10 flex flex-col h-full">
+                      <div className="mb-10">
+                        <span className="font-script text-3xl text-[var(--color-gold)] block mb-1">{contactData.sidebar.greeting}</span>
+                        <div className="flex items-center gap-2">
+                          <MessageCircle className="w-4 h-4 text-[var(--color-gold)]/60" />
+                          <h2 className="font-heading text-xl sm:text-2xl font-bold text-white tracking-wide">{contactData.sidebar.heading}</h2>
+                        </div>
+                        <div className="w-10 h-px bg-[var(--color-gold)] mt-5" />
+                      </div>
 
                     <p className="text-white/60 text-sm leading-[1.8] mb-10">
                       {contactData.sidebar.description}
                     </p>
 
                     <div className="mt-auto space-y-8">
-                      <div>
-                        <h4 className="font-heading text-xs tracking-[0.2em] text-[var(--color-gold)] uppercase font-bold mb-2.5">{contactData.sidebar.emailHeading}</h4>
+                        <div>
+                        <div className="flex items-center gap-2 mb-2.5">
+                          <Mail className="w-3.5 h-3.5 text-[var(--color-gold)]" />
+                          <h4 className="font-heading text-xs tracking-[0.2em] text-[var(--color-gold)] uppercase font-bold">{contactData.sidebar.emailHeading}</h4>
+                        </div>
                         <p className="text-white/80 text-sm font-medium italic">
                           {contactData.sidebar.emailText}
                         </p>
@@ -88,9 +95,10 @@ export default function ContactPage() {
 
                 {/* Form Side */}
                 <div className="md:col-span-3 p-8 sm:p-10 lg:p-14 relative">
-                  {/* Subtle corner framing decorative markers */}
-                  <div className="absolute top-6 right-6 w-3 h-3 border-t border-r border-[var(--color-gold)]/25" />
-                  <div className="absolute bottom-6 right-6 w-3 h-3 border-b border-r border-[var(--color-gold)]/25" />
+                  <div className="absolute top-6 right-6 w-3 h-3 border-t border-r border-[var(--color-gold)]/30" />
+                  <div className="absolute bottom-6 right-6 w-3 h-3 border-b border-r border-[var(--color-gold)]/30" />
+                  <div className="absolute top-6 left-6 w-3 h-3 border-t border-l border-[var(--color-gold)]/15" />
+                  <div className="absolute bottom-6 left-6 w-3 h-3 border-b border-l border-[var(--color-gold)]/15" />
 
                   <form className="space-y-6">
                     <div className="grid sm:grid-cols-2 gap-6">
@@ -99,7 +107,7 @@ export default function ContactPage() {
                         <input
                           type="text"
                           id="name"
-                          className="w-full px-4 py-3 bg-[var(--color-ivory)]/40 rounded-sm border border-gray-200/80 text-sm outline-none focus:border-[var(--color-gold)] focus:bg-white focus:shadow-sm transition-all duration-300 placeholder-gray-400"
+                          className="w-full px-4 py-3 bg-[var(--color-ivory)]/40 rounded-sm border border-gray-200/80 text-sm outline-none focus:border-[var(--color-gold)] focus:bg-white focus:shadow-[0_0_12px_rgba(200,151,62,0.1)] transition-all duration-300 placeholder-gray-400"
                           required
                         />
                       </div>
@@ -108,7 +116,7 @@ export default function ContactPage() {
                         <input
                           type="email"
                           id="email"
-                          className="w-full px-4 py-3 bg-[var(--color-ivory)]/40 rounded-sm border border-gray-200/80 text-sm outline-none focus:border-[var(--color-gold)] focus:bg-white focus:shadow-sm transition-all duration-300 placeholder-gray-400"
+                          className="w-full px-4 py-3 bg-[var(--color-ivory)]/40 rounded-sm border border-gray-200/80 text-sm outline-none focus:border-[var(--color-gold)] focus:bg-white focus:shadow-[0_0_12px_rgba(200,151,62,0.1)] transition-all duration-300 placeholder-gray-400"
                           required
                         />
                       </div>
@@ -119,7 +127,7 @@ export default function ContactPage() {
                       <input
                         type="text"
                         id="subject"
-                        className="w-full px-4 py-3 bg-[var(--color-ivory)]/40 rounded-sm border border-gray-200/80 text-sm outline-none focus:border-[var(--color-gold)] focus:bg-white focus:shadow-sm transition-all duration-300 placeholder-gray-400"
+                        className="w-full px-4 py-3 bg-[var(--color-ivory)]/40 rounded-sm border border-gray-200/80 text-sm outline-none focus:border-[var(--color-gold)] focus:bg-white focus:shadow-[0_0_12px_rgba(200,151,62,0.1)] transition-all duration-300 placeholder-gray-400"
                         required
                       />
                     </div>
@@ -129,7 +137,7 @@ export default function ContactPage() {
                       <textarea
                         id="message"
                         rows={5}
-                        className="w-full px-4 py-3 bg-[var(--color-ivory)]/40 rounded-sm border border-gray-200/80 text-sm outline-none focus:border-[var(--color-gold)] focus:bg-white focus:shadow-sm transition-all duration-300 resize-none placeholder-gray-400"
+                        className="w-full px-4 py-3 bg-[var(--color-ivory)]/40 rounded-sm border border-gray-200/80 text-sm outline-none focus:border-[var(--color-gold)] focus:bg-white focus:shadow-[0_0_12px_rgba(200,151,62,0.1)] transition-all duration-300 resize-none placeholder-gray-400"
                         required
                       />
                     </div>

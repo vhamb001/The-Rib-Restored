@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Heart, Target, Eye, Hammer, ArrowRight, Quote } from "lucide-react";
+import { Heart, Target, Eye, Hammer, ArrowRight, Quote, Sparkles, BookOpen, Scroll } from "lucide-react";
 import { FadeIn, StaggerContainer, StaggerItem, ParallaxSection, CountUp } from "@/components/ui/fade-in";
 import { SectionHeader } from "@/components/ui/section-header";
 import aboutData from "../../../content/data/about.json";
@@ -82,17 +82,24 @@ export default function AboutPage() {
 
               {/* Stats */}
               <StaggerContainer staggerDelay={0.12} className="flex items-center justify-center lg:justify-start gap-8 md:gap-12">
-                {aboutData.hero.stats.map((stat, i) => (
+                {aboutData.hero.stats.map((stat, i) => {
+                  const statIcons = [BookOpen, Scroll, Sparkles];
+                  const StatIcon = statIcons[i] || Sparkles;
+                  return (
                   <StaggerItem key={i} className="flex items-center">
                     {i > 0 && <div className="w-px h-12 bg-gray-200 mr-8 md:mr-12" />}
                     <div className="text-left">
-                      <div className="font-heading text-3xl sm:text-4xl font-bold text-[var(--color-royal-deep)] tracking-tight">
-                        {renderStatValue(stat.value)}
+                      <div className="flex items-center gap-2 mb-1">
+                        <StatIcon className="w-4 h-4 text-[var(--color-gold)]" />
+                        <div className="font-heading text-3xl sm:text-4xl font-bold text-[var(--color-royal-deep)] tracking-tight">
+                          {renderStatValue(stat.value)}
+                        </div>
                       </div>
                       <div className="text-micro text-gray-400 font-bold tracking-wider mt-1">{stat.label}</div>
                     </div>
                   </StaggerItem>
-                ))}
+                  );
+                })}
               </StaggerContainer>
             </div>
 
@@ -122,7 +129,7 @@ export default function AboutPage() {
       {/* ════════════════════════════════════════════
           2. INTERLUDE — Scripture Glow
           ════════════════════════════════════════════ */}
-      <section className="bg-[var(--color-royal-deep)] py-16 sm:py-20 overflow-hidden relative">
+      <section className="bg-gradient-to-br from-[var(--color-royal-deep)] via-[var(--color-royal-mid)] to-[var(--color-royal-darkest)] py-16 sm:py-20 overflow-hidden relative bg-gradient-shift">
         <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 2px, transparent 0)", backgroundSize: "36px 36px" }} />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-36 bg-[var(--color-gold)]/10 rounded-full blur-[80px] pointer-events-none" />
 
@@ -158,7 +165,9 @@ export default function AboutPage() {
           <StaggerContainer className="grid md:grid-cols-2 gap-8 lg:gap-10 max-w-5xl mx-auto">
             {aboutData.pillars.items.map((pillar) => (
               <StaggerItem key={pillar.title}>
-                <div className="group bg-white p-8 sm:p-10 rounded-sm border border-gray-100/80 hover:border-[var(--color-soft-gold)]/40 hover:shadow-xl transition-all duration-500 flex flex-col h-full">
+                <div className="group bg-white p-8 sm:p-10 rounded-sm border border-gray-100/80 hover:border-[var(--color-soft-gold)]/40 hover:shadow-xl transition-all duration-500 flex flex-col h-full hover-glow-gold relative overflow-hidden">
+                  {/* Royal blue left accent on hover */}
+                  <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-[var(--color-royal)] scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top" />
                   <div className="flex items-center gap-4 mb-6">
                     <div className="w-12 h-12 rounded-full bg-[var(--color-ivory)] text-[var(--color-gold)] flex items-center justify-center transition-all duration-500 group-hover:bg-[var(--color-gold)] group-hover:text-white group-hover:shadow-[0_6px_20px_rgba(200,151,62,0.2)] shrink-0">
                       {pillarIcons[pillar.iconName]}
@@ -188,7 +197,9 @@ export default function AboutPage() {
           <StaggerContainer staggerDelay={0.15} className="space-y-6">
             {aboutData.beliefs.items.map((belief) => (
               <StaggerItem key={belief.keyword}>
-                <div className="group flex flex-col sm:flex-row gap-4 sm:gap-8 items-start bg-white p-6 sm:p-8 rounded-sm border border-gray-100 hover:shadow-md transition-all duration-300">
+                <div className="group flex flex-col sm:flex-row gap-4 sm:gap-8 items-start bg-white p-6 sm:p-8 rounded-sm border border-gray-100 hover:shadow-md hover:border-[var(--color-royal)]/15 transition-all duration-300 relative overflow-hidden">
+                  {/* Subtle left accent */}
+                  <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-gradient-to-b from-[var(--color-gold)] to-[var(--color-royal)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <span className="font-heading text-xl sm:text-2xl lg:text-3xl font-bold text-[var(--color-gold)] italic shrink-0 sm:w-32 sm:text-right select-none">
                     {belief.keyword}.
                   </span>

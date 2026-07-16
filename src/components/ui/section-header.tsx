@@ -76,13 +76,18 @@ export function SectionHeader({
           {headingAccent}
         </span>
       )}
+      {/* Diamond ornament divider — ─── ◆ ─── */}
       {!headingAccent && (
         <div
           className={cn(
-            "gold-rule w-16 mt-5",
-            isCenter ? "mx-auto" : ""
+            "flex items-center gap-2 mt-5",
+            isCenter ? "justify-center" : ""
           )}
-        />
+        >
+          <div className="w-8 h-px bg-gradient-to-r from-transparent to-[var(--color-gold)]" />
+          <span className="text-[var(--color-gold)] text-[0.5rem] opacity-60">◆</span>
+          <div className="w-8 h-px bg-gradient-to-l from-transparent to-[var(--color-gold)]" />
+        </div>
       )}
       {description && (
         <p

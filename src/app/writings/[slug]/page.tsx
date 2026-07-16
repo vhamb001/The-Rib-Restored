@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getWritingData, getSortedWritingsData } from "@/lib/writings";
-import { ArrowLeft, Clock } from "lucide-react";
+import { ArrowLeft, Clock, Feather, Share2 } from "lucide-react";
 
 export async function generateStaticParams() {
   const writings = getSortedWritingsData();
@@ -62,7 +62,7 @@ export default async function WritingPost({
           className="object-cover opacity-75"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-royal-darkest)] via-[var(--color-royal-deep)]/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-royal-darkest)] via-[var(--color-royal-deep)]/60 to-transparent" />
         
         <div className="absolute inset-0 flex items-end">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl pb-10 sm:pb-14 lg:pb-20 animate-fade-in-up">
@@ -110,9 +110,23 @@ export default async function WritingPost({
           dangerouslySetInnerHTML={{ __html: writingData.contentHtml }}
         />
 
+        {/* Share prompt */}
+        <div className="mt-12 flex items-center justify-center gap-3 text-gray-300">
+          <div className="w-8 h-px bg-gray-200" />
+          <Share2 className="w-4 h-4 text-[var(--color-gold)]" />
+          <span className="text-micro text-gray-400 font-bold tracking-wider">Share This Writing</span>
+          <div className="w-8 h-px bg-gray-200" />
+        </div>
+
         {/* Author Bio Section */}
-        <div className="mt-16 sm:mt-24 pt-8 border-t border-gray-100">
-          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 bg-[var(--color-ivory)]/40 p-6 sm:p-8 rounded-sm text-center sm:text-left border border-gray-100/50">
+        <div className="mt-12 sm:mt-20 pt-8 border-t border-gray-100">
+          {/* Gold rule ornament */}
+          <div className="flex items-center gap-2 mb-6 justify-center sm:justify-start">
+            <div className="w-6 h-px bg-gradient-to-r from-transparent to-[var(--color-gold)]" />
+            <span className="text-[var(--color-gold)] text-[0.4rem] opacity-60">◆</span>
+            <div className="w-6 h-px bg-gradient-to-l from-transparent to-[var(--color-gold)]" />
+          </div>
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 bg-[var(--color-ivory)]/40 p-6 sm:p-8 rounded-sm text-center sm:text-left border border-gray-100/50 hover-glow-gold transition-all duration-500">
             <div className="w-16 h-16 rounded-full overflow-hidden shrink-0 relative border-2 border-white shadow-sm">
               <Image
                 src="/images/author.png"
@@ -123,8 +137,11 @@ export default async function WritingPost({
               />
             </div>
             <div>
-              <h4 className="font-heading font-bold text-lg text-[var(--color-royal-deep)] mb-1.5">Shalaymah</h4>
-              <p className="text-gray-500 text-sm leading-[1.8]">
+              <div className="flex items-center gap-2 justify-center sm:justify-start">
+                <Feather className="w-4 h-4 text-[var(--color-gold)]" />
+                <h4 className="font-heading font-bold text-lg text-[var(--color-royal-deep)]">Shalaymah</h4>
+              </div>
+              <p className="text-gray-500 text-sm leading-[1.8] mt-1.5">
                 A prophetic dreamer, watchwoman, and author called to remember, restore, heal, and build through words, wisdom, and divine revelation.
               </p>
             </div>

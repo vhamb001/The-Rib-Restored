@@ -1,13 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  /* ─── Brand Colors (preserved) ─── */
+  /* ─── Brand Colors (enriched palette) ─── */
   --color-royal: #0B4EDB;
   --color-royal-deep: #063A9B;
+  --color-royal-mid: #0A3DAF;
   --color-royal-darkest: #03215C;
+  --color-royal-light: #2563EB;
   --color-gold: #C8973E;
   --color-gold-soft: #E8C766;
   --color-soft-gold: #D4AF62;
+  --color-amber-glow: #F5C563;
   --color-ivory: #FDF8EF;
   --color-warm-white: #FEFCF8;
   --color-blush: #F4D6CE;
@@ -224,6 +227,19 @@ body {
   from { transform: scaleX(0); }
   to   { transform: scaleX(1); }
 }
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(200, 151, 62, 0.15), 0 0 60px rgba(200, 151, 62, 0.05); }
+  50%      { box-shadow: 0 0 30px rgba(200, 151, 62, 0.3), 0 0 80px rgba(200, 151, 62, 0.1); }
+}
+@keyframes borderRotate {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes subtleShift {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
 
 /* Animation utility classes */
 .animate-fade-in-up {
@@ -272,6 +288,9 @@ body {
 }
 .animate-scale-in {
   animation: scaleIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.animate-glow-pulse {
+  animation: glowPulse 3s ease-in-out infinite;
 }
 
 /* Stagger children — used for grids and lists */
@@ -332,6 +351,21 @@ body {
   -webkit-backdrop-filter: blur(24px) saturate(2);
 }
 
+/* Glassmorphism cards — frosted premium feel */
+.glass-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(16px) saturate(1.6);
+  -webkit-backdrop-filter: blur(16px) saturate(1.6);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+.glass-card-dark {
+  background: rgba(3, 33, 92, 0.7);
+  backdrop-filter: blur(20px) saturate(1.8);
+  -webkit-backdrop-filter: blur(20px) saturate(1.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 /* Gold gradient text */
 .text-gold-gradient {
   background: linear-gradient(135deg, var(--color-gold), var(--color-gold-soft), var(--color-gold));
@@ -350,6 +384,35 @@ body {
   background: linear-gradient(90deg, var(--color-gold), transparent);
 }
 
+/* Diamond ornament divider — ─── ◆ ─── */
+.divider-diamond {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  color: var(--color-gold);
+  font-size: 0.5rem;
+  letter-spacing: 0.3em;
+  opacity: 0.6;
+}
+.divider-diamond::before,
+.divider-diamond::after {
+  content: '';
+  width: 2.5rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold));
+}
+.divider-diamond::after {
+  background: linear-gradient(90deg, var(--color-gold), transparent);
+}
+
+/* Royal blue gradient divider */
+.divider-royal {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-royal), var(--color-gold), var(--color-royal), transparent);
+  opacity: 0.3;
+}
+
 /* Premium card hover */
 .card-premium {
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
@@ -360,6 +423,80 @@ body {
   transform: translateY(-4px);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08), 0 8px 24px rgba(0, 0, 0, 0.04);
   border-color: rgba(200, 151, 62, 0.25);
+}
+
+/* Enhanced hover utilities */
+.hover-lift {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.1), 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.hover-glow-gold {
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+.hover-glow-gold:hover {
+  box-shadow: 0 0 20px rgba(200, 151, 62, 0.2), 0 8px 32px rgba(200, 151, 62, 0.1);
+  border-color: rgba(200, 151, 62, 0.4);
+}
+
+.hover-glow-royal {
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+.hover-glow-royal:hover {
+  box-shadow: 0 0 20px rgba(11, 78, 219, 0.12), 0 8px 32px rgba(11, 78, 219, 0.06);
+  border-color: rgba(11, 78, 219, 0.2);
+}
+
+/* Animated gradient border */
+.border-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.border-shimmer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--color-gold), var(--color-royal), var(--color-gold-soft), var(--color-royal-deep));
+  background-size: 300% 300%;
+  animation: borderRotate 6s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+.border-shimmer:hover::before {
+  opacity: 1;
+}
+
+/* Subtle animated background shift */
+.bg-gradient-shift {
+  background-size: 200% 200%;
+  animation: subtleShift 8s ease-in-out infinite;
+}
+
+/* Status indicator dots */
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.status-dot-live {
+  background: #22C55E;
+  box-shadow: 0 0 6px rgba(34, 197, 94, 0.5);
+}
+.status-dot-coming {
+  background: var(--color-gold);
+  box-shadow: 0 0 6px rgba(200, 151, 62, 0.5);
+  animation: pulse-gold 2s ease-in-out infinite;
 }
 
 /* ═══════════════════════════════════════
@@ -404,6 +541,8 @@ body {
   color: var(--color-royal-deep);
   margin-top: 2.5em;
   margin-bottom: 0.75em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid rgba(200, 151, 62, 0.15);
 }
 .prose h3 {
   font-family: var(--font-heading);
@@ -415,10 +554,24 @@ body {
 }
 .prose blockquote {
   border-left: 3px solid var(--color-gold);
-  padding-left: 1.5rem;
+  padding: 1.25rem 1.5rem;
   font-style: italic;
   color: var(--color-royal-deep);
   margin: 2em 0;
+  background: linear-gradient(135deg, rgba(253, 248, 239, 0.5), rgba(255, 255, 255, 0.3));
+  border-radius: 0 4px 4px 0;
+  position: relative;
+}
+.prose blockquote::before {
+  content: '"';
+  position: absolute;
+  top: -0.25rem;
+  left: 0.75rem;
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  color: var(--color-gold);
+  opacity: 0.2;
+  line-height: 1;
 }
 .prose a {
   color: var(--color-royal);
@@ -437,9 +590,22 @@ body {
 .prose li {
   margin-bottom: 0.5em;
 }
+.prose li::marker {
+  color: var(--color-gold);
+}
 .prose img {
   border-radius: 4px;
   margin: 2em 0;
+}
+.prose strong {
+  color: var(--color-royal-deep);
+  font-weight: 700;
+}
+.prose hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  margin: 3em 0;
 }
 
 /* ═══════════════════════════════════════
@@ -486,7 +652,8 @@ body {
   .animate-float-gentle,
   .animate-pulse-gold,
   .animate-shimmer,
-  .animate-gold-shimmer {
+  .animate-gold-shimmer,
+  .animate-glow-pulse {
     animation: none !important;
   }
 }

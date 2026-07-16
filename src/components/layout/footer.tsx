@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUp } from "lucide-react";
-import { FadeIn, StaggerContainer, StaggerItem } from "../ui/fade-in";
+import { ArrowUp, Home } from "lucide-react";
+import { FadeIn } from "../ui/fade-in";
 import siteData from "../../../content/data/site.json";
 import footerData from "../../../content/data/footer.json";
 
@@ -18,12 +18,13 @@ export function Footer() {
 
       {/* Decorative background glow */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--color-gold)]/3 rounded-full blur-[200px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-72 h-72 bg-[var(--color-royal)]/5 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-14 sm:pt-20 pb-8 sm:pb-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12">
 
           {/* Brand Column */}
-          <FadeIn className="sm:col-span-2 lg:col-span-4 space-y-5">
+          <FadeIn className="sm:col-span-2 lg:col-span-3 space-y-5">
             <Link
               href="/"
               className="inline-flex items-center gap-4 group"
@@ -76,8 +77,38 @@ export function Footer() {
             </ul>
           </FadeIn>
 
+          {/* Ministry Column */}
+          <FadeIn delay={0.15} className="lg:col-span-2">
+            <h4 className="font-heading font-semibold text-xs tracking-[0.18em] text-[var(--color-gold)] uppercase mb-5 sm:mb-6">
+              {footerData.ministry.heading}
+            </h4>
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[var(--color-gold)] shrink-0 mt-0.5">
+                  <Home className="w-3.5 h-3.5" />
+                </div>
+                <div>
+                  <a
+                    href={footerData.ministry.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white/60 text-sm font-medium hover:text-[var(--color-gold)] transition-colors duration-300 block leading-snug"
+                  >
+                    {footerData.ministry.name}
+                  </a>
+                  <span className="text-white/25 text-[0.65rem] italic block mt-0.5">
+                    {footerData.ministry.fullName}
+                  </span>
+                </div>
+              </div>
+              <p className="text-white/30 text-xs leading-relaxed">
+                {footerData.ministry.description}
+              </p>
+            </div>
+          </FadeIn>
+
           {/* Stay Connected */}
-          <FadeIn delay={0.2} className="lg:col-span-3">
+          <FadeIn delay={0.2} className="lg:col-span-2">
             <h4 className="font-heading font-semibold text-xs tracking-[0.18em] text-[var(--color-gold)] uppercase mb-5 sm:mb-6">
               {footerData.stayConnected.heading}
             </h4>
@@ -111,7 +142,7 @@ export function Footer() {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center text-white/35 hover:border-[var(--color-gold)] hover:text-[var(--color-gold)] hover:bg-[var(--color-gold)]/10 transition-all duration-300 hover:scale-110"
+                  className="w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center text-white/35 hover:border-[var(--color-gold)] hover:text-[var(--color-gold)] hover:bg-[var(--color-gold)]/10 hover:shadow-[0_0_12px_rgba(200,151,62,0.15)] transition-all duration-300 hover:scale-110"
                   aria-label={social.fullLabel || social.label}
                 >
                   <svg
@@ -146,32 +177,21 @@ export function Footer() {
           </p>
 
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2 text-[var(--color-gold)]/40">
-              <svg
-                width="12"
-                height="12"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M12 2L9 9H2l5.5 4.5L5 22l7-5 7 5-2.5-8.5L22 9h-7z" />
-              </svg>
+            {/* Diamond ornament */}
+            <div className="flex items-center gap-2 text-[var(--color-gold)]/30">
+              <div className="w-4 h-px bg-[var(--color-gold)]/20" />
+              <span className="text-[0.4rem]">◆</span>
               <span className="text-white/20 text-[0.65rem]">
                 {siteData.copyrightMotto}
               </span>
-              <svg
-                width="12"
-                height="12"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M12 2L9 9H2l5.5 4.5L5 22l7-5 7 5-2.5-8.5L22 9h-7z" />
-              </svg>
+              <span className="text-[0.4rem]">◆</span>
+              <div className="w-4 h-px bg-[var(--color-gold)]/20" />
             </div>
 
             {/* Back to top */}
             <button
               onClick={scrollToTop}
-              className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/30 hover:border-[var(--color-gold)] hover:text-[var(--color-gold)] hover:bg-[var(--color-gold)]/10 transition-all duration-300 hover:scale-110"
+              className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/30 hover:border-[var(--color-gold)] hover:text-[var(--color-gold)] hover:bg-[var(--color-gold)]/10 hover:shadow-[0_0_12px_rgba(200,151,62,0.15)] transition-all duration-300 hover:scale-110"
               aria-label="Back to top"
             >
               <ArrowUp className="w-3.5 h-3.5" />
