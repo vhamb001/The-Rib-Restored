@@ -236,6 +236,56 @@
     "formats": []
   },
   {
+    "id": "teen-dreams",
+    "title": "Teen Dreamers: Purpose & Faith",
+    "subtitle": "Teen Section",
+    "description": "A foundational guide for teenagers seeking to understand divine dreams, personal identity, peer discernment, emotional health, and spiritual purpose during pivotal formative years.",
+    "cover": "/images/books/teen-dreams.png",
+    "status": "Coming Soon",
+    "category": "Teen",
+    "formats": []
+  },
+  {
+    "id": "youth-vision",
+    "title": "Rising Generation: Youth & Vision",
+    "subtitle": "Youth Section",
+    "description": "Empowering young adults to navigate post-academic transitions, career callings, kingdom leadership, relationship discernment, and bold visionary living in today’s complex world.",
+    "cover": "/images/books/youth-vision.png",
+    "status": "Coming Soon",
+    "category": "Youth",
+    "formats": []
+  },
+  {
+    "id": "women-valor",
+    "title": "Women of Valor: Restored to Purpose",
+    "subtitle": "Women Section",
+    "description": "Deep restorative writings and biblically rooted teachings exploring identity, emotional healing, spiritual inheritance, motherhood, leadership, and the sacred calling of the Rib Restored.",
+    "cover": "/images/books/women-restoration.png",
+    "status": "Coming Soon",
+    "category": "Women",
+    "formats": []
+  },
+  {
+    "id": "men-pillars",
+    "title": "Pillars & Guardians: Men of Purpose",
+    "subtitle": "Men Section",
+    "description": "A call to kingdom brotherhood, spiritual stewardship, emotional maturity, moral courage, and authentic servant leadership for men standing strong in their families and communities.",
+    "cover": "/images/books/men-pillars.png",
+    "status": "Coming Soon",
+    "category": "Men",
+    "formats": []
+  },
+  {
+    "id": "elderly-wisdom",
+    "title": "Wisdom of the Elders: Golden Heritage",
+    "subtitle": "Elderly Section",
+    "description": "Honoring the mature generation with timeless reflections on spiritual legacy, intergenerational wisdom, sacred memories, prayer watchfulness, and leaving a lasting kingdom inheritance.",
+    "cover": "/images/books/elderly-wisdom.png",
+    "status": "Coming Soon",
+    "category": "Elderly",
+    "formats": []
+  },
+  {
     "id": "more-revelations",
     "title": "More Revelations Coming Soon",
     "subtitle": "",

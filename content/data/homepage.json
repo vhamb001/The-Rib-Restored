@@ -78,7 +78,7 @@
   },
   "listenRead": {
     "sectionLabel": "Connect & Consume",
-    "heading": "Listen & Read",
+    "heading": "Listen, Read & Connect",
     "description": "Dive deeper into the teachings, reflections, prophetic writings, podcasts, spoken word, and restoration-centered content across multiple platforms.",
     "substack": {
       "heading": "Read on Substack",
@@ -89,6 +89,11 @@
       "heading": "Listen on Spotify",
       "description": "Immerse yourself in spoken word, reflections, teachings, meditations, and restoration-centered audio experiences created for moments of stillness, healing, and revelation.",
       "ctaText": "Listen Now"
+    },
+    "facebook": {
+      "heading": "Connect on Facebook",
+      "description": "Join our official Facebook community for daily prophetic reflections, fellowship, teaching highlights, and ministry updates.",
+      "ctaText": "Follow on Facebook"
     }
   },
   "newsletter": {

@@ -13,7 +13,7 @@ export interface Book {
   description: string;
   cover: string;
   status: "Available" | "Coming Soon";
-  category?: "Adult" | "Children";
+  category?: "Adult" | "Children" | "Teen" | "Youth" | "Women" | "Men" | "Elderly";
   formats: BookFormat[];
 }
 

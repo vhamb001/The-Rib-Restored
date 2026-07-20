@@ -8,6 +8,7 @@ import { Crown, Home, Headphones, Lightbulb, ArrowRight, BookOpen, Quote, Sparkl
 import { FadeIn, ScaleIn, StaggerContainer, StaggerItem, ParallaxSection, CountUp, TextReveal } from "@/components/ui/fade-in";
 import { SectionHeader } from "@/components/ui/section-header";
 import { BookShowcase } from "@/components/shared/book-showcase";
+import { DemographicShowcase } from "@/components/home/demographic-showcase";
 import homepageData from "../../content/data/homepage.json";
 import siteData from "../../content/data/site.json";
 import communityData from "../../content/data/community.json";
@@ -293,31 +294,9 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════════
-          3B. CHILDREN'S CORNER — Whimsical, Warm Grid
+          3B. DEMOGRAPHIC & LIFE-STAGE CORNERS — Horizontally Scrollable Collections
           ════════════════════════════════════════════ */}
-      {childrensBooks.length > 0 && (
-        <section className="section-padding bg-white relative overflow-hidden">
-          {/* Gentle background wash */}
-          <div className="absolute inset-0 bg-gradient-to-b from-white to-[var(--color-ivory)]/25 pointer-events-none" />
-
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl relative z-10">
-            <SectionHeader
-              label={homepageData.childrensCorner.sectionLabel}
-              heading={homepageData.childrensCorner.heading}
-              align="center"
-              className="mb-14"
-            />
-
-            <StaggerContainer className="grid md:grid-cols-2 gap-8 lg:gap-12">
-              {childrensBooks.map((book) => (
-                <StaggerItem key={book.id}>
-                  <BookShowcase book={book} layout="card" />
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
-          </div>
-        </section>
-      )}
+      <DemographicShowcase books={books} />
 
       {/* ════════════════════════════════════════════
           3C. COMMUNITY CORNER — Fellowship Grid
@@ -374,10 +353,10 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════
           4. POETIC INTERLUDE — Scripture Glow
           ════════════════════════════════════════════ */}
-      <section className="relative bg-gradient-to-br from-[var(--color-royal-deep)] via-[var(--color-royal-mid)] to-[var(--color-royal-darkest)] py-16 sm:py-24 lg:py-28 overflow-hidden bg-gradient-shift">
+      <section className="relative bg-[var(--color-royal-deep)] py-16 sm:py-24 lg:py-28 overflow-hidden">
         {/* Soft elegant mesh background pattern */}
         <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 2px, transparent 0)", backgroundSize: "36px 36px" }} />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-48 bg-[var(--color-gold)]/15 rounded-full blur-[90px] pointer-events-none animate-pulse-gold" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-48 bg-[var(--color-gold)]/15 rounded-full blur-[90px] pointer-events-none" />
         <div className="absolute bottom-[-10%] right-[-5%] w-72 h-72 bg-[var(--color-royal-light)]/8 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center relative z-10">
@@ -549,7 +528,7 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════
           6B. LISTEN & READ — Premium Glass Layout
           ════════════════════════════════════════════ */}
-      <section className="section-padding bg-white relative">
+      <section className="section-padding bg-[var(--color-ivory)]/30 border-t border-b border-gray-100/60 relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
           <SectionHeader
             label={homepageData.listenRead.sectionLabel}
@@ -559,20 +538,20 @@ export default function HomePage() {
             className="mb-16"
           />
 
-          <StaggerContainer className="grid md:grid-cols-2 gap-8 lg:gap-12">
+          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-8">
             {/* Substack Card */}
             <StaggerItem>
-              <div className="group relative bg-gradient-to-br from-[#fdfbf7] to-white border border-gray-100/80 rounded-sm p-8 sm:p-12 overflow-hidden shadow-sm hover:shadow-xl hover:border-[var(--color-gold)]/35 transition-all duration-500 h-full flex flex-col items-center text-center hover-glow-gold">
-                <div className="w-20 h-20 bg-white border border-gray-100 rounded-full flex items-center justify-center text-[var(--color-gold)] mb-8 group-hover:bg-[var(--color-gold)] group-hover:text-white transition-colors duration-500 shadow-sm">
-                  <BookMarked className="w-8 h-8" />
+              <div className="group relative bg-gradient-to-br from-[#fdfbf7] to-white border border-gray-100/80 rounded-sm p-8 sm:p-10 overflow-hidden shadow-sm hover:shadow-xl hover:border-[var(--color-gold)]/40 transition-all duration-500 h-full flex flex-col items-center text-center hover-glow-gold">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white border border-gray-100 rounded-full flex items-center justify-center text-[var(--color-gold)] mb-6 sm:mb-8 group-hover:bg-[var(--color-gold)] group-hover:text-white transition-colors duration-500 shadow-sm">
+                  <BookMarked className="w-7 h-7 sm:w-8 sm:h-8" />
                 </div>
-                <h3 className="font-heading text-2xl font-bold text-[var(--color-royal-deep)] mb-4">
+                <h3 className="font-heading text-xl sm:text-2xl font-bold text-[var(--color-royal-deep)] mb-3 sm:mb-4 group-hover:text-[var(--color-royal)] transition-colors">
                   {homepageData.listenRead.substack.heading}
                 </h3>
-                <p className="text-gray-500 text-sm leading-[1.8] mb-10 max-w-sm">
+                <p className="text-gray-500 text-xs sm:text-sm leading-[1.8] mb-8 max-w-sm flex-grow">
                   {homepageData.listenRead.substack.description}
                 </p>
-                <Button variant="gold" size="lg" className="rounded-sm w-full sm:w-auto px-8 mt-auto shadow-sm hover:scale-103 transition-transform duration-300" asChild>
+                <Button variant="gold" size="lg" className="rounded-sm w-full sm:w-auto px-8 mt-auto shadow-sm hover:scale-103 transition-transform duration-300 font-bold" asChild>
                   <a href={siteData.links.substackUrl} target="_blank" rel="noopener noreferrer">{homepageData.listenRead.substack.ctaText}</a>
                 </Button>
               </div>
@@ -580,22 +559,40 @@ export default function HomePage() {
 
             {/* Spotify Card */}
             <StaggerItem>
-              <div className="group relative bg-gradient-to-br from-[var(--color-royal-darkest)] to-[var(--color-royal-deep)] border border-white/5 rounded-sm p-8 sm:p-12 overflow-hidden shadow-[0_20px_50px_rgba(6,27,78,0.15)] hover:shadow-[0_25px_60px_rgba(6,27,78,0.25)] hover:border-[var(--color-gold)]/40 transition-all duration-500 h-full flex flex-col items-center text-center">
-                {/* Glowing light effect */}
-                <div className="absolute top-[-10%] right-[-10%] w-60 h-60 bg-[var(--color-gold)]/10 rounded-full blur-[80px] pointer-events-none" />
-                <div className="absolute bottom-[-10%] left-[-10%] w-40 h-40 bg-[var(--color-royal-light)]/8 rounded-full blur-[60px] pointer-events-none" />
-
-                <div className="w-20 h-20 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-white mb-8 group-hover:bg-[var(--color-gold)] group-hover:border-[var(--color-gold)] transition-colors duration-500 backdrop-blur-md shadow-sm">
-                  <Headphones className="w-8 h-8" />
+              <div className="group relative bg-gradient-to-br from-[#fdfbf7] to-white border border-gray-100/80 rounded-sm p-8 sm:p-10 overflow-hidden shadow-sm hover:shadow-xl hover:border-[var(--color-gold)]/40 transition-all duration-500 h-full flex flex-col items-center text-center hover-glow-gold">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white border border-gray-100 rounded-full flex items-center justify-center text-[var(--color-gold)] mb-6 sm:mb-8 group-hover:bg-[var(--color-gold)] group-hover:text-white transition-colors duration-500 shadow-sm">
+                  <Headphones className="w-7 h-7 sm:w-8 sm:h-8" />
                 </div>
-                <h3 className="font-heading text-2xl font-bold text-white mb-4 relative z-10">
+                <h3 className="font-heading text-xl sm:text-2xl font-bold text-[var(--color-royal-deep)] mb-3 sm:mb-4 group-hover:text-[var(--color-royal)] transition-colors">
                   {homepageData.listenRead.spotify.heading}
                 </h3>
-                <p className="text-white/60 text-sm leading-[1.8] mb-10 max-w-sm relative z-10">
+                <p className="text-gray-500 text-xs sm:text-sm leading-[1.8] mb-8 max-w-sm flex-grow">
                   {homepageData.listenRead.spotify.description}
                 </p>
-                <Button variant="secondary" size="lg" className="rounded-sm w-full sm:w-auto px-8 mt-auto border-white/20 text-white hover:bg-[var(--color-gold)] hover:border-[var(--color-gold)] hover:text-white hover:scale-103 transition-all duration-300 relative z-10" asChild>
+                <Button variant="gold" size="lg" className="rounded-sm w-full sm:w-auto px-8 mt-auto shadow-sm hover:scale-103 transition-transform duration-300 font-bold" asChild>
                   <a href={siteData.links.spotifyUrl} target="_blank" rel="noopener noreferrer">{homepageData.listenRead.spotify.ctaText}</a>
+                </Button>
+              </div>
+            </StaggerItem>
+
+            {/* Facebook Card */}
+            <StaggerItem>
+              <div className="group relative bg-gradient-to-br from-[#fdfbf7] to-white border border-gray-100/80 rounded-sm p-8 sm:p-10 overflow-hidden shadow-sm hover:shadow-xl hover:border-[var(--color-gold)]/40 transition-all duration-500 h-full flex flex-col items-center text-center hover-glow-gold">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white border border-gray-100 rounded-full flex items-center justify-center text-[var(--color-gold)] mb-6 sm:mb-8 group-hover:bg-[var(--color-gold)] group-hover:text-white transition-colors duration-500 shadow-sm">
+                  <svg className="w-7 h-7 sm:w-8 sm:h-8 fill-current" viewBox="0 0 24 24">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                  </svg>
+                </div>
+                <h3 className="font-heading text-xl sm:text-2xl font-bold text-[var(--color-royal-deep)] mb-3 sm:mb-4 group-hover:text-[var(--color-royal)] transition-colors">
+                  {homepageData.listenRead.facebook.heading}
+                </h3>
+                <p className="text-gray-500 text-xs sm:text-sm leading-[1.8] mb-8 max-w-sm flex-grow">
+                  {homepageData.listenRead.facebook.description}
+                </p>
+                <Button variant="gold" size="lg" className="rounded-sm w-full sm:w-auto px-8 mt-auto shadow-sm hover:scale-103 transition-transform duration-300 font-bold" asChild>
+                  <a href={siteData.links.facebookUrl || siteData.socialLinks.find(s => s.fullLabel === "Facebook")?.url || "https://www.facebook.com/profile.php?id=61579278413766"} target="_blank" rel="noopener noreferrer">
+                    {homepageData.listenRead.facebook.ctaText}
+                  </a>
                 </Button>
               </div>
             </StaggerItem>
@@ -606,13 +603,12 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════
           7. NEWSLETTER — Elegant Frame Callout
           ════════════════════════════════════════════ */}
-      <section id="newsletter" className="relative bg-gradient-to-br from-[var(--color-royal-deep)] via-[var(--color-royal-mid)] to-[var(--color-royal-darkest)] py-20 sm:py-28 overflow-hidden border-t border-white/5 bg-gradient-shift">
+      <section id="newsletter" className="relative bg-[var(--color-royal-deep)] py-20 sm:py-28 overflow-hidden border-t border-white/5">
         <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: "linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)", backgroundSize: "48px 48px" }} />
-        <div className="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-[var(--color-gold)]/10 rounded-full blur-[110px] pointer-events-none animate-pulse-gold" />
-        <div className="absolute top-[-5%] left-[-5%] w-72 h-72 bg-[var(--color-royal-light)]/8 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-[var(--color-gold)]/10 rounded-full blur-[110px] pointer-events-none" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center relative z-10">
-          <FadeIn className="bg-white/[0.03] border border-white/10 rounded-sm p-8 sm:p-12 backdrop-blur-sm relative animate-glow-pulse">
+          <FadeIn className="bg-white/[0.02] border border-white/10 rounded-sm p-8 sm:p-12 backdrop-blur-sm relative">
             {/* Elegant corner brackets */}
             <div className="absolute top-4 left-4 w-6 h-6 border-t border-l border-[var(--color-gold)]/50" />
             <div className="absolute top-4 right-4 w-6 h-6 border-t border-r border-[var(--color-gold)]/50" />

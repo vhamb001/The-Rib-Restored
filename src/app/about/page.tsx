@@ -78,6 +78,15 @@ export default function AboutPage() {
                 >
                   {aboutData.hero.instagramText}
                 </a>
+
+                <a
+                  href={siteData.links.facebookUrl || siteData.socialLinks.find(s => s.fullLabel === "Facebook")?.url || "https://www.facebook.com/profile.php?id=61579278413766"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-micro font-bold text-[var(--color-royal-deep)] hover:text-[var(--color-gold)] uppercase tracking-wider transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-px after:bg-[var(--color-gold)] after:scale-x-100 hover:after:scale-x-0 after:origin-left after:transition-transform after:duration-300"
+                >
+                  Facebook Page
+                </a>
               </FadeIn>
 
               {/* Stats */}

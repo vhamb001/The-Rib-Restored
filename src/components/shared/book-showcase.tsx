@@ -33,11 +33,6 @@ export function BookShowcase({ book, layout = "card", className, priority = fals
             priority={priority}
             className="object-cover transition-transform duration-750 hover:scale-[1.02]"
           />
-          {book.status === "Coming Soon" && (
-            <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm text-[var(--color-royal)] text-[0.65rem] font-bold px-3 py-1.5 rounded-sm uppercase tracking-widest shadow-sm z-20">
-              Coming Soon
-            </div>
-          )}
         </div>
 
         {/* Content Details */}
@@ -109,11 +104,6 @@ export function BookShowcase({ book, layout = "card", className, priority = fals
           priority={priority}
           className="object-cover transition-transform duration-750 group-hover:scale-[1.03]"
         />
-        {!isAvailable && (
-          <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-[var(--color-royal)] text-[0.65rem] font-bold px-2.5 py-1 rounded-sm uppercase tracking-wider shadow-sm z-20">
-            Soon
-          </div>
-        )}
       </div>
 
       {/* Metadata and content */}
