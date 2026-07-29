@@ -18,19 +18,10 @@
     "iconName": "headphones",
     "url": "#",
     "image": "/images/projects/listen_selah_new.jpg",
+    "socialUrl": "https://instagram.com/the.rib.restored",
+    "socialLabel": "Instagram",
+    "socialHandle": "@the.rib.restored",
     "tagline": "Where sound meets stillness."
-  },
-  {
-    "id": "beit-YHWH",
-    "title": "Beit YHWH HaGo'el — House of YHWH The Redeemer",
-    "description": "Beit YHWH HaGo'el — House of YHWH The Redeemer — is a spiritual mission and restoration movement focused on strengthening families, rebuilding foundations, cultivating discernment, and restoring people back to truth, identity, and spiritual maturity. Rooted in scripture, prophetic insight, and restoration, the mission exists to create spaces of wisdom, refuge, healing, and awakening for those seeking deeper understanding and alignment.",
-    "iconName": "home",
-    "url": "https://www.BeitYHWHHaGoel.org",
-    "image": "/images/projects/beit_YHWH_new.jpg",
-    "socialUrl": "https://facebook.com/BeitYHWHHaGoel",
-    "socialLabel": "Facebook",
-    "socialHandle": "BeitYHWHHaGoel",
-    "tagline": "A house of restoration, truth, and spiritual awakening."
   },
   {
     "id": "future-projects",
@@ -39,6 +30,9 @@
     "iconName": "lightbulb",
     "url": "#",
     "image": "/images/projects/project_future_1779391200698.png",
+    "socialUrl": "https://instagram.com/the.rib.restored",
+    "socialLabel": "Instagram",
+    "socialHandle": "@the.rib.restored",
     "tagline": "Building what was seen before it fully arrives."
   }
 ]
