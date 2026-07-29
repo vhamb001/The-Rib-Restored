@@ -10,6 +10,9 @@ export interface Project {
   socialUrl?: string;
   socialLabel?: string;
   socialHandle?: string;
+  facebookUrl?: string;
+  facebookLabel?: string;
+  facebookHandle?: string;
   tagline?: string;
 }
 

@@ -74,16 +74,28 @@ export default function ProjectsPage() {
                       <span className="text-micro text-gray-300 font-bold uppercase">Development Phase</span>
                     )}
 
-                    {project.socialUrl && (
-                      <a
-                        href={project.socialUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[0.625rem] font-bold text-gray-400 hover:text-[var(--color-gold)] tracking-wider uppercase transition-colors"
-                      >
-                        {project.socialHandle || project.socialLabel}
-                      </a>
-                    )}
+                    <div className="flex gap-4 items-center">
+                      {project.socialUrl && (
+                        <a
+                          href={project.socialUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[0.625rem] font-bold text-gray-400 hover:text-[var(--color-gold)] tracking-wider uppercase transition-colors"
+                        >
+                          {project.socialHandle || project.socialLabel}
+                        </a>
+                      )}
+                      {project.facebookUrl && (
+                        <a
+                          href={project.facebookUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[0.625rem] font-bold text-gray-400 hover:text-[var(--color-gold)] tracking-wider uppercase transition-colors"
+                        >
+                          {project.facebookHandle || project.facebookLabel}
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
               </StaggerItem>
