@@ -24,7 +24,7 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12">
 
           {/* Brand Column */}
-          <FadeIn className="sm:col-span-2 lg:col-span-4 space-y-5">
+          <FadeIn className="sm:col-span-2 lg:col-span-3 space-y-5">
             <Link
               href="/"
               className="inline-flex items-center gap-4 group"
@@ -77,8 +77,38 @@ export function Footer() {
             </ul>
           </FadeIn>
 
+          {/* Ministry Column */}
+          <FadeIn delay={0.15} className="lg:col-span-2">
+            <h4 className="font-heading font-semibold text-xs tracking-[0.18em] text-[var(--color-gold)] uppercase mb-5 sm:mb-6">
+              {footerData.ministry.heading}
+            </h4>
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[var(--color-gold)] shrink-0 mt-0.5">
+                  <Home className="w-3.5 h-3.5" />
+                </div>
+                <div>
+                  <a
+                    href={footerData.ministry.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white/60 text-sm font-medium hover:text-[var(--color-gold)] transition-colors duration-300 block leading-snug"
+                  >
+                    {footerData.ministry.name}
+                  </a>
+                  <span className="text-white/25 text-[0.65rem] italic block mt-0.5">
+                    {footerData.ministry.fullName}
+                  </span>
+                </div>
+              </div>
+              <p className="text-white/30 text-xs leading-relaxed">
+                {footerData.ministry.description}
+              </p>
+            </div>
+          </FadeIn>
+
           {/* Stay Connected */}
-          <FadeIn delay={0.2} className="lg:col-span-3">
+          <FadeIn delay={0.2} className="lg:col-span-2">
             <h4 className="font-heading font-semibold text-xs tracking-[0.18em] text-[var(--color-gold)] uppercase mb-5 sm:mb-6">
               {footerData.stayConnected.heading}
             </h4>
